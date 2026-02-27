@@ -170,3 +170,18 @@ Started: Fri Feb 27 04:37:21 PM EST 2026
   - Modal import path detector checks both the `Modal` specifier AND the `@patternfly/react-core` module in the same line, requiring both regexes to match
   - Chips-to-labels detector covers multiple related renames (chips, deleteChip, Chip, ChipGroup -> labels, deleteLabel, Label, LabelGroup) in a single pattern using alternation regex
 ---
+
+## 2026-02-27 - US-012
+- What was implemented: 3 moderate pattern detectors for Text->Content consolidation, EmptyState children restructuring, and Toolbar variant prop changes
+- Files changed:
+  - eval/approach1/src/patterns/text-content-consolidation.ts (detects Text/TextContent/TextList/TextListItem -> Content consolidation, including isVisited->isVisitedLink and isPlain->isPlainList prop renames)
+  - eval/approach1/src/patterns/empty-state-restructure.ts (detects EmptyStateHeader/EmptyStateIcon moved from children to EmptyState props; uses AST when available)
+  - eval/approach1/src/patterns/toolbar-variant.ts (detects ToolbarItem variant changes: chip-group->label-group, removal of bulk-select/overflow-menu/search-filter)
+  - eval/approach1/src/patterns/__tests__/moderate-detectors-batch1.test.ts (30 tests covering all 3 detectors)
+- **Learnings for future iterations:**
+  - Moderate detectors follow the same basic pattern as trivial ones but with weight=2 and complexity='moderate'
+  - Text consolidation involves multiple PF5 components (Text, TextContent, TextList, TextListItem) all mapping to a single PF6 `Content` component
+  - EmptyState restructure detector uses AST when available for more reliable detection of component hierarchy changes (checks jsxComponents for EmptyStateHeader/EmptyStateIcon presence)
+  - Regex for `\bText\b` needs negative lookahead `(?!Content|List|Variants|Props)` to avoid matching TextContent, TextList, etc.
+  - Toolbar variant detection checks for both renamed values (chip-group->label-group) and removed values (bulk-select, overflow-menu, search-filter)
+---
