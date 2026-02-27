@@ -253,3 +253,17 @@ Started: Fri Feb 27 04:37:21 PM EST 2026
   - PF5 CSS selectors re-added in migration addedLines (without PF6 counterparts) triggers a specific INCORRECT message about still using old selectors
   - Test query patterns cover both React Testing Library (screen.getByTestId, etc.) and Cypress (cy.get) conventions
 ---
+
+## 2026-02-27 - US-018
+- What was implemented: Weighted scoring engine that computes FinalScore = (0.20 * FileCoverage) + (0.65 * PatternScore) + (0.15 * (1 - NoisePenalty))
+- Files changed:
+  - eval/approach1/src/scoring/engine.ts (computeScore, computeFileCoverage, computePatternScore, computeNoisePenalty functions)
+  - eval/approach1/src/scoring/__tests__/engine.test.ts (23 tests: file coverage, pattern score with weights, noise penalty capping, perfect/empty/partial/noisy migration scoring)
+- **Learnings for future iterations:**
+  - Scoring modules go in src/scoring/ with tests in src/scoring/__tests__/
+  - WeightedDetectionResult pairs a DetectionResult with its pattern weight for weighted scoring
+  - PatternScore uses CREDIT map: CORRECT=1.0, INCORRECT=0.25, MISSING=0, FILE_MISSING=0, NOT_APPLICABLE excluded from denominator
+  - NoisePenalty is capped at 1.0 (100%) to prevent negative overall scores
+  - All scores normalized to 0-100% range with 2 decimal places precision
+  - When all patterns are NOT_APPLICABLE or results are empty, patternScore defaults to 1.0 (no penalty)
+---
