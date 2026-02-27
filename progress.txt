@@ -241,3 +241,15 @@ Started: Fri Feb 27 04:37:21 PM EST 2026
   - MastheadLogo is the strongest PF6 signal — its presence in migration means correct reorganization; its absence when golden has it means INCORRECT
   - AST detection checks component tag names for MastheadLogo, MastheadToggle, MastheadMain, MastheadBrand presence
 ---
+
+## 2026-02-27 - US-017
+- What was implemented: Complex pattern detector for test selector rewrite from PF5 to PF6, detecting data-testid, aria-label, CSS selector (pf-v5-c-* -> pf-v6-c-*), and test query function changes
+- Files changed:
+  - eval/approach1/src/patterns/test-selector-rewrite.ts (detects test selector updates: data-testid changes, aria-label changes, PF5->PF6 CSS selector updates, test query function updates; handles partial migrations)
+  - eval/approach1/src/patterns/__tests__/complex-detectors-test-selector.test.ts (15 tests: NOT_APPLICABLE, FILE_MISSING, CORRECT for data-testid/aria-label/CSS selectors/test queries/combined, MISSING, INCORRECT for PF5 still present and partial updates, realistic scenarios with getByRole/Cypress/queryByLabelText)
+- **Learnings for future iterations:**
+  - Test selector detector covers 4 categories: data-testid attributes, aria-label attributes, PF5/PF6 CSS class selectors (.pf-v5-c-* -> .pf-v6-c-*), and test query functions (getByTestId, getByRole, getByLabelText, cy.get)
+  - The detector tracks per-category matching to give granular INCORRECT feedback when only some categories are updated
+  - PF5 CSS selectors re-added in migration addedLines (without PF6 counterparts) triggers a specific INCORRECT message about still using old selectors
+  - Test query patterns cover both React Testing Library (screen.getByTestId, etc.) and Cypress (cy.get) conventions
+---
