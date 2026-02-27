@@ -141,3 +141,18 @@ Started: Fri Feb 27 04:37:21 PM EST 2026
   - Tests use dynamic `import()` to get the pattern's detect function directly, avoiding registry state issues with module caching
   - Non-global regex (without `g` flag) is fine for `.test()` checks in detectors
 ---
+
+## 2026-02-27 - US-010
+- What was implemented: 4 trivial pattern detectors for prop renames, each self-registering with the pattern registry
+- Files changed:
+  - eval/approach1/src/patterns/inner-ref-to-ref.ts (detects innerRef -> ref prop renames)
+  - eval/approach1/src/patterns/align-right-to-end.ts (detects alignRight -> alignEnd prop renames)
+  - eval/approach1/src/patterns/is-action-cell.ts (detects isActionCell -> hasAction prop renames)
+  - eval/approach1/src/patterns/space-items-removal.ts (detects removal of spaceItems prop)
+  - eval/approach1/src/patterns/__tests__/trivial-detectors-batch2.test.ts (22 tests covering all 4 detectors)
+- **Learnings for future iterations:**
+  - Prop rename detectors follow the same pattern as CSS detectors: check golden removed lines for old prop, then check migration for removal + replacement
+  - For prop removal detectors (like spaceItems), check that the prop isn't re-added in migration addedLines (similar to theme-dark-removal pattern)
+  - Use `\b` word boundary in regex to avoid matching substrings (e.g., `\binnerRef\b` won't match `myInnerRefHelper`)
+  - Boolean prop detection (alignRight, isActionCell) just needs `\b` word boundary since they appear as bare props without `=`
+---
