@@ -10,6 +10,9 @@
 - Import with .js extension for ESM (e.g., import from '../types.js')
 - Don't use `promisify(execFile)` with vitest mocks - write a manual Promise wrapper instead
 - When execFile has an options arg (e.g., cwd), mock must handle both 3-arg and 4-arg overloads
+- ts-morph Project: use `useInMemoryFileSystem: true`, `skipFileDependencyResolution: true`, `skipAddingFilesFromTsConfig: true`
+- Always use .tsx extension when creating ts-morph source files (for JSX parsing)
+- JsxAttribute children: boolean attrs (e.g. `isDisabled`) have 1 child (name), value attrs have 3 (name, =, value) - check `getChildCount()` before accessing index 2
 
 # Ralph Progress Log
 Started: Fri Feb 27 04:37:21 PM EST 2026
@@ -75,4 +78,18 @@ Started: Fri Feb 27 04:37:21 PM EST 2026
   - Analysis modules go in src/analysis/ with tests in src/analysis/__tests__/
   - Excluded file patterns: .snap, package-lock.json, yarn.lock, pnpm-lock.yaml
   - Path normalization: strip a/ b/ prefixes + convert backslashes to forward slashes
+---
+
+## 2026-02-27 - US-006
+- What was implemented: AST analyzer using ts-morph to extract import declarations and JSX component usages from TypeScript/TSX source code
+- Files changed:
+  - eval/approach1/src/analysis/ast-analyzer.ts (analyzeAST, analyzeFileDiff, reconstructContentFromDiff functions)
+  - eval/approach1/src/analysis/__tests__/ast-analyzer.test.ts (17 tests: import extraction, JSX component/prop extraction, PF5/PF6 code snippets, error handling, diff reconstruction)
+- **Learnings for future iterations:**
+  - ts-morph Project config: `useInMemoryFileSystem: true`, `skipFileDependencyResolution: true`, `skipAddingFilesFromTsConfig: true` for isolated analysis
+  - Always create source files with `.tsx` extension so JSX nodes are parsed correctly
+  - JsxAttribute has 1 child (name only) for boolean shorthand props like `isDisabled`, but 3 children (name, =, value) for valued props - must check `getChildCount()` before accessing child at index 2
+  - JsxSpreadAttribute has the spread expression at child index 2
+  - `reconstructContentFromDiff()` rebuilds file content from added lines for PR mode where full files aren't available
+  - analyzeAST exports: `analyzeAST(content, filePath)` for full file content, `analyzeFileDiff(diff)` for FileDiff objects
 ---
