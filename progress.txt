@@ -8,6 +8,7 @@
 - Logger utility in src/utils/logger.ts with chalk-based methods
 - Tests go in __tests__/ directories alongside source (e.g., src/input/__tests__/diff-parser.test.ts)
 - Import with .js extension for ESM (e.g., import from '../types.js')
+- Don't use `promisify(execFile)` with vitest mocks - write a manual Promise wrapper instead
 
 # Ralph Progress Log
 Started: Fri Feb 27 04:37:21 PM EST 2026
@@ -38,4 +39,15 @@ Started: Fri Feb 27 04:37:21 PM EST 2026
   - Renamed files use "rename from/to" lines and also have different --- and +++ paths
   - Binary files have "Binary files ... differ" or "GIT binary patch" markers
   - stripABPrefix utility removes a/ or b/ prefix from diff paths
+---
+
+## 2026-02-27 - US-003
+- What was implemented: PR fetcher that calls `gh pr diff <url>` and returns parsed FileDiff[]
+- Files changed:
+  - eval/approach1/src/input/pr-fetcher.ts (fetchPRDiff, validateGhCli functions with manual execFile async wrapper)
+  - eval/approach1/src/input/__tests__/pr-fetcher.test.ts (9 tests: gh auth validation, invalid URLs, mocked diff parsing, empty diff, error handling)
+- **Learnings for future iterations:**
+  - Don't use `promisify(execFile)` when mocking with vitest - the real execFile has util.promisify.custom that returns {stdout, stderr}, but vi.fn() doesn't. Write a manual Promise wrapper instead.
+  - Mock `node:child_process` at module level with `vi.mock('node:child_process', ...)` and use sequential mock implementations for multi-call flows (auth check then actual command)
+  - PR URL validation regex: `^https://github.com/[\w.-]+/[\w.-]+/pull/\d+/?$`
 ---
