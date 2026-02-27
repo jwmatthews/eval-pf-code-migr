@@ -17,6 +17,7 @@
 - Pattern detectors go in src/patterns/ with tests in src/patterns/__tests__/
 - Registry is a module-level singleton array; use clearPatterns() in test beforeEach
 - PatternDefinition already defined in src/types.ts; re-exported from src/patterns/types.ts
+- Detector file pattern: export `{ pattern }`, call `registerPattern(pattern)` at module level, detect fn checks golden first (NOT_APPLICABLE), then null migration (FILE_MISSING), then compare (CORRECT/MISSING/INCORRECT)
 
 # Ralph Progress Log
 Started: Fri Feb 27 04:37:21 PM EST 2026
@@ -121,4 +122,22 @@ Started: Fri Feb 27 04:37:21 PM EST 2026
   - getPatterns() returns a copy to prevent external mutation
   - clearPatterns() is needed for test isolation (call in beforeEach)
   - PatternDefinition is already fully defined in src/types.ts with the correct detect function signature
+---
+
+## 2026-02-27 - US-009
+- What was implemented: 4 trivial pattern detectors for CSS and class renames, each self-registering with the pattern registry
+- Files changed:
+  - eval/approach1/src/patterns/css-class-prefix.ts (detects pf-v5-* -> pf-v6-* class prefix renames)
+  - eval/approach1/src/patterns/utility-class-rename.ts (detects pf-v5-u-* -> pf-v6-u-* utility class renames)
+  - eval/approach1/src/patterns/css-logical-properties.ts (detects physical -> logical CSS property renames like PaddingTop -> PaddingBlockStart)
+  - eval/approach1/src/patterns/theme-dark-removal.ts (detects removal of theme="dark" prop)
+  - eval/approach1/src/patterns/__tests__/trivial-detectors-batch1.test.ts (21 tests covering all 4 detectors)
+- **Learnings for future iterations:**
+  - Detector pattern: each detector file exports `{ pattern }` and calls `registerPattern(pattern)` at module level
+  - Detector detect function takes (goldenDiff, migrationDiff | null, goldenAST?, migrationAST?) and returns DetectionResult
+  - Always check golden diff first for relevance (return NOT_APPLICABLE if pattern not present)
+  - Then check if migrationDiff is null (return FILE_MISSING)
+  - Then compare migration behavior: CORRECT, MISSING, or INCORRECT
+  - Tests use dynamic `import()` to get the pattern's detect function directly, avoiding registry state issues with module caching
+  - Non-global regex (without `g` flag) is fine for `.test()` checks in detectors
 ---
