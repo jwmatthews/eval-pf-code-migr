@@ -294,3 +294,17 @@ Started: Fri Feb 27 04:37:21 PM EST 2026
   - Timestamp sanitization for filenames: replace `:` and `.` with `-`, replace `T` and space with `_`
   - JSON.stringify with 2-space indent + trailing newline for clean output
 ---
+
+## 2026-02-27 - US-021
+- What was implemented: Markdown reporter that generates a human-readable Markdown file from an EvalReport with sections for Executive Summary, File Coverage, Pattern Results, Noise Findings, and Recommendations
+- Files changed:
+  - eval/approach1/src/reporting/markdown-reporter.ts (generateMarkdown, writeMarkdownReport functions with grade mapping, status icons, complexity grouping, and recommendations generation)
+  - eval/approach1/src/reporting/__tests__/markdown-reporter.test.ts (18 tests covering all sections, grade mapping, status icons, empty results, pipe escaping, noise with/without line numbers, nested output dirs)
+- **Learnings for future iterations:**
+  - Markdown reporter follows same file/test patterns as JSON reporter (timestamped filename, mkdir recursive, etc.)
+  - generateMarkdown is exported separately from writeMarkdownReport for easy unit testing without filesystem
+  - Pattern complexity grouping is done by matching known pattern IDs to complexity levels (trivial/moderate/complex) - if new patterns are added, update the groupByComplexity mapping
+  - Pipe characters in table cell content must be escaped with backslash to avoid breaking Markdown table formatting
+  - Score-to-grade mapping: A>=90, B>=80, C>=70, D>=60, F<60
+  - Recommendations are generated from MISSING, INCORRECT, FILE_MISSING patterns and noise instances (artifacts, placeholders)
+---
