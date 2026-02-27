@@ -1,0 +1,3474 @@
+diff --git a/package-lock.json b/package-lock.json
+index 9a9aa8500..79e266fb5 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -9,11 +9,11 @@
+       "version": "2.1.0",
+       "license": "GPL-3.0",
+       "dependencies": {
+-        "@patternfly/patternfly": "5.3.1",
+-        "@patternfly/react-core": "5.3.4",
+-        "@patternfly/react-icons": "5.3.2",
+-        "@patternfly/react-styles": "5.3.1",
+-        "@patternfly/react-table": "5.3.4",
++        "@patternfly/patternfly": "6.3.1",
++        "@patternfly/react-core": "6.3.1",
++        "@patternfly/react-icons": "6.3.1",
++        "@patternfly/react-styles": "6.3.1",
++        "@patternfly/react-table": "6.3.1",
+         "@tanstack/react-query": "^5.55.4",
+         "@types/jest": "^29.5.12",
+         "@types/react": "^18.3.5",
+@@ -3626,67 +3626,67 @@
+       }
+     },
+     "node_modules/@patternfly/patternfly": {
+-      "version": "5.3.1",
+-      "resolved": "https://registry.npmjs.org/@patternfly/patternfly/-/patternfly-5.3.1.tgz",
+-      "integrity": "sha512-KYIr9pKRTzHZNGuDuaa5j5CaZyLltvotPFGG1BiJalBDBGSOyk0BZCgHLowm4txKZXrLhorEuuv9XLrMQL8eoA==",
++      "version": "6.3.1",
++      "resolved": "https://registry.npmjs.org/@patternfly/patternfly/-/patternfly-6.3.1.tgz",
++      "integrity": "sha512-O/lTo5EHKzer/HNzqMQOQEAMG7izDDkEHpAeJ5+sGaeQ/maB3RK7sQsOPS4DjrnMxt4/cC6LogK2mowlbf1j5Q==",
+       "license": "MIT"
+     },
+     "node_modules/@patternfly/react-core": {
+-      "version": "5.3.4",
+-      "resolved": "https://registry.npmjs.org/@patternfly/react-core/-/react-core-5.3.4.tgz",
+-      "integrity": "sha512-zr2yeilIoFp8MFOo0vNgI8XuM+P2466zHvy4smyRNRH2/but2WObqx7Wu4ftd/eBMYdNqmTeuXe6JeqqRqnPMQ==",
++      "version": "6.3.1",
++      "resolved": "https://registry.npmjs.org/@patternfly/react-core/-/react-core-6.3.1.tgz",
++      "integrity": "sha512-1qV20nU4M6PA28qnikH9fPLQlkteaZZToFlATjBNBw7aUI6zIvj7U0akkHz8raWcfHAI+tAzGV7dfKjiv035/g==",
+       "license": "MIT",
+       "dependencies": {
+-        "@patternfly/react-icons": "^5.3.2",
+-        "@patternfly/react-styles": "^5.3.1",
+-        "@patternfly/react-tokens": "^5.3.1",
+-        "focus-trap": "7.5.2",
+-        "react-dropzone": "^14.2.3",
+-        "tslib": "^2.5.0"
++        "@patternfly/react-icons": "^6.3.1",
++        "@patternfly/react-styles": "^6.3.1",
++        "@patternfly/react-tokens": "^6.3.1",
++        "focus-trap": "7.6.4",
++        "react-dropzone": "^14.3.5",
++        "tslib": "^2.8.1"
+       },
+       "peerDependencies": {
+-        "react": "^17 || ^18",
+-        "react-dom": "^17 || ^18"
++        "react": "^17 || ^18 || ^19",
++        "react-dom": "^17 || ^18 || ^19"
+       }
+     },
+     "node_modules/@patternfly/react-icons": {
+-      "version": "5.3.2",
+-      "resolved": "https://registry.npmjs.org/@patternfly/react-icons/-/react-icons-5.3.2.tgz",
+-      "integrity": "sha512-GEygYbl0H4zD8nZuTQy2dayKIrV2bMMeWKSOEZ16Y3EYNgYVUOUnN+J0naAEuEGH39Xb1DE9n+XUbE1PC4CxPA==",
++      "version": "6.3.1",
++      "resolved": "https://registry.npmjs.org/@patternfly/react-icons/-/react-icons-6.3.1.tgz",
++      "integrity": "sha512-uiMounSIww1iZLM4pq+X8c3upzwl9iowXRPjR5CA8entb70lwgAXg3PqvypnuTAcilTq1Y3k5sFTqkhz7rgKcQ==",
+       "license": "MIT",
+       "peerDependencies": {
+-        "react": "^17 || ^18",
+-        "react-dom": "^17 || ^18"
++        "react": "^17 || ^18 || ^19",
++        "react-dom": "^17 || ^18 || ^19"
+       }
+     },
+     "node_modules/@patternfly/react-styles": {
+-      "version": "5.3.1",
+-      "resolved": "https://registry.npmjs.org/@patternfly/react-styles/-/react-styles-5.3.1.tgz",
+-      "integrity": "sha512-H6uBoFH3bJjD6PP75qZ4k+2TtF59vxf9sIVerPpwrGJcRgBZbvbMZCniSC3+S2LQ8DgXLnDvieq78jJzHz0hiA==",
++      "version": "6.3.1",
++      "resolved": "https://registry.npmjs.org/@patternfly/react-styles/-/react-styles-6.3.1.tgz",
++      "integrity": "sha512-hyb+PlO8YITjKh2wBvjdeZhX6FyB3hlf4r6yG4rPOHk4SgneXHjNSdGwQ3szAxgGqtbENCYtOqwD/8ai72GrxQ==",
+       "license": "MIT"
+     },
+     "node_modules/@patternfly/react-table": {
+-      "version": "5.3.4",
+-      "resolved": "https://registry.npmjs.org/@patternfly/react-table/-/react-table-5.3.4.tgz",
+-      "integrity": "sha512-jGaiuo02scaC1HdGNHuYVRjtQCOB+vtvfbgS7nl1Y8ZcJ08wyUGhGSrEpNHfGAQ1XDSSoELAxj0cjOQwAAQw1A==",
++      "version": "6.3.1",
++      "resolved": "https://registry.npmjs.org/@patternfly/react-table/-/react-table-6.3.1.tgz",
++      "integrity": "sha512-ZndBbPcMr/vInP5eELRe9m7MWzRoejRAhWx+25xOdjVAd31/CmMK1nBgZk4QAXaWjH1P+uZaZYsTgr/FMTte2g==",
+       "license": "MIT",
+       "dependencies": {
+-        "@patternfly/react-core": "^5.3.4",
+-        "@patternfly/react-icons": "^5.3.2",
+-        "@patternfly/react-styles": "^5.3.1",
+-        "@patternfly/react-tokens": "^5.3.1",
+-        "lodash": "^4.17.19",
+-        "tslib": "^2.5.0"
++        "@patternfly/react-core": "^6.3.1",
++        "@patternfly/react-icons": "^6.3.1",
++        "@patternfly/react-styles": "^6.3.1",
++        "@patternfly/react-tokens": "^6.3.1",
++        "lodash": "^4.17.21",
++        "tslib": "^2.8.1"
+       },
+       "peerDependencies": {
+-        "react": "^17 || ^18",
+-        "react-dom": "^17 || ^18"
++        "react": "^17 || ^18 || ^19",
++        "react-dom": "^17 || ^18 || ^19"
+       }
+     },
+     "node_modules/@patternfly/react-tokens": {
+-      "version": "5.4.1",
+-      "resolved": "https://registry.npmjs.org/@patternfly/react-tokens/-/react-tokens-5.4.1.tgz",
+-      "integrity": "sha512-eygdHE7Krta1mijAv/E8RHiKIgysD0eeNTo8EXUYC8/M4e5K6sqpr2p6rQBF8QiRMN8FnbXvZT3K2OQ28pYt9Q==",
++      "version": "6.3.1",
++      "resolved": "https://registry.npmjs.org/@patternfly/react-tokens/-/react-tokens-6.3.1.tgz",
++      "integrity": "sha512-wt/xKU1tGCDXUueFb+8/Cwxlm4vUD/Xl26O8MxbSLm6NZAHOUPwytJ7gugloGSPvc/zcsXxEgKANL8UZNO6DTw==",
+       "license": "MIT"
+     },
+     "node_modules/@pkgjs/parseargs": {
+@@ -9156,9 +9156,9 @@
+       "license": "ISC"
+     },
+     "node_modules/focus-trap": {
+-      "version": "7.5.2",
+-      "resolved": "https://registry.npmjs.org/focus-trap/-/focus-trap-7.5.2.tgz",
+-      "integrity": "sha512-p6vGNNWLDGwJCiEjkSK6oERj/hEyI9ITsSwIUICBoKLlWiTWXJRfQibCwcoi50rTZdbi87qDtUlMCmQwsGSgPw==",
++      "version": "7.6.4",
++      "resolved": "https://registry.npmjs.org/focus-trap/-/focus-trap-7.6.4.tgz",
++      "integrity": "sha512-xx560wGBk7seZ6y933idtjJQc1l+ck+pI3sKvhKozdBV1dRZoKhkW5xoCaFv9tQiX5RH1xfSxjuNu6g+lmN/gw==",
+       "license": "MIT",
+       "dependencies": {
+         "tabbable": "^6.2.0"
+diff --git a/package.json b/package.json
+index f9b6d8205..8c2d02946 100644
+--- a/package.json
++++ b/package.json
+@@ -49,11 +49,11 @@
+     "test:types": "tsc --noEmit"
+   },
+   "dependencies": {
+-    "@patternfly/patternfly": "5.3.1",
+-    "@patternfly/react-core": "5.3.4",
+-    "@patternfly/react-icons": "5.3.2",
+-    "@patternfly/react-styles": "5.3.1",
+-    "@patternfly/react-table": "5.3.4",
++    "@patternfly/patternfly": "6.3.1",
++    "@patternfly/react-core": "6.3.1",
++    "@patternfly/react-icons": "6.3.1",
++    "@patternfly/react-styles": "6.3.1",
++    "@patternfly/react-table": "6.3.1",
+     "@tanstack/react-query": "^5.55.4",
+     "@types/jest": "^29.5.12",
+     "@types/react": "^18.3.5",
+diff --git a/src/app.css b/src/app.css
+index b13972205..5d5b698fb 100644
+--- a/src/app.css
++++ b/src/app.css
+@@ -11,3 +11,27 @@ body,
+ }
+ 
+ @keyframes fadein { 0%{opacity:0} 100%{opacity:1} }
++
++/* Logo theming for PatternFly 6 - consolidated approach */
++.pf-v6-c-masthead__brand .pf-v6-c-brand img, 
++.pf-v6-c-about-modal-box__brand-image,
++.pf-v6-c-brand.pf-m-picture img {
++  filter: invert(1) brightness(1.2);
++}
++
++/* Dark theme logo adjustment - consolidated approach */
++.pf-v6-theme-dark .pf-v6-c-masthead__brand .pf-v6-c-brand img, 
++.pf-v6-theme-dark .pf-v6-c-about-modal-box__brand-image,
++.pf-v6-theme-dark .pf-v6-c-brand.pf-m-picture img {
++  filter: none;
++}
++
++/* About modal background image theming for PatternFly 6 */
++.pf-v6-c-about-modal-box {
++  filter: none;
++}
++
++/* Dark theme background image adjustment - invert the modal with background-image */
++.pf-v6-theme-dark .pf-v6-c-about-modal-box {
++  filter: invert(1.5) contrast(1.2);
++}
+diff --git a/src/components/aboutModal/__tests__/__snapshots__/aboutModal.test.tsx.snap b/src/components/aboutModal/__tests__/__snapshots__/aboutModal.test.tsx.snap
+index 82d2eb911..07f71a4f3 100644
+--- a/src/components/aboutModal/__tests__/__snapshots__/aboutModal.test.tsx.snap
++++ b/src/components/aboutModal/__tests__/__snapshots__/aboutModal.test.tsx.snap
+@@ -15,74 +15,74 @@ exports[`AboutModal Component should attempt to display username, status data: u
+   }
+ ])"
+ >
+-  <TextContent
++  <Content
+     className=""
+   >
+-    <TextList
++    <Content
+       component="dl"
+     >
+       <React.Fragment>
+-        <TextListItem
++        <Content
+           component="dt"
+         >
+           t([
+   "about.username"
+ ])
+-        </TextListItem>
+-        <TextListItem
++        </Content>
++        <Content
+           component="dd"
+         >
+           lorem ipsum
+-        </TextListItem>
++        </Content>
+       </React.Fragment>
+       <React.Fragment>
+-        <TextListItem
++        <Content
+           component="dt"
+         >
+           t([
+   "about.ui-version"
+ ])
+-        </TextListItem>
+-        <TextListItem
++        </Content>
++        <Content
+           component="dd"
+         >
+           0.0.0.0000000
+-        </TextListItem>
++        </Content>
+       </React.Fragment>
+       <React.Fragment>
+-        <TextListItem
++        <Content
+           className=""
+           component="dt"
+         >
+           t([
+   "about.server-version"
+ ])
+-        </TextListItem>
+-        <TextListItem
++        </Content>
++        <Content
+           className=""
+           component="dd"
+         >
+           0.0.0.12345678
+-        </TextListItem>
++        </Content>
+       </React.Fragment>
+       <React.Fragment>
+-        <TextListItem
++        <Content
+           className=""
+           component="dt"
+         >
+           t([
+   "about.server-cpu-arch"
+ ])
+-        </TextListItem>
+-        <TextListItem
++        </Content>
++        <Content
+           className=""
+           component="dd"
+         >
+           i386
+-        </TextListItem>
++        </Content>
+       </React.Fragment>
+-    </TextList>
+-  </TextContent>
++    </Content>
++  </Content>
+ </AboutModal>
+ `;
+ 
+@@ -101,42 +101,42 @@ exports[`AboutModal Component should log on error: api error 1`] = `
+   }
+ ])"
+ >
+-  <TextContent
++  <Content
+     className="fadein"
+   >
+-    <TextList
++    <Content
+       component="dl"
+     >
+       <React.Fragment>
+-        <TextListItem
++        <Content
+           component="dt"
+         >
+           t([
+   "about.username"
+ ])
+-        </TextListItem>
+-        <TextListItem
++        </Content>
++        <Content
+           component="dd"
+         >
+           lorem ipsum
+-        </TextListItem>
++        </Content>
+       </React.Fragment>
+       <React.Fragment>
+-        <TextListItem
++        <Content
+           component="dt"
+         >
+           t([
+   "about.ui-version"
+ ])
+-        </TextListItem>
+-        <TextListItem
++        </Content>
++        <Content
+           component="dd"
+         >
+           0.0.0.0000000
+-        </TextListItem>
++        </Content>
+       </React.Fragment>
+-    </TextList>
+-  </TextContent>
++    </Content>
++  </Content>
+ </AboutModal>
+ `;
+ 
+@@ -155,27 +155,27 @@ exports[`AboutModal Component should render a basic component: basic 1`] = `
+   }
+ ])"
+ >
+-  <TextContent
++  <Content
+     className="fadein"
+   >
+-    <TextList
++    <Content
+       component="dl"
+     >
+       <React.Fragment>
+-        <TextListItem
++        <Content
+           component="dt"
+         >
+           t([
+   "about.ui-version"
+ ])
+-        </TextListItem>
+-        <TextListItem
++        </Content>
++        <Content
+           component="dd"
+         >
+           0.0.0.0000000
+-        </TextListItem>
++        </Content>
+       </React.Fragment>
+-    </TextList>
+-  </TextContent>
++    </Content>
++  </Content>
+ </AboutModal>
+ `;
+diff --git a/src/components/aboutModal/aboutModal.tsx b/src/components/aboutModal/aboutModal.tsx
+index b706e1765..fe8a88efd 100644
+--- a/src/components/aboutModal/aboutModal.tsx
++++ b/src/components/aboutModal/aboutModal.tsx
+@@ -1,6 +1,6 @@
+ import React, { useEffect, useState } from 'react';
+ import { useTranslation } from 'react-i18next';
+-import { AboutModal as PfAboutModal, TextContent, TextList, TextListItem } from '@patternfly/react-core';
++import { AboutModal as PfAboutModal, Content } from '@patternfly/react-core';
+ import { detect } from 'detect-browser';
+ import moment from 'moment/moment';
+ import { helpers } from '../../helpers';
+@@ -57,54 +57,54 @@ const AboutModal: React.FC<AboutModalProps> = ({
+       onClose={() => onClose()}
+       trademark={t('about.copyright', { year: currentYear })}
+     >
+-      <TextContent className={loadingClassName}>
+-        <TextList component="dl">
++      <Content className={loadingClassName}>
++        <Content component="dl">
+           {userName && (
+             <React.Fragment>
+-              <TextListItem component="dt">{t('about.username')}</TextListItem>
+-              <TextListItem component="dd">{userName}</TextListItem>
++              <Content component="dt">{t('about.username')}</Content>
++              <Content component="dd">{userName}</Content>
+             </React.Fragment>
+           )}
+           {browser && (
+             <React.Fragment>
+-              <TextListItem component="dt">{t('about.browser-version')}</TextListItem>
+-              <TextListItem component="dd">{`${browser.name} ${browser.version}`}</TextListItem>
++              <Content component="dt">{t('about.browser-version')}</Content>
++              <Content component="dd">{`${browser.name} ${browser.version}`}</Content>
+             </React.Fragment>
+           )}
+           {browser && (
+             <React.Fragment>
+-              <TextListItem component="dt">{t('about.browser-os')}</TextListItem>
+-              <TextListItem component="dd">{browser.os || ''}</TextListItem>
++              <Content component="dt">{t('about.browser-os')}</Content>
++              <Content component="dd">{browser.os || ''}</Content>
+             </React.Fragment>
+           )}
+           {uiVersion && (
+             <React.Fragment>
+-              <TextListItem component="dt">{t('about.ui-version')}</TextListItem>
+-              <TextListItem component="dd">{uiVersion}</TextListItem>
++              <Content component="dt">{t('about.ui-version')}</Content>
++              <Content component="dd">{uiVersion}</Content>
+             </React.Fragment>
+           )}
+           {stats?.server_version && (
+             <React.Fragment>
+-              <TextListItem className={loadingClassName} component="dt">
++              <Content className={loadingClassName} component="dt">
+                 {t('about.server-version')}
+-              </TextListItem>
+-              <TextListItem className={loadingClassName} component="dd">
++              </Content>
++              <Content className={loadingClassName} component="dd">
+                 {stats.server_version}
+-              </TextListItem>
++              </Content>
+             </React.Fragment>
+           )}
+           {stats?.platform.machine && (
+             <React.Fragment>
+-              <TextListItem className={loadingClassName} component="dt">
++              <Content className={loadingClassName} component="dt">
+                 {t('about.server-cpu-arch')}
+-              </TextListItem>
+-              <TextListItem className={loadingClassName} component="dd">
++              </Content>
++              <Content className={loadingClassName} component="dd">
+                 {stats.platform.machine}
+-              </TextListItem>
++              </Content>
+             </React.Fragment>
+           )}
+-        </TextList>
+-      </TextContent>
++        </Content>
++      </Content>
+     </PfAboutModal>
+   );
+ };
+diff --git a/src/components/actionMenu/__tests__/__snapshots__/actionMenu.test.tsx.snap b/src/components/actionMenu/__tests__/__snapshots__/actionMenu.test.tsx.snap
+index 5862591f2..d291ef24b 100644
+--- a/src/components/actionMenu/__tests__/__snapshots__/actionMenu.test.tsx.snap
++++ b/src/components/actionMenu/__tests__/__snapshots__/actionMenu.test.tsx.snap
+@@ -15,28 +15,68 @@ exports[`ActionMenu should display items and allow click after toggle is clicked
+   <button
+     aria-expanded="true"
+     aria-label="Action Menu Toggle"
+-    class="pf-v5-c-menu-toggle pf-m-expanded pf-m-plain"
++    class="pf-v6-c-menu-toggle pf-m-expanded pf-m-plain"
+     data-ouia-component-id="action_menu_toggle"
++    data-ouia-component-type="PF6/MenuToggle"
++    data-ouia-safe="true"
+     type="button"
+   >
+-    <svg
+-      aria-hidden="true"
+-      class="pf-v5-svg"
+-      fill="currentColor"
+-      height="1em"
+-      role="img"
+-      viewBox="0 0 192 512"
+-      width="1em"
++    <span
++      class="pf-v6-c-menu-toggle__text"
+     >
+-      <path
+-        d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+-      />
+-    </svg>
++      <svg
++        aria-hidden="true"
++        class="pf-v6-svg"
++        fill="currentColor"
++        height="1em"
++        role="img"
++        viewBox="0 0 192 512"
++        width="1em"
++      >
++        <path
++          d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
++        />
++      </svg>
++    </span>
+   </button>
++</DocumentFragment>
++`;
++
++exports[`ActionMenu should display tooltip: hover 1`] = `
++<body>
++  <div>
++    <button
++      aria-expanded="true"
++      aria-label="Action Menu Toggle"
++      class="pf-v6-c-menu-toggle pf-m-expanded pf-m-plain"
++      data-ouia-component-id="action_menu_toggle"
++      data-ouia-component-type="PF6/MenuToggle"
++      data-ouia-safe="true"
++      type="button"
++    >
++      <span
++        class="pf-v6-c-menu-toggle__text"
++      >
++        <svg
++          aria-hidden="true"
++          class="pf-v6-svg"
++          fill="currentColor"
++          height="1em"
++          role="img"
++          viewBox="0 0 192 512"
++          width="1em"
++        >
++          <path
++            d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
++          />
++        </svg>
++      </span>
++    </button>
++  </div>
+   <div
+-    class="pf-v5-c-menu"
+-    data-ouia-component-id="OUIA-Generated-Dropdown-1"
+-    data-ouia-component-type="PF5/Dropdown"
++    class="pf-v6-c-menu"
++    data-ouia-component-id="OUIA-Generated-Dropdown-2"
++    data-ouia-component-type="PF6/Dropdown"
+     data-ouia-safe="true"
+     data-popper-escaped="true"
+     data-popper-placement="bottom-start"
+@@ -44,30 +84,30 @@ exports[`ActionMenu should display items and allow click after toggle is clicked
+     style="position: absolute; left: 0px; top: 0px; z-index: 9999; opacity: 1; transition: opacity 0ms cubic-bezier(.54, 1.5, .38, 1.11); min-width: 0px; transform: translate(0px, 0px);"
+   >
+     <div
+-      class="pf-v5-c-menu__content"
++      class="pf-v6-c-menu__content"
+     >
+       <ul
+-        class="pf-v5-c-menu__list"
++        class="pf-v6-c-menu__list"
+         role="menu"
+       >
+         <li
+-          class="pf-v5-c-menu__list-item"
+-          data-ouia-component-id="OUIA-Generated-DropdownItem-1"
+-          data-ouia-component-type="PF5/DropdownItem"
++          class="pf-v6-c-menu__list-item"
++          data-ouia-component-id="OUIA-Generated-DropdownItem-2"
++          data-ouia-component-type="PF6/DropdownItem"
+           data-ouia-safe="true"
+           role="none"
+         >
+           <button
+-            class="pf-v5-c-menu__item"
++            class="pf-v6-c-menu__item"
+             role="menuitem"
+             tabindex="0"
+             type="button"
+           >
+             <span
+-              class="pf-v5-c-menu__item-main"
++              class="pf-v6-c-menu__item-main"
+             >
+               <span
+-                class="pf-v5-c-menu__item-text"
++                class="pf-v6-c-menu__item-text"
+               >
+                 Lorem ipsum
+               </span>
+@@ -77,85 +117,9 @@ exports[`ActionMenu should display items and allow click after toggle is clicked
+       </ul>
+     </div>
+   </div>
+-</DocumentFragment>
+-`;
+-
+-exports[`ActionMenu should display tooltip: hover 1`] = `
+-<body>
+-  <div>
+-    <button
+-      aria-expanded="true"
+-      aria-label="Action Menu Toggle"
+-      class="pf-v5-c-menu-toggle pf-m-expanded pf-m-plain"
+-      data-ouia-component-id="action_menu_toggle"
+-      type="button"
+-    >
+-      <svg
+-        aria-hidden="true"
+-        class="pf-v5-svg"
+-        fill="currentColor"
+-        height="1em"
+-        role="img"
+-        viewBox="0 0 192 512"
+-        width="1em"
+-      >
+-        <path
+-          d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"
+-        />
+-      </svg>
+-    </button>
+-    <div
+-      class="pf-v5-c-menu"
+-      data-ouia-component-id="OUIA-Generated-Dropdown-2"
+-      data-ouia-component-type="PF5/Dropdown"
+-      data-ouia-safe="true"
+-      data-popper-escaped="true"
+-      data-popper-placement="bottom-start"
+-      data-popper-reference-hidden="true"
+-      style="position: absolute; left: 0px; top: 0px; z-index: 9999; opacity: 1; transition: opacity 0ms cubic-bezier(.54, 1.5, .38, 1.11); min-width: 0px; transform: translate(0px, 0px);"
+-    >
+-      <div
+-        class="pf-v5-c-menu__content"
+-      >
+-        <ul
+-          class="pf-v5-c-menu__list"
+-          role="menu"
+-        >
+-          <li
+-            class="pf-v5-c-menu__list-item"
+-            data-ouia-component-id="OUIA-Generated-DropdownItem-2"
+-            data-ouia-component-type="PF5/DropdownItem"
+-            data-ouia-safe="true"
+-            role="none"
+-          >
+-            <div
+-              style="display: contents;"
+-            >
+-              <button
+-                class="pf-v5-c-menu__item"
+-                role="menuitem"
+-                tabindex="0"
+-                type="button"
+-              >
+-                <span
+-                  class="pf-v5-c-menu__item-main"
+-                >
+-                  <span
+-                    class="pf-v5-c-menu__item-text"
+-                  >
+-                    Lorem ipsum
+-                  </span>
+-                </span>
+-              </button>
+-            </div>
+-          </li>
+-        </ul>
+-      </div>
+-    </div>
+-  </div>
+   <div
+-    aria-live="off"
+-    class="pf-v5-c-tooltip pf-m-top"
++    aria-live="polite"
++    class="pf-v6-c-tooltip pf-m-top"
+     data-popper-escaped="true"
+     data-popper-placement="top"
+     data-popper-reference-hidden="true"
+@@ -164,10 +128,10 @@ exports[`ActionMenu should display tooltip: hover 1`] = `
+     style="position: absolute; left: 0px; top: 0px; z-index: 9999; opacity: 0; transition: opacity 300ms cubic-bezier(.54, 1.5, .38, 1.11); min-width: revert; bottom: 0px; transform: translate(0px, -15px);"
+   >
+     <div
+-      class="pf-v5-c-tooltip__arrow"
++      class="pf-v6-c-tooltip__arrow"
+     />
+     <div
+-      class="pf-v5-c-tooltip__content"
++      class="pf-v6-c-tooltip__content"
+     >
+       dolor sit
+     </div>
+diff --git a/src/components/actionMenu/actionMenu.tsx b/src/components/actionMenu/actionMenu.tsx
+index 4aa6ab440..529b638b4 100644
+--- a/src/components/actionMenu/actionMenu.tsx
++++ b/src/components/actionMenu/actionMenu.tsx
+@@ -29,9 +29,10 @@ interface ActionMenuProps<T = unknown> {
+   item: T;
+   actions: Action<T>[];
+   popperProps?: Partial<PopperProps>;
++  size?: 'default' | 'sm';
+ }
+ 
+-const ActionMenu = <T,>({ item, actions, popperProps }: ActionMenuProps<T>) => {
++const ActionMenu = <T,>({ item, actions, popperProps, size = 'default' }: ActionMenuProps<T>) => {
+   const [isOpen, setIsOpen] = useState<boolean>(false);
+ 
+   return (
+@@ -45,9 +46,10 @@ const ActionMenu = <T,>({ item, actions, popperProps }: ActionMenuProps<T>) => {
+           ref={toggleRef}
+           aria-label="Action Menu Toggle"
+           variant="plain"
++          size={size}
+           onClick={() => setIsOpen(prev => !prev)}
+           isExpanded={isOpen}
+-          data-ouia-component-id="action_menu_toggle"
++          ouiaId="action_menu_toggle"
+         >
+           <EllipsisVIcon />
+         </MenuToggle>
+diff --git a/src/components/contextIcon/__tests__/__snapshots__/contextIcon.test.tsx.snap b/src/components/contextIcon/__tests__/__snapshots__/contextIcon.test.tsx.snap
+index d44274f60..98738b7b7 100644
+--- a/src/components/contextIcon/__tests__/__snapshots__/contextIcon.test.tsx.snap
++++ b/src/components/contextIcon/__tests__/__snapshots__/contextIcon.test.tsx.snap
+@@ -17,15 +17,19 @@ exports[`ContextIcon Should render icon download 1`] = `<DownloadIcon />`;
+ exports[`ContextIcon Should render icon error 1`] = `<UnknownIcon />`;
+ 
+ exports[`ContextIcon Should render icon failed 1`] = `
+-<ExclamationCircleIcon
+-  color="#c9190b"
+-/>
++<Icon
++  status="danger"
++>
++  <ExclamationCircleIcon />
++</Icon>
+ `;
+ 
+ exports[`ContextIcon Should render icon idCard 1`] = `
+-<IdCardIcon
+-  color="#151515"
+-/>
++<Icon
++  --pf-v6-c-icon__content--Color="--pf-t--global--text--color--regular"
++>
++  <IdCardIcon />
++</Icon>
+ `;
+ 
+ exports[`ContextIcon Should render icon info 1`] = `<InfoCircleIcon />`;
+@@ -41,9 +45,12 @@ exports[`ContextIcon Should render icon paused 1`] = `<UnknownIcon />`;
+ exports[`ContextIcon Should render icon pencil 1`] = `<PencilAltIcon />`;
+ 
+ exports[`ContextIcon Should render icon pending 1`] = `
+-<Spinner
++<Icon
++  isInline={true}
+   size="sm"
+-/>
++>
++  <Spinner />
++</Icon>
+ `;
+ 
+ exports[`ContextIcon Should render icon running 1`] = `<UnknownIcon />`;
+@@ -55,9 +62,11 @@ exports[`ContextIcon Should render icon scans 1`] = `<ClipboardCheckIcon />`;
+ exports[`ContextIcon Should render icon sources 1`] = `<CrosshairsIcon />`;
+ 
+ exports[`ContextIcon Should render icon success 1`] = `
+-<CheckCircleIcon
+-  color="#3e8635"
+-/>
++<Icon
++  status="success"
++>
++  <CheckCircleIcon />
++</Icon>
+ `;
+ 
+ exports[`ContextIcon Should render icon trash 1`] = `<TrashIcon />`;
+@@ -65,9 +74,11 @@ exports[`ContextIcon Should render icon trash 1`] = `<TrashIcon />`;
+ exports[`ContextIcon Should render icon unknown 1`] = `<UnknownIcon />`;
+ 
+ exports[`ContextIcon Should render icon unreachable 1`] = `
+-<DisconnectedIcon
+-  color="#c9190b"
+-/>
++<Icon
++  status="danger"
++>
++  <DisconnectedIcon />
++</Icon>
+ `;
+ 
+ exports[`ContextIcon Should render icon user 1`] = `<UserIcon />`;
+@@ -75,7 +86,9 @@ exports[`ContextIcon Should render icon user 1`] = `<UserIcon />`;
+ exports[`ContextIcon Should render icon vcenter 1`] = `<PficonVcenterIcon />`;
+ 
+ exports[`ContextIcon Should render icon warning 1`] = `
+-<ExclamationTriangleIcon
+-  color="#f0ab00"
+-/>
++<Icon
++  status="warning"
++>
++  <ExclamationTriangleIcon />
++</Icon>
+ `;
+diff --git a/src/components/contextIcon/contextIcon.tsx b/src/components/contextIcon/contextIcon.tsx
+index 5d8bde66c..fc0f7f7cd 100644
+--- a/src/components/contextIcon/contextIcon.tsx
++++ b/src/components/contextIcon/contextIcon.tsx
+@@ -5,7 +5,7 @@
+  * @module contextIcon
+  */
+ import * as React from 'react';
+-import { Spinner } from '@patternfly/react-core';
++import { Icon, Spinner } from '@patternfly/react-core';
+ import {
+   AnsibleTowerIcon,
+   CheckCircleIcon,
+@@ -28,35 +28,6 @@ import {
+   UnknownIcon,
+   UserIcon
+ } from '@patternfly/react-icons';
+-import {
+-  global_Color_dark_100 as gray,
+-  global_success_color_100 as green,
+-  global_warning_color_100 as yellow,
+-  global_danger_color_100 as red
+-} from '@patternfly/react-tokens';
+-
+-/**
+- * Context icon colors, for consistency
+- *
+- * @type {{ red: object, gray: object, green: object, yellow: object }}
+- */
+-type colorToken = {
+-  name: string;
+-  value: string;
+-  var: string;
+-};
+-
+-const ContextIconColors: {
+-  gray: colorToken;
+-  green: colorToken;
+-  yellow: colorToken;
+-  red: colorToken;
+-} = {
+-  gray,
+-  green,
+-  yellow,
+-  red
+-};
+ 
+ const ContextIconVariant: { [key: string]: string } = {
+   completed: 'success',
+@@ -99,9 +70,17 @@ const ContextIcon: React.FC<{
+     case ContextIconVariant.download:
+       return <DownloadIcon {...props} />;
+     case ContextIconVariant.failed:
+-      return <ExclamationCircleIcon {...{ ...{ color: red.value }, ...props }} />;
++      return (
++        <Icon status="danger">
++          <ExclamationCircleIcon {...props} />
++        </Icon>
++      );
+     case ContextIconVariant.idCard:
+-      return <IdCardIcon {...{ ...{ color: gray.value }, ...props }} />;
++      return (
++        <Icon {...{ '--pf-v6-c-icon__content--Color': '--pf-t--global--text--color--regular' }}>
++          <IdCardIcon {...props} />
++        </Icon>
++      );
+     case ContextIconVariant.info:
+       return <InfoCircleIcon {...props} />;
+     case ContextIconVariant.network:
+@@ -113,11 +92,19 @@ const ContextIcon: React.FC<{
+     case ContextIconVariant.acs:
+       return <CloudSecurityIcon {...props} />;
+     case ContextIconVariant.warning:
+-      return <ExclamationTriangleIcon {...{ ...{ color: yellow.value }, ...props }} />;
++      return (
++        <Icon status="warning">
++          <ExclamationTriangleIcon {...props} />
++        </Icon>
++      );
+     case ContextIconVariant.pencil:
+       return <PencilAltIcon {...props} />;
+     case ContextIconVariant.pending:
+-      return <Spinner size={size || 'sm'} {...props} />;
++      return (
++        <Icon size={size || 'sm'} isInline>
++          <Spinner />
++        </Icon>
++      );
+     case ContextIconVariant.satellite:
+       return <PficonSatelliteIcon {...props} />;
+     case ContextIconVariant.scans:
+@@ -125,11 +112,19 @@ const ContextIcon: React.FC<{
+     case ContextIconVariant.sources:
+       return <CrosshairsIcon {...props} />;
+     case ContextIconVariant.success:
+-      return <CheckCircleIcon {...{ ...{ color: green.value }, ...props }} />;
++      return (
++        <Icon status="success">
++          <CheckCircleIcon {...props} />
++        </Icon>
++      );
+     case ContextIconVariant.trash:
+       return <TrashIcon {...props} />;
+     case ContextIconVariant.unreachable:
+-      return <DisconnectedIcon {...{ ...{ color: red.value }, ...props }} />;
++      return (
++        <Icon status="danger">
++          <DisconnectedIcon {...props} />
++        </Icon>
++      );
+     case ContextIconVariant.user:
+       return <UserIcon {...props} />;
+     case ContextIconVariant.vcenter:
+@@ -140,4 +135,4 @@ const ContextIcon: React.FC<{
+   }
+ };
+ 
+-export { ContextIcon as default, ContextIcon, ContextIconColors, ContextIconVariant };
++export { ContextIcon as default, ContextIcon, ContextIconVariant };
+diff --git a/src/components/errorMessage/__tests__/__snapshots__/errorMessage.test.tsx.snap b/src/components/errorMessage/__tests__/__snapshots__/errorMessage.test.tsx.snap
+index 6798261e2..af26416a7 100644
+--- a/src/components/errorMessage/__tests__/__snapshots__/errorMessage.test.tsx.snap
++++ b/src/components/errorMessage/__tests__/__snapshots__/errorMessage.test.tsx.snap
+@@ -2,17 +2,17 @@
+ 
+ exports[`ErrorMessage should allow a custom title and description: custom 1`] = `
+ <EmptyState
++  icon={[Function]}
++  titleText={
++    <Title
++      headingLevel="h2"
++      size="lg"
++    >
++      Lorem ipsum
++    </Title>
++  }
+   variant="full"
+ >
+-  <EmptyStateIcon
+-    icon={[Function]}
+-  />
+-  <Title
+-    headingLevel="h2"
+-    size="lg"
+-  >
+-    Lorem ipsum
+-  </Title>
+   <EmptyStateBody>
+     Dolor sit
+   </EmptyStateBody>
+@@ -21,23 +21,23 @@ exports[`ErrorMessage should allow a custom title and description: custom 1`] =
+ 
+ exports[`ErrorMessage should render a basic component: basic 1`] = `
+ <EmptyState
+-  variant="full"
+->
+-  <EmptyStateIcon
+-    icon={[Function]}
+-  />
+-  <Title
+-    headingLevel="h2"
+-    size="lg"
+-  >
+-    t([
++  icon={[Function]}
++  titleText={
++    <Title
++      headingLevel="h2"
++      size="lg"
++    >
++      t([
+   "view.error",
+   {
+     "context": "title",
+     "appName": "Quipucords"
+   }
+ ])
+-  </Title>
++    </Title>
++  }
++  variant="full"
++>
+   <EmptyStateBody>
+     t([
+   "view.error",
+diff --git a/src/components/errorMessage/errorMessage.tsx b/src/components/errorMessage/errorMessage.tsx
+index c95ffd8f2..4a5cb1b8b 100644
+--- a/src/components/errorMessage/errorMessage.tsx
++++ b/src/components/errorMessage/errorMessage.tsx
+@@ -1,6 +1,6 @@
+ import React from 'react';
+ import { useTranslation } from 'react-i18next';
+-import { EmptyState, EmptyStateBody, EmptyStateIcon, EmptyStateVariant, Title } from '@patternfly/react-core';
++import { EmptyState, EmptyStateBody, EmptyStateVariant, Title } from '@patternfly/react-core';
+ import { ExclamationCircleIcon } from '@patternfly/react-icons';
+ import { helpers } from '../../helpers';
+ 
+@@ -12,11 +12,15 @@ interface ErrorMessageProps {
+ const ErrorMessage: React.FC<ErrorMessageProps> = ({ description, title }) => {
+   const { t } = useTranslation();
+   return (
+-    <EmptyState variant={EmptyStateVariant.full}>
+-      <EmptyStateIcon icon={ExclamationCircleIcon} />
+-      <Title headingLevel="h2" size="lg">
+-        {title || t('view.error', { context: 'title', appName: helpers.UI_NAME })}
+-      </Title>
++    <EmptyState
++      titleText={
++        <Title headingLevel="h2" size="lg">
++          {title || t('view.error', { context: 'title', appName: helpers.UI_NAME })}
++        </Title>
++      }
++      icon={ExclamationCircleIcon}
++      variant={EmptyStateVariant.full}
++    >
+       <EmptyStateBody>{description || t('view.error', { context: 'description' })}</EmptyStateBody>
+     </EmptyState>
+   );
+diff --git a/src/components/simpleDropdown/__tests__/__snapshots__/simpleDropdown.test.tsx.snap b/src/components/simpleDropdown/__tests__/__snapshots__/simpleDropdown.test.tsx.snap
+index aa7474413..11539c2bc 100644
+--- a/src/components/simpleDropdown/__tests__/__snapshots__/simpleDropdown.test.tsx.snap
++++ b/src/components/simpleDropdown/__tests__/__snapshots__/simpleDropdown.test.tsx.snap
+@@ -5,23 +5,26 @@ exports[`SimpleDropdown should display items and allow selecting after toggle is
+   <button
+     aria-expanded="true"
+     aria-label="Dropdown menu"
+-    class="pf-v5-c-menu-toggle pf-m-expanded"
++    class="pf-v6-c-menu-toggle pf-m-expanded"
++    data-ouia-component-id="OUIA-Generated-MenuToggle-4"
++    data-ouia-component-type="PF6/MenuToggle"
++    data-ouia-safe="true"
+     type="button"
+   >
+     <span
+-      class="pf-v5-c-menu-toggle__text"
++      class="pf-v6-c-menu-toggle__text"
+     >
+       Lorem ipsum
+     </span>
+     <span
+-      class="pf-v5-c-menu-toggle__controls"
++      class="pf-v6-c-menu-toggle__controls"
+     >
+       <span
+-        class="pf-v5-c-menu-toggle__toggle-icon"
++        class="pf-v6-c-menu-toggle__toggle-icon"
+       >
+         <svg
+           aria-hidden="true"
+-          class="pf-v5-svg"
++          class="pf-v6-svg"
+           fill="currentColor"
+           height="1em"
+           role="img"
+@@ -35,74 +38,6 @@ exports[`SimpleDropdown should display items and allow selecting after toggle is
+       </span>
+     </span>
+   </button>
+-  <div
+-    class="pf-v5-c-menu"
+-    data-ouia-component-id="OUIA-Generated-Dropdown-4"
+-    data-ouia-component-type="PF5/Dropdown"
+-    data-ouia-safe="true"
+-    data-popper-escaped="true"
+-    data-popper-placement="bottom-start"
+-    data-popper-reference-hidden="true"
+-    style="position: absolute; left: 0px; top: 0px; z-index: 9999; opacity: 1; transition: opacity 0ms cubic-bezier(.54, 1.5, .38, 1.11); min-width: 0px; transform: translate(0px, 0px);"
+-  >
+-    <div
+-      class="pf-v5-c-menu__content"
+-    >
+-      <ul
+-        class="pf-v5-c-menu__list"
+-        role="menu"
+-      >
+-        <li
+-          class="pf-v5-c-menu__list-item"
+-          data-ouia-component-id="OUIA-Generated-DropdownItem-3"
+-          data-ouia-component-type="PF5/DropdownItem"
+-          data-ouia-safe="true"
+-          role="none"
+-        >
+-          <button
+-            class="pf-v5-c-menu__item"
+-            role="menuitem"
+-            tabindex="0"
+-            type="button"
+-          >
+-            <span
+-              class="pf-v5-c-menu__item-main"
+-            >
+-              <span
+-                class="pf-v5-c-menu__item-text"
+-              >
+-                dolor
+-              </span>
+-            </span>
+-          </button>
+-        </li>
+-        <li
+-          class="pf-v5-c-menu__list-item"
+-          data-ouia-component-id="OUIA-Generated-DropdownItem-4"
+-          data-ouia-component-type="PF5/DropdownItem"
+-          data-ouia-safe="true"
+-          role="none"
+-        >
+-          <button
+-            class="pf-v5-c-menu__item"
+-            role="menuitem"
+-            tabindex="-1"
+-            type="button"
+-          >
+-            <span
+-              class="pf-v5-c-menu__item-main"
+-            >
+-              <span
+-                class="pf-v5-c-menu__item-text"
+-              >
+-                sit
+-              </span>
+-            </span>
+-          </button>
+-        </li>
+-      </ul>
+-    </div>
+-  </div>
+ </DocumentFragment>
+ `;
+ 
+@@ -116,7 +51,7 @@ exports[`SimpleDropdown should display items and allow selecting after toggle is
+ 
+ exports[`SimpleDropdown should have a dropdown label: label 1`] = `
+ <span
+-  class="pf-v5-c-menu-toggle__text"
++  class="pf-v6-c-menu-toggle__text"
+ >
+   lorem ipsum
+ </span>
+@@ -126,25 +61,27 @@ exports[`SimpleDropdown should have a ouia id: button_ouiaid 1`] = `
+ <button
+   aria-expanded="false"
+   aria-label="Dropdown menu"
+-  class="pf-v5-c-menu-toggle pf-m-disabled"
++  class="pf-v6-c-menu-toggle pf-m-disabled"
+   data-ouia-component-id="lorem_ipsum"
++  data-ouia-component-type="PF6/MenuToggle"
++  data-ouia-safe="true"
+   disabled=""
+   type="button"
+ >
+   <span
+-    class="pf-v5-c-menu-toggle__text"
++    class="pf-v6-c-menu-toggle__text"
+   >
+     lorem ipsum
+   </span>
+   <span
+-    class="pf-v5-c-menu-toggle__controls"
++    class="pf-v6-c-menu-toggle__controls"
+   >
+     <span
+-      class="pf-v5-c-menu-toggle__toggle-icon"
++      class="pf-v6-c-menu-toggle__toggle-icon"
+     >
+       <svg
+         aria-hidden="true"
+-        class="pf-v5-svg"
++        class="pf-v6-svg"
+         fill="currentColor"
+         height="1em"
+         role="img"
+@@ -165,24 +102,26 @@ exports[`SimpleDropdown should have dropdown items with ouia id: expanded_ouiaid
+   <button
+     aria-expanded="true"
+     aria-label="Dropdown menu"
+-    class="pf-v5-c-menu-toggle pf-m-expanded"
++    class="pf-v6-c-menu-toggle pf-m-expanded"
+     data-ouia-component-id="lorem_ipsum"
++    data-ouia-component-type="PF6/MenuToggle"
++    data-ouia-safe="true"
+     type="button"
+   >
+     <span
+-      class="pf-v5-c-menu-toggle__text"
++      class="pf-v6-c-menu-toggle__text"
+     >
+       lorem ipsum
+     </span>
+     <span
+-      class="pf-v5-c-menu-toggle__controls"
++      class="pf-v6-c-menu-toggle__controls"
+     >
+       <span
+-        class="pf-v5-c-menu-toggle__toggle-icon"
++        class="pf-v6-c-menu-toggle__toggle-icon"
+       >
+         <svg
+           aria-hidden="true"
+-          class="pf-v5-svg"
++          class="pf-v6-svg"
+           fill="currentColor"
+           height="1em"
+           role="img"
+@@ -196,74 +135,6 @@ exports[`SimpleDropdown should have dropdown items with ouia id: expanded_ouiaid
+       </span>
+     </span>
+   </button>
+-  <div
+-    class="pf-v5-c-menu"
+-    data-ouia-component-id="OUIA-Generated-Dropdown-3"
+-    data-ouia-component-type="PF5/Dropdown"
+-    data-ouia-safe="true"
+-    data-popper-escaped="true"
+-    data-popper-placement="bottom-start"
+-    data-popper-reference-hidden="true"
+-    style="position: absolute; left: 0px; top: 0px; z-index: 9999; opacity: 1; transition: opacity 0ms cubic-bezier(.54, 1.5, .38, 1.11); min-width: 0px; transform: translate(0px, 0px);"
+-  >
+-    <div
+-      class="pf-v5-c-menu__content"
+-    >
+-      <ul
+-        class="pf-v5-c-menu__list"
+-        role="menu"
+-      >
+-        <li
+-          class="pf-v5-c-menu__list-item"
+-          data-ouia-component-id="ouia-dolor"
+-          data-ouia-component-type="PF5/DropdownItem"
+-          data-ouia-safe="true"
+-          role="none"
+-        >
+-          <button
+-            class="pf-v5-c-menu__item"
+-            role="menuitem"
+-            tabindex="0"
+-            type="button"
+-          >
+-            <span
+-              class="pf-v5-c-menu__item-main"
+-            >
+-              <span
+-                class="pf-v5-c-menu__item-text"
+-              >
+-                dolor
+-              </span>
+-            </span>
+-          </button>
+-        </li>
+-        <li
+-          class="pf-v5-c-menu__list-item"
+-          data-ouia-component-id="ouia-sit"
+-          data-ouia-component-type="PF5/DropdownItem"
+-          data-ouia-safe="true"
+-          role="none"
+-        >
+-          <button
+-            class="pf-v5-c-menu__item"
+-            role="menuitem"
+-            tabindex="-1"
+-            type="button"
+-          >
+-            <span
+-              class="pf-v5-c-menu__item-main"
+-            >
+-              <span
+-                class="pf-v5-c-menu__item-text"
+-              >
+-                sit
+-              </span>
+-            </span>
+-          </button>
+-        </li>
+-      </ul>
+-    </div>
+-  </div>
+ </DocumentFragment>
+ `;
+ 
+diff --git a/src/components/simpleDropdown/simpleDropdown.tsx b/src/components/simpleDropdown/simpleDropdown.tsx
+index 82f4744c6..9c73405b0 100644
+--- a/src/components/simpleDropdown/simpleDropdown.tsx
++++ b/src/components/simpleDropdown/simpleDropdown.tsx
+@@ -57,7 +57,7 @@ const SimpleDropdown: React.FC<SimpleDropdownProps> = ({
+           variant={variant}
+           aria-label={ariaLabel}
+           isDisabled={!dropdownItems || dropdownItems.length === 0}
+-          data-ouia-component-id={menuToggleOuiaId}
++          ouiaId={menuToggleOuiaId}
+         >
+           {label}
+         </MenuToggle>
+diff --git a/src/components/typeAheadCheckboxes/typeaheadCheckboxes.tsx b/src/components/typeAheadCheckboxes/typeaheadCheckboxes.tsx
+index e865c7be9..f3d1153c5 100644
+--- a/src/components/typeAheadCheckboxes/typeaheadCheckboxes.tsx
++++ b/src/components/typeAheadCheckboxes/typeaheadCheckboxes.tsx
+@@ -187,10 +187,10 @@ const TypeaheadCheckboxes: React.FC<TypeaheadCheckboxesProps> = ({
+     <MenuToggle
+       variant="typeahead"
+       onClick={onToggleClick}
+-      innerRef={toggleRef}
++      ref={toggleRef}
+       isExpanded={isOpen}
+       isFullWidth
+-      data-ouia-component-id={menuToggleOuiaId}
++      ouiaId={menuToggleOuiaId}
+     >
+       <TextInputGroup isPlain>
+         <TextInputGroupMain
+@@ -200,7 +200,7 @@ const TypeaheadCheckboxes: React.FC<TypeaheadCheckboxesProps> = ({
+           onKeyDown={onInputKeyDown}
+           id="multi-typeahead-select-checkbox-input"
+           autoComplete="off"
+-          innerRef={textInputRef}
++          ref={textInputRef}
+           placeholder={activePlaceholder}
+           {...(activeItem && { 'aria-activedescendant': activeItem })}
+           role="combobox"
+@@ -211,6 +211,7 @@ const TypeaheadCheckboxes: React.FC<TypeaheadCheckboxesProps> = ({
+         <TextInputGroupUtilities>
+           {selectedOptions.length > 0 && (
+             <Button
++              icon={<TimesIcon aria-hidden />}
+               variant="plain"
+               onClick={() => {
+                 setInputValue('');
+@@ -219,9 +220,7 @@ const TypeaheadCheckboxes: React.FC<TypeaheadCheckboxesProps> = ({
+               }}
+               aria-label="Clear input value"
+               ouiaId="credentials_list_clear_button"
+-            >
+-              <TimesIcon aria-hidden />
+-            </Button>
++            />
+           )}
+         </TextInputGroupUtilities>
+       </TextInputGroup>
+diff --git a/src/components/viewLayout/__tests__/__snapshots__/viewLayout.test.tsx.snap b/src/components/viewLayout/__tests__/__snapshots__/viewLayout.test.tsx.snap
+index 140c6840c..02c76f60c 100644
+--- a/src/components/viewLayout/__tests__/__snapshots__/viewLayout.test.tsx.snap
++++ b/src/components/viewLayout/__tests__/__snapshots__/viewLayout.test.tsx.snap
+@@ -5,37 +5,43 @@ exports[`ViewLayout should render a basic component: basic 1`] = `
+   defaultManagedSidebarIsOpen={true}
+   getBreakpoint={[Function]}
+   getVerticalBreakpoint={[Function]}
+-  header={
++  isBreadcrumbWidthLimited={false}
++  isManagedSidebar={false}
++  isNotificationDrawerExpanded={false}
++  mainComponent="main"
++  mainContainerId="primary-app-container"
++  mainTabIndex={-1}
++  masthead={
+     <Masthead>
+-      <MastheadToggle>
+-        <Button
+-          aria-label="Global navigation"
+-          onClick={[Function]}
+-          ouiaId="global-navigation"
+-          variant="plain"
+-        >
+-          <BarsIcon />
+-        </Button>
+-      </MastheadToggle>
+       <MastheadMain>
++        <MastheadToggle>
++          <PageToggleButton
++            aria-label="Global navigation"
++            isHamburgerButton={true}
++            onSidebarToggle={[Function]}
++            ouiaId="global-navigation"
++          />
++        </MastheadToggle>
+         <MastheadBrand>
+-          <Brand
+-            alt="t([
++          <MastheadLogo>
++            <Brand
++              alt="t([
+   "view.alt-logo",
+   {
+     "name": "Quipucords"
+   }
+ ])"
+-            heights={
+-              {
+-                "default": "36px",
++              heights={
++                {
++                  "default": "36px",
++                }
+               }
+-            }
+-          >
+-            <source
+-              srcSet="title.svg"
+-            />
+-          </Brand>
++            >
++              <source
++                srcSet="title.svg"
++              />
++            </Brand>
++          </MastheadLogo>
+         </MastheadBrand>
+       </MastheadMain>
+       <MastheadContent>
+@@ -43,28 +49,17 @@ exports[`ViewLayout should render a basic component: basic 1`] = `
+       </MastheadContent>
+     </Masthead>
+   }
+-  isBreadcrumbWidthLimited={false}
+-  isManagedSidebar={false}
+-  isNotificationDrawerExpanded={false}
+-  mainComponent="main"
+-  mainContainerId="primary-app-container"
+-  mainTabIndex={-1}
+   onNotificationDrawerExpand={[Function]}
+   sidebar={
+-    <PageSidebar
+-      theme="dark"
+-    >
++    <PageSidebar>
+       <PageSidebarBody>
+         <Nav
+           id="nav-primary-simple"
+           onSelect={[Function]}
+           onToggle={[Function]}
+           ouiaSafe={true}
+-          theme="dark"
+         >
+           <NavList
+-            ariaLeftScroll="Scroll left"
+-            ariaRightScroll="Scroll right"
+             backScrollAriaLabel="Scroll back"
+             forwardScrollAriaLabel="Scroll forward"
+             id="nav-list-simple"
+diff --git a/src/components/viewLayout/__tests__/__snapshots__/viewLayoutNavGroup.test.tsx.snap b/src/components/viewLayout/__tests__/__snapshots__/viewLayoutNavGroup.test.tsx.snap
+index bd7c09d6c..8f635e0ed 100644
+--- a/src/components/viewLayout/__tests__/__snapshots__/viewLayoutNavGroup.test.tsx.snap
++++ b/src/components/viewLayout/__tests__/__snapshots__/viewLayoutNavGroup.test.tsx.snap
+@@ -5,37 +5,43 @@ exports[`ViewLayout should render a basic component with NavGroup: basic 1`] = `
+   defaultManagedSidebarIsOpen={true}
+   getBreakpoint={[Function]}
+   getVerticalBreakpoint={[Function]}
+-  header={
++  isBreadcrumbWidthLimited={false}
++  isManagedSidebar={false}
++  isNotificationDrawerExpanded={false}
++  mainComponent="main"
++  mainContainerId="primary-app-container"
++  mainTabIndex={-1}
++  masthead={
+     <Masthead>
+-      <MastheadToggle>
+-        <Button
+-          aria-label="Global navigation"
+-          onClick={[Function]}
+-          ouiaId="global-navigation"
+-          variant="plain"
+-        >
+-          <BarsIcon />
+-        </Button>
+-      </MastheadToggle>
+       <MastheadMain>
++        <MastheadToggle>
++          <PageToggleButton
++            aria-label="Global navigation"
++            isHamburgerButton={true}
++            onSidebarToggle={[Function]}
++            ouiaId="global-navigation"
++          />
++        </MastheadToggle>
+         <MastheadBrand>
+-          <Brand
+-            alt="t([
++          <MastheadLogo>
++            <Brand
++              alt="t([
+   "view.alt-logo",
+   {
+     "name": "Quipucords"
+   }
+ ])"
+-            heights={
+-              {
+-                "default": "36px",
++              heights={
++                {
++                  "default": "36px",
++                }
+               }
+-            }
+-          >
+-            <source
+-              srcSet="title.svg"
+-            />
+-          </Brand>
++            >
++              <source
++                srcSet="title.svg"
++              />
++            </Brand>
++          </MastheadLogo>
+         </MastheadBrand>
+       </MastheadMain>
+       <MastheadContent>
+@@ -43,28 +49,17 @@ exports[`ViewLayout should render a basic component with NavGroup: basic 1`] = `
+       </MastheadContent>
+     </Masthead>
+   }
+-  isBreadcrumbWidthLimited={false}
+-  isManagedSidebar={false}
+-  isNotificationDrawerExpanded={false}
+-  mainComponent="main"
+-  mainContainerId="primary-app-container"
+-  mainTabIndex={-1}
+   onNotificationDrawerExpand={[Function]}
+   sidebar={
+-    <PageSidebar
+-      theme="dark"
+-    >
++    <PageSidebar>
+       <PageSidebarBody>
+         <Nav
+           id="nav-primary-simple"
+           onSelect={[Function]}
+           onToggle={[Function]}
+           ouiaSafe={true}
+-          theme="dark"
+         >
+           <NavList
+-            ariaLeftScroll="Scroll left"
+-            ariaRightScroll="Scroll right"
+             backScrollAriaLabel="Scroll back"
+             forwardScrollAriaLabel="Scroll forward"
+             id="nav-list-simple"
+diff --git a/src/components/viewLayout/__tests__/__snapshots__/viewLayoutToolbar.test.tsx.snap b/src/components/viewLayout/__tests__/__snapshots__/viewLayoutToolbar.test.tsx.snap
+index a72ac469f..577c29566 100644
+--- a/src/components/viewLayout/__tests__/__snapshots__/viewLayoutToolbar.test.tsx.snap
++++ b/src/components/viewLayout/__tests__/__snapshots__/viewLayoutToolbar.test.tsx.snap
+@@ -1,15 +1,6 @@
+ // Jest Snapshot v1, https://goo.gl/fbAQLP
+ 
+-exports[`ViewToolbar should attempt to load and display a username: user 1`] = `
+-<div
+-  class="quipucords-toolbar__user-dropdown"
+->
+-  <span
+-    class="pf-v5-c-avatar"
+-  />
+-  Dolor sit
+-</div>
+-`;
++exports[`ViewToolbar should attempt to load and display a username: user 1`] = `null`;
+ 
+ exports[`ViewToolbar should render a basic component: basic 1`] = `
+ <React.Fragment>
+@@ -25,19 +16,19 @@ exports[`ViewToolbar should render a basic component: basic 1`] = `
+       <ForwardRef
+         align={
+           {
+-            "default": "alignRight",
++            "default": "alignEnd",
+           }
+         }
+-        spacer={
++        gap={
+           {
+-            "default": "spacerNone",
+-            "md": "spacerMd",
++            "default": "gapNone",
++            "md": "gapMd",
+           }
+         }
+-        variant="icon-button-group"
++        variant="action-group-plain"
+       >
+         <ForwardRef
+-          variant="icon-button-group"
++          variant="action-group-plain"
+           visibility={
+             {
+               "default": "hidden",
+@@ -116,8 +107,8 @@ exports[`ViewToolbar should render a basic component: basic 1`] = `
+             toggle={[Function]}
+           >
+             <DropdownItem
+-              data-ouia-component-id="logout"
+               onClick={[Function]}
++              ouiaId="logout"
+               value="logout"
+             >
+               Logout
+@@ -137,11 +128,16 @@ exports[`ViewToolbar should render a basic component: basic 1`] = `
+           isOpen={false}
+           onOpenChange={[Function]}
+           onSelect={[Function]}
++          popperProps={
++            {
++              "position": "right",
++            }
++          }
+           toggle={[Function]}
+         >
+           <DropdownItem
+-            data-ouia-component-id="logout"
+             onClick={[Function]}
++            ouiaId="logout"
+             value="logout"
+           >
+             Logout
+diff --git a/src/components/viewLayout/__tests__/viewLayoutToolbarInteractions.test.tsx b/src/components/viewLayout/__tests__/viewLayoutToolbarInteractions.test.tsx
+index 22c9458a0..5c153ceec 100644
+--- a/src/components/viewLayout/__tests__/viewLayoutToolbarInteractions.test.tsx
++++ b/src/components/viewLayout/__tests__/viewLayoutToolbarInteractions.test.tsx
+@@ -1,6 +1,6 @@
+ import '@testing-library/jest-dom';
+ import React, { act } from 'react';
+-import { render, screen } from '@testing-library/react';
++import { render, screen, waitFor } from '@testing-library/react';
+ import userEvent from '@testing-library/user-event';
+ jest.mock('../../../hooks/useStatusApi', () => ({
+   useStatusApi: () => ({
+@@ -47,10 +47,25 @@ describe('ViewToolbar interactions', () => {
+       render(<ViewToolbar {...props} />);
+     });
+     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+-    await user.click(document.querySelector('button[data-ouia-component-id="help_menu_toggle"]')!);
+-    await user.click(screen.getByText(/About/));
++
++    // Find the help button by looking through toggle buttons
++    const allToggleButtons = screen.getAllByRole('button', { name: /Toggle/i });
++    const helpButton = allToggleButtons[2];
++    expect(helpButton).toBeInTheDocument();
++    await user.click(helpButton!);
++
++    // Wait for the dropdown to open and then click on the About item
++    await waitFor(() => {
++      expect(screen.getByText('About')).toBeInTheDocument();
++    });
++    await user.click(screen.getByText('About'));
++
+     expect(screen.getByRole('dialog')).toBeInTheDocument();
+-    await user.click(screen.getByRole('button', { name: 'Close Dialog' }));
++
++    // Find and click the close button - PatternFly AboutModal uses aria-label for close button
++    const closeButton = screen.getByRole('button', { name: /close/i });
++    await user.click(closeButton);
++
+     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+   });
+ 
+@@ -65,8 +80,20 @@ describe('ViewToolbar interactions', () => {
+     await act(async () => {
+       render(<ViewToolbar {...props} />);
+     });
+-    await user.click(document.querySelector('button[data-ouia-component-id="user_dropdown_button"]')!);
+-    await user.click(screen.getByText(/Logout/));
++
++    // Find the user dropdown button by looking for the button that contains the user name text
++    // The button has aria-label="Toggle" but contains the username in its text content
++    const userButtons = screen.getAllByRole('button', { name: /Toggle/i });
++    const userButton = userButtons.find(button => button.textContent?.includes('Dolor sit'));
++    expect(userButton).toBeInTheDocument();
++    await user.click(userButton!);
++
++    // Wait for the dropdown to open and then click on the Logout item
++    await waitFor(() => {
++      expect(screen.getByText('Logout')).toBeInTheDocument();
++    });
++    await user.click(screen.getByText('Logout'));
++
+     expect(mockLogout).toHaveBeenCalledTimes(1);
+   });
+ });
+diff --git a/src/components/viewLayout/viewLayout.tsx b/src/components/viewLayout/viewLayout.tsx
+index 25ecacb6c..ecf0f167d 100644
+--- a/src/components/viewLayout/viewLayout.tsx
++++ b/src/components/viewLayout/viewLayout.tsx
+@@ -11,21 +11,21 @@ import { useTranslation } from 'react-i18next';
+ import { NavLink, useLocation } from 'react-router-dom';
+ import {
+   Brand,
+-  Button,
+   Masthead,
+-  MastheadBrand,
++  MastheadLogo,
+   MastheadContent,
+   MastheadMain,
+   MastheadToggle,
++  MastheadBrand,
+   Nav,
+   NavItem,
+   NavList,
+   Page,
+   PageSidebar,
+   PageSidebarBody,
++  PageToggleButton,
+   SkipToContent
+ } from '@patternfly/react-core';
+-import { BarsIcon } from '@patternfly/react-icons';
+ import { helpers } from '../../helpers';
+ import { IAppRoute, routes } from '../../routes';
+ import { AppToolbar } from './viewLayoutToolbar';
+@@ -46,21 +46,21 @@ const AppLayout: React.FC<AppLayoutProps> = ({
+ 
+   const Header = (
+     <Masthead>
+-      <MastheadToggle>
+-        <Button
+-          variant="plain"
+-          onClick={() => setSidebarOpen(!sidebarOpen)}
+-          aria-label="Global navigation"
+-          ouiaId="global-navigation"
+-        >
+-          <BarsIcon />
+-        </Button>
+-      </MastheadToggle>
+       <MastheadMain>
++        <MastheadToggle>
++          <PageToggleButton
++            isHamburgerButton
++            aria-label="Global navigation"
++            ouiaId="global-navigation"
++            onSidebarToggle={() => setSidebarOpen(!sidebarOpen)}
++          />
++        </MastheadToggle>
+         <MastheadBrand>
+-          <Brand alt={t('view.alt-logo', { name: uiName })} heights={{ default: '36px' }}>
+-            <source srcSet={titleImg} />
+-          </Brand>
++          <MastheadLogo>
++            <Brand alt={t('view.alt-logo', { name: uiName })} heights={{ default: '36px' }}>
++              <source srcSet={titleImg} />
++            </Brand>
++          </MastheadLogo>
+         </MastheadBrand>
+       </MastheadMain>
+       <MastheadContent>
+@@ -79,7 +79,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({
+ 
+   // FixMe: PF spelling bug in attr "forwardScrollAriaLabel"
+   const Navigation = (
+-    <Nav id="nav-primary-simple" theme="dark">
++    <Nav id="nav-primary-simple">
+       <NavList id="nav-list-simple" forwardScrollAriaLabel="Scroll forward">
+         {routes.map((route, idx) => route.label && renderNavItem(route, idx))}
+       </NavList>
+@@ -87,7 +87,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({
+   );
+ 
+   const Sidebar = (
+-    <PageSidebar theme="dark">
++    <PageSidebar>
+       <PageSidebarBody>{Navigation}</PageSidebarBody>
+     </PageSidebar>
+   );
+@@ -110,7 +110,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({
+   );
+ 
+   return (
+-    <Page mainContainerId={pageId} header={Header} sidebar={sidebarOpen && Sidebar} skipToContent={PageSkipToContent}>
++    <Page mainContainerId={pageId} masthead={Header} sidebar={sidebarOpen && Sidebar} skipToContent={PageSkipToContent}>
+       {children}
+     </Page>
+   );
+diff --git a/src/components/viewLayout/viewLayoutToolbar.css b/src/components/viewLayout/viewLayoutToolbar.css
+deleted file mode 100644
+index d639f8063..000000000
+--- a/src/components/viewLayout/viewLayoutToolbar.css
++++ /dev/null
+@@ -1,10 +0,0 @@
+-.quipucords-toolbar__user-dropdown {
+-  align-items: center;
+-  display: flex;
+-  gap: var(--pf-v5-global--spacer--sm);
+-}
+-.quipucords-toolbar__user-dropdown .pf-v5-c-avatar {
+-  width: 36px;
+-  height: 36px;
+-  background: url(../../images/imgAvatar.svg);
+-}
+diff --git a/src/components/viewLayout/viewLayoutToolbar.tsx b/src/components/viewLayout/viewLayoutToolbar.tsx
+index b3ad40020..89db41079 100644
+--- a/src/components/viewLayout/viewLayoutToolbar.tsx
++++ b/src/components/viewLayout/viewLayoutToolbar.tsx
+@@ -7,6 +7,7 @@
+  */
+ import React, { useEffect, useState } from 'react';
+ import {
++  Avatar,
+   Dropdown,
+   DropdownItem,
+   Icon,
+@@ -21,7 +22,7 @@ import {
+ import { EllipsisVIcon, MoonIcon, QuestionCircleIcon, SunIcon } from '@patternfly/react-icons';
+ import { useLogoutApi, useUserApi } from '../../hooks/useLoginApi';
+ import '@patternfly/react-styles/css/components/Avatar/avatar.css';
+-import './viewLayoutToolbar.css';
++import avatarImage from '../../images/imgAvatar.svg';
+ import AboutModal from '../aboutModal/aboutModal';
+ 
+ interface AppToolbarProps {
+@@ -50,9 +51,9 @@ const AppToolbar: React.FC<AppToolbarProps> = ({ useLogout = useLogoutApi, useUs
+     const htmlElement = document.getElementsByTagName('html')[0];
+     if (htmlElement) {
+       if (isDark) {
+-        htmlElement.classList.add('pf-v5-theme-dark');
++        htmlElement.classList.add('pf-v6-theme-dark');
+       } else {
+-        htmlElement.classList.remove('pf-v5-theme-dark');
++        htmlElement.classList.remove('pf-v6-theme-dark');
+       }
+     }
+   };
+@@ -81,11 +82,11 @@ const AppToolbar: React.FC<AppToolbarProps> = ({ useLogout = useLogoutApi, useUs
+       <Toolbar id="toolbar" isFullHeight isStatic>
+         <ToolbarContent>
+           <ToolbarGroup
+-            variant="icon-button-group"
+-            align={{ default: 'alignRight' }}
+-            spacer={{ default: 'spacerNone', md: 'spacerMd' }}
++            variant="action-group-plain"
++            align={{ default: 'alignEnd' }}
++            gap={{ default: 'gapNone', md: 'gapMd' }}
+           >
+-            <ToolbarGroup variant="icon-button-group" visibility={{ default: 'hidden', lg: 'visible' }}>
++            <ToolbarGroup variant="action-group-plain" visibility={{ default: 'hidden', lg: 'visible' }}>
+               <ToolbarItem>
+                 <ToggleGroup aria-label="Dark theme toggle group">
+                   <ToggleGroupItem
+@@ -129,7 +130,7 @@ const AppToolbar: React.FC<AppToolbarProps> = ({ useLogout = useLogoutApi, useUs
+                       variant="plain"
+                       onClick={() => setHelpOpen(prev => !prev)}
+                       isExpanded={helpOpen}
+-                      data-ouia-component-id="help_menu_toggle"
++                      ouiaId="help_menu_toggle"
+                     >
+                       <QuestionCircleIcon />
+                     </MenuToggle>
+@@ -156,13 +157,13 @@ const AppToolbar: React.FC<AppToolbarProps> = ({ useLogout = useLogoutApi, useUs
+                     onClick={() => setKebabDropdownOpen(prev => !prev)}
+                     isExpanded={kebabDropdownOpen}
+                     style={{ width: 'auto' }}
+-                    data-ouia-component-id="user_dropdown_button"
++                    ouiaId="user_dropdown_button"
+                   >
+                     <EllipsisVIcon />
+                   </MenuToggle>
+                 )}
+               >
+-                <DropdownItem value="logout" onClick={onLogout} data-ouia-component-id="logout">
++                <DropdownItem value="logout" onClick={onLogout} ouiaId="logout">
+                   Logout
+                 </DropdownItem>
+               </Dropdown>
+@@ -170,6 +171,7 @@ const AppToolbar: React.FC<AppToolbarProps> = ({ useLogout = useLogoutApi, useUs
+           </ToolbarGroup>
+           <ToolbarItem visibility={{ default: 'hidden', lg: 'visible' }}>
+             <Dropdown
++              popperProps={{ position: 'right' }}
+               onSelect={onUserDropdownSelect}
+               onOpenChange={(isOpen: boolean) => setUserDropdownOpen(isOpen)}
+               isOpen={userDropdownOpen}
+@@ -177,19 +179,16 @@ const AppToolbar: React.FC<AppToolbarProps> = ({ useLogout = useLogoutApi, useUs
+                 <MenuToggle
+                   aria-label="Toggle"
+                   ref={toggleRef}
+-                  variant="plain"
++                  icon={<Avatar alt="User avatar" src={avatarImage} size="sm" />}
+                   onClick={() => setUserDropdownOpen(prev => !prev)}
+                   isExpanded={userDropdownOpen}
+-                  data-ouia-component-id="user_dropdown_button"
++                  ouiaId="user_dropdown_button"
+                 >
+-                  <div className="quipucords-toolbar__user-dropdown">
+-                    <span className="pf-v5-c-avatar" />
+-                    {userName}
+-                  </div>
++                  {userName}
+                 </MenuToggle>
+               )}
+             >
+-              <DropdownItem value="logout" onClick={onLogout} data-ouia-component-id="logout">
++              <DropdownItem value="logout" onClick={onLogout} ouiaId="logout">
+                 Logout
+               </DropdownItem>
+             </Dropdown>
+diff --git a/src/vendor/react-table-batteries/components/ExtendedButton/__tests__/ExtendedButton.test.tsx b/src/vendor/react-table-batteries/components/ExtendedButton/__tests__/ExtendedButton.test.tsx
+index 906afbf46..6b60d09b9 100644
+--- a/src/vendor/react-table-batteries/components/ExtendedButton/__tests__/ExtendedButton.test.tsx
++++ b/src/vendor/react-table-batteries/components/ExtendedButton/__tests__/ExtendedButton.test.tsx
+@@ -29,32 +29,39 @@ test('Passes inherited props to the returned component', () => {
+ test('Renders as a primary button initially', () => {
+   render(<ExtendedButton>Test</ExtendedButton>);
+ 
+-  expect(screen.getByRole('button')).toHaveClass('pf-v5-c-button pf-m-primary', { exact: true });
++  expect(screen.getByRole('button')).toHaveClass('pf-v6-c-button pf-m-primary', {
++    exact: true
++  });
+ });
+ 
+-test('Renders as a secondary button once it has been clicked once', () => {
++test('Renders as a secondary button once it has been clicked once', async () => {
+   render(<ExtendedButton>Test</ExtendedButton>);
++
+   const button = screen.getByRole('button');
+-  userEvent.click(screen.getByRole('button'));
++  userEvent.click(button);
+ 
+-  waitFor(() => {
+-    expect(button).toHaveClass('pf-v5-c-button pf-m-secondary', { exact: true });
++  await waitFor(() => {
++    expect(button).toHaveClass('pf-v6-c-button pf-m-secondary', {
++      exact: true
++    });
+   });
+ });
+ 
+-test('Renders as a tertiary button once it has been clicked twice', () => {
++test('Renders as a tertiary button once it has been clicked twice', async () => {
+   render(<ExtendedButton>Test</ExtendedButton>);
+ 
+   const button = screen.getByRole('button');
+   userEvent.click(button);
+   userEvent.click(button);
+ 
+-  waitFor(() => {
+-    expect(button).toHaveClass('pf-v5-c-button pf-m-tertiary', { exact: true });
++  await waitFor(() => {
++    expect(button).toHaveClass('pf-v6-c-button pf-m-tertiary', {
++      exact: true
++    });
+   });
+ });
+ 
+-test('Loops back to rendering a primary button again after being clicked three times', () => {
++test('Loops back to rendering a primary button again after being clicked three times', async () => {
+   render(<ExtendedButton>Test</ExtendedButton>);
+ 
+   const button = screen.getByRole('button');
+@@ -62,7 +69,11 @@ test('Loops back to rendering a primary button again after being clicked three t
+   userEvent.click(button);
+   userEvent.click(button);
+ 
+-  expect(button).toHaveClass('pf-v5-c-button pf-m-primary', { exact: true });
++  await waitFor(() => {
++    expect(button).toHaveClass('pf-v6-c-button pf-m-primary', {
++      exact: true
++    });
++  });
+ });
+ 
+ test('Matches expected default snapshot', () => {
+diff --git a/src/vendor/react-table-batteries/components/ExtendedButton/__tests__/__snapshots__/ExtendedButton.test.tsx.snap b/src/vendor/react-table-batteries/components/ExtendedButton/__tests__/__snapshots__/ExtendedButton.test.tsx.snap
+index 71a6181fb..822fd0533 100644
+--- a/src/vendor/react-table-batteries/components/ExtendedButton/__tests__/__snapshots__/ExtendedButton.test.tsx.snap
++++ b/src/vendor/react-table-batteries/components/ExtendedButton/__tests__/__snapshots__/ExtendedButton.test.tsx.snap
+@@ -3,14 +3,17 @@
+ exports[`Matches expected default snapshot 1`] = `
+ <DocumentFragment>
+   <button
+-    aria-disabled="false"
+-    class="pf-v5-c-button pf-m-primary"
++    class="pf-v6-c-button pf-m-primary"
+     data-ouia-component-id="ouiaId"
+-    data-ouia-component-type="PF5/Button"
++    data-ouia-component-type="PF6/Button"
+     data-ouia-safe="true"
+     type="button"
+   >
+-    Test
++    <span
++      class="pf-v6-c-button__text"
++    >
++      Test
++    </span>
+   </button>
+ </DocumentFragment>
+ `;
+diff --git a/src/vendor/react-table-batteries/components/useTableWithBatteries.tsx b/src/vendor/react-table-batteries/components/useTableWithBatteries.tsx
+index 1b4b451c0..cb063db5f 100644
+--- a/src/vendor/react-table-batteries/components/useTableWithBatteries.tsx
++++ b/src/vendor/react-table-batteries/components/useTableWithBatteries.tsx
+@@ -19,7 +19,7 @@ export const useTableWithBatteries = <
+   const TableWithBatteries = useDeepCompareMemo(
+     () =>
+       React.forwardRef((props: Omit<TableProps, 'ref'>, ref: React.Ref<HTMLTableElement>) => (
+-        <Table {...propHelpers.tableProps} innerRef={ref as React.MutableRefObject<HTMLTableElement>} {...props} />
++        <Table {...propHelpers.tableProps} ref={ref as React.MutableRefObject<HTMLTableElement>} {...props} />
+       )),
+     [propHelpers.tableProps]
+   );
+diff --git a/src/vendor/react-table-batteries/components/useTdWithBatteries.tsx b/src/vendor/react-table-batteries/components/useTdWithBatteries.tsx
+index 055fb2196..1999098b0 100644
+--- a/src/vendor/react-table-batteries/components/useTdWithBatteries.tsx
++++ b/src/vendor/react-table-batteries/components/useTdWithBatteries.tsx
+@@ -32,7 +32,7 @@ export const useTdWithBatteries = <
+         ) => (
+           <Td
+             {...propHelpers.getTdProps({ columnKey })}
+-            innerRef={ref as React.MutableRefObject<HTMLTableCellElement>}
++            ref={ref as React.MutableRefObject<HTMLTableCellElement>}
+             {...props}
+           />
+         )
+diff --git a/src/vendor/react-table-batteries/components/useThWithBatteries.tsx b/src/vendor/react-table-batteries/components/useThWithBatteries.tsx
+index 377ba86bc..b35cf4145 100644
+--- a/src/vendor/react-table-batteries/components/useThWithBatteries.tsx
++++ b/src/vendor/react-table-batteries/components/useThWithBatteries.tsx
+@@ -32,7 +32,7 @@ export const useThWithBatteries = <
+         ) => (
+           <Th
+             {...propHelpers.getThProps({ columnKey })}
+-            innerRef={ref as React.MutableRefObject<HTMLTableCellElement>}
++            ref={ref as React.MutableRefObject<HTMLTableCellElement>}
+             {...props}
+           />
+         )
+diff --git a/src/vendor/react-table-batteries/components/useTrWithBatteries.tsx b/src/vendor/react-table-batteries/components/useTrWithBatteries.tsx
+index 6c23bea3c..8ab40ad26 100644
+--- a/src/vendor/react-table-batteries/components/useTrWithBatteries.tsx
++++ b/src/vendor/react-table-batteries/components/useTrWithBatteries.tsx
+@@ -71,7 +71,7 @@ export const useTrWithBatteries = <
+           return (
+             <Tr
+               {...propHelpers.getTrProps({ item, onRowClick })}
+-              innerRef={ref as React.MutableRefObject<HTMLTableRowElement>}
++              ref={ref as React.MutableRefObject<HTMLTableRowElement>}
+               {...otherProps}
+             >
+               {!builtInControls ? (
+diff --git a/src/vendor/react-table-batteries/hooks/pagination/usePaginationPropHelpers.ts b/src/vendor/react-table-batteries/hooks/pagination/usePaginationPropHelpers.ts
+index 4b2eb5417..6a24f5fd6 100644
+--- a/src/vendor/react-table-batteries/hooks/pagination/usePaginationPropHelpers.ts
++++ b/src/vendor/react-table-batteries/hooks/pagination/usePaginationPropHelpers.ts
+@@ -50,7 +50,7 @@ export const usePaginationPropHelpers = (args: UsePaginationPropHelpersExternalA
+    */
+   const paginationToolbarItemProps: ToolbarItemProps = {
+     variant: 'pagination',
+-    align: { default: 'alignRight' }
++    align: { default: 'alignEnd' }
+   };
+ 
+   return { paginationProps, paginationToolbarItemProps };
+diff --git a/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/FilterToolbar.tsx b/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/FilterToolbar.tsx
+index 9ebe03be7..23036dca8 100644
+--- a/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/FilterToolbar.tsx
++++ b/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/FilterToolbar.tsx
+@@ -8,7 +8,6 @@ import {
+   ToolbarToggleGroup,
+   ToolbarItem
+ } from '@patternfly/react-core';
+-import { SelectOptionProps } from '@patternfly/react-core/deprecated';
+ import FilterIcon from '@patternfly/react-icons/dist/esm/icons/filter-icon';
+ import { FilterControl } from './FilterControl';
+ 
+@@ -21,13 +20,15 @@ export enum FilterType {
+ 
+ export type FilterValue = string[] | undefined | null;
+ 
+-export interface OptionPropsWithKey extends SelectOptionProps {
++export interface OptionPropsWithKey {
+   key: string;
++  value: string | number;
++  label?: string;
+ }
+ 
+ export interface BasicFilterCategory<
+   TItem, // The actual API objects we're filtering
+-  TFilterCategoryKey extends string // Unique identifiers for each filter category (inferred from key properties if possible)
++  TFilterCategoryKey extends string, // Unique identifiers for each filter category (inferred from key properties if possible)
+ > {
+   key: TFilterCategoryKey; // For use in the filterValues state object. Must be unique per category.
+   title: string;
+@@ -62,9 +63,9 @@ export type FilterCategory<TItem, TFilterCategoryKey extends string> =
+ 
+ export type FilterValues<TFilterCategoryKey extends string> = Partial<Record<TFilterCategoryKey, FilterValue>>;
+ 
+-export const getFilterLogicOperator = <TItem, TFilterCategoryKey extends string>(
++export const getFilterLogicOperator = <TItem, TFilterCategoryKey extends string,>(
+   filterCategory?: FilterCategory<TItem, TFilterCategoryKey>,
+-  defaultOperator: 'AND' | 'OR' = 'OR'
++  defaultOperator: 'AND' | 'OR' = 'OR',
+ ) =>
+   (filterCategory && (filterCategory as MultiselectFilterCategory<TItem, TFilterCategoryKey>).logicOperator) ||
+   defaultOperator;
+@@ -147,12 +148,7 @@ export const FilterToolbar = <TItem, TFilterCategoryKey extends string>({
+ 
+   return (
+     <React.Fragment>
+-      <ToolbarToggleGroup
+-        variant="filter-group"
+-        toggleIcon={<FilterIcon />}
+-        breakpoint="2xl"
+-        spaceItems={showFiltersSideBySide ? { default: 'spaceItemsMd' } : undefined}
+-      >
++      <ToolbarToggleGroup variant="filter-group" toggleIcon={<FilterIcon />} breakpoint="2xl">
+         {!showFiltersSideBySide && (
+           <ToolbarItem>
+             <Dropdown
+diff --git a/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/MultiselectFilterControl.tsx b/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/MultiselectFilterControl.tsx
+index c4aae745e..a0c130289 100644
+--- a/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/MultiselectFilterControl.tsx
++++ b/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/MultiselectFilterControl.tsx
+@@ -1,12 +1,5 @@
+ import * as React from 'react';
+-import { ToolbarFilter } from '@patternfly/react-core';
+-import {
+-  Select,
+-  SelectOption,
+-  SelectOptionObject,
+-  SelectVariant,
+-  SelectProps
+-} from '@patternfly/react-core/deprecated'; // TODO upgrade to new PF5 Select stuff
++import { ToolbarFilter, Select, SelectList, SelectOption, MenuToggle } from '@patternfly/react-core';
+ import { css } from '@patternfly/react-styles';
+ import { FilterControlProps } from './FilterControl';
+ import { MultiselectFilterCategory, OptionPropsWithKey } from './FilterToolbar';
+@@ -28,10 +21,10 @@ export const MultiselectFilterControl = <TItem, TFilterCategoryKey extends strin
+ }: React.PropsWithChildren<MultiselectFilterControlProps<TItem, TFilterCategoryKey>>): JSX.Element | null => {
+   const [isFilterDropdownOpen, setIsFilterDropdownOpen] = React.useState(false);
+ 
+-  const getOptionKeyFromOptionValue = (optionValue: string | SelectOptionObject) =>
++  const getOptionKeyFromOptionValue = (optionValue: string | number) =>
+     category.selectOptions.find(optionProps => optionProps.value === optionValue)?.key;
+ 
+-  const getChipFromOptionValue = (optionValue: string | SelectOptionObject | undefined) =>
++  const getChipFromOptionValue = (optionValue: string | number | undefined) =>
+     optionValue ? optionValue.toString() : '';
+ 
+   const getOptionKeyFromChip = (chip: string) =>
+@@ -40,16 +33,21 @@ export const MultiselectFilterControl = <TItem, TFilterCategoryKey extends strin
+   const getOptionValueFromOptionKey = (optionKey: string) =>
+     category.selectOptions.find(optionProps => optionProps.key === optionKey)?.value;
+ 
+-  const onFilterSelect = (value: string | SelectOptionObject) => {
+-    const optionKey = getOptionKeyFromOptionValue(value);
+-    if (optionKey && filterValue?.includes(optionKey)) {
+-      const updatedValues = filterValue.filter((item: string) => item !== optionKey);
+-      setFilterValue(updatedValues);
+-    } else if (filterValue) {
+-      const updatedValues = [...filterValue, optionKey];
+-      setFilterValue(updatedValues as string[]);
+-    } else {
+-      setFilterValue([optionKey || '']);
++  const onFilterSelect = (
++    event: React.MouseEvent<Element, MouseEvent> | undefined,
++    value: string | number | undefined
++  ) => {
++    if (value !== undefined) {
++      const optionKey = getOptionKeyFromOptionValue(value);
++      if (optionKey && filterValue?.includes(optionKey)) {
++        const updatedValues = filterValue.filter((item: string) => item !== optionKey);
++        setFilterValue(updatedValues);
++      } else if (filterValue) {
++        const updatedValues = [...filterValue, optionKey];
++        setFilterValue(updatedValues as string[]);
++      } else {
++        setFilterValue([optionKey || '']);
++      }
+     }
+   };
+ 
+@@ -59,55 +57,52 @@ export const MultiselectFilterControl = <TItem, TFilterCategoryKey extends strin
+     setFilterValue(newValue.length > 0 ? newValue : null);
+   };
+ 
+-  // Select expects "selections" to be an array of the "value" props from the relevant optionProps
+-  const selections = filterValue ? filterValue.map(getOptionValueFromOptionKey) : null;
++  // Select expects "selected" to be an array of the "value" props from the relevant optionProps
++  const selected = filterValue ? filterValue.map(getOptionValueFromOptionKey) : [];
+ 
+-  const chips = selections ? selections.map(getChipFromOptionValue) : [];
++  const chips = selected.map(getChipFromOptionValue);
+ 
+   const renderSelectOptions = (options: OptionPropsWithKey[]) =>
+-    options.map(optionProps => <SelectOption {...optionProps} key={optionProps.key} />);
+-
+-  const onOptionsFilter: SelectProps['onFilter'] = (_event, textInput) =>
+-    renderSelectOptions(
+-      category.selectOptions.filter(optionProps => {
+-        // Note: The in-dropdown filter can match the option's key or value. This may not be desirable?
+-        if (!textInput) {
+-          return false;
+-        }
+-        const optionValue = optionProps?.value?.toString();
+-        return (
+-          optionProps?.key?.toLowerCase().includes(textInput.toLowerCase()) ||
+-          optionValue.toLowerCase().includes(textInput.toLowerCase())
+-        );
+-      })
+-    );
++    options.map(optionProps => (
++      <SelectOption key={optionProps.key} value={optionProps.value} isSelected={selected.includes(optionProps.value)}>
++        {optionProps.label || optionProps.value.toString()}
++      </SelectOption>
++    ));
+ 
+   // TODO support i18n / custom text here?
+   const placeholderText = category.placeholderText || `Filter by ${category.title}...`;
+ 
++  const toggle = (toggleRef: React.RefObject<HTMLDivElement | HTMLButtonElement>) => (
++    <MenuToggle
++      ref={toggleRef}
++      className={css(isScrollable && 'isScrollable')}
++      aria-label={category.title}
++      aria-expanded={isFilterDropdownOpen}
++      aria-haspopup="listbox"
++      isDisabled={isDisabled || category.selectOptions.length === 0}
++      isExpanded={isFilterDropdownOpen}
++    >
++      {selected.length > 0 ? `${selected.length} selected` : placeholderText}
++    </MenuToggle>
++  );
++
+   return (
+     <ToolbarFilter
+       id={`${id}-filter-control-${category.key}`}
+-      chips={chips}
+-      deleteChip={(_, chip) => onFilterClear(chip as string)}
++      labels={chips}
++      deleteLabel={(_, chip) => onFilterClear(chip as string)}
+       categoryName={category.title}
+       showToolbarItem={showToolbarItem}
+     >
+       <Select
+         className={css(isScrollable && 'isScrollable')}
+-        aria-label={category.title}
+-        toggleId={`${id}-${category.key}-filter-value-select`}
+-        onToggle={() => setIsFilterDropdownOpen(!isFilterDropdownOpen)}
+-        selections={selections || []}
+-        onSelect={(_, value) => onFilterSelect(value)}
+         isOpen={isFilterDropdownOpen}
+-        placeholderText={placeholderText}
+-        isDisabled={isDisabled || category.selectOptions.length === 0}
+-        variant={SelectVariant.checkbox}
+-        hasInlineFilter
+-        onFilter={onOptionsFilter}
++        selected={selected}
++        onSelect={onFilterSelect}
++        onOpenChange={setIsFilterDropdownOpen}
++        toggle={toggle}
+       >
+-        {renderSelectOptions(category.selectOptions)}
++        <SelectList>{renderSelectOptions(category.selectOptions)}</SelectList>
+       </Select>
+     </ToolbarFilter>
+   );
+diff --git a/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/SearchFilterControl.tsx b/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/SearchFilterControl.tsx
+index 829386097..875ea0129 100644
+--- a/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/SearchFilterControl.tsx
++++ b/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/SearchFilterControl.tsx
+@@ -33,8 +33,8 @@ export const SearchFilterControl = <TItem, TFilterCategoryKey extends string>({
+   const inputId = `${id}-${category.key}-input`;
+   return (
+     <ToolbarFilter
+-      chips={filterValue || []}
+-      deleteChip={() => setFilterValue([])}
++      labels={filterValue || []}
++      deleteLabel={() => setFilterValue([])}
+       categoryName={category.title}
+       showToolbarItem={showToolbarItem}
+     >
+@@ -55,14 +55,14 @@ export const SearchFilterControl = <TItem, TFilterCategoryKey extends string>({
+           }}
+           isDisabled={isDisabled}
+         />
+-        <Button
++        <Button icon={<SearchIcon />}
+           variant={ButtonVariant.control}
+           id={`${id}-search-button`}
+           aria-label="search button for search input"
+           onClick={onFilterSubmit}
+           isDisabled={isDisabled}
+         >
+-          <SearchIcon />
++          
+         </Button>
+       </InputGroup>
+     </ToolbarFilter>
+diff --git a/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/SelectFilterControl.tsx b/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/SelectFilterControl.tsx
+index 00e195ebc..13ba3f0f0 100644
+--- a/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/SelectFilterControl.tsx
++++ b/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/SelectFilterControl.tsx
+@@ -1,6 +1,5 @@
+ import * as React from 'react';
+-import { ToolbarFilter } from '@patternfly/react-core';
+-import { Select, SelectOption, SelectOptionObject } from '@patternfly/react-core/deprecated';
++import { ToolbarFilter, Select, SelectList, SelectOption, MenuToggle } from '@patternfly/react-core';
+ import { css } from '@patternfly/react-styles';
+ import { FilterControlProps } from './FilterControl';
+ import { SelectFilterCategory, OptionPropsWithKey } from './FilterToolbar';
+@@ -22,10 +21,10 @@ export const SelectFilterControl = <TItem, TFilterCategoryKey extends string>({
+ }: React.PropsWithChildren<SelectFilterControlProps<TItem, TFilterCategoryKey>>): JSX.Element | null => {
+   const [isFilterDropdownOpen, setIsFilterDropdownOpen] = React.useState(false);
+ 
+-  const getOptionKeyFromOptionValue = (optionValue: string | SelectOptionObject) =>
++  const getOptionKeyFromOptionValue = (optionValue: string | number) =>
+     category.selectOptions.find(optionProps => optionProps.value === optionValue)?.key;
+ 
+-  const getChipFromOptionValue = (optionValue: string | SelectOptionObject | undefined) =>
++  const getChipFromOptionValue = (optionValue: string | number | undefined) =>
+     optionValue ? optionValue.toString() : '';
+ 
+   const getOptionKeyFromChip = (chip: string) =>
+@@ -34,10 +33,15 @@ export const SelectFilterControl = <TItem, TFilterCategoryKey extends string>({
+   const getOptionValueFromOptionKey = (optionKey: string) =>
+     category.selectOptions.find(optionProps => optionProps.key === optionKey)?.value;
+ 
+-  const onFilterSelect = (value: string | SelectOptionObject) => {
+-    const optionKey = getOptionKeyFromOptionValue(value);
+-    setFilterValue(optionKey ? [optionKey] : null);
+-    setIsFilterDropdownOpen(false);
++  const onFilterSelect = (
++    event: React.MouseEvent<Element, MouseEvent> | undefined,
++    value: string | number | undefined
++  ) => {
++    if (value !== undefined) {
++      const optionKey = getOptionKeyFromOptionValue(value);
++      setFilterValue(optionKey ? [optionKey] : null);
++      setIsFilterDropdownOpen(false);
++    }
+   };
+ 
+   const onFilterClear = (chip: string) => {
+@@ -46,34 +50,53 @@ export const SelectFilterControl = <TItem, TFilterCategoryKey extends string>({
+     setFilterValue(newValue.length > 0 ? newValue : null);
+   };
+ 
+-  // Select expects "selections" to be an array of the "value" props from the relevant optionProps
+-  const selections = filterValue ? filterValue.map(getOptionValueFromOptionKey) : null;
++  const onToggleClick = () => {
++    setIsFilterDropdownOpen(!isFilterDropdownOpen);
++  };
++
++  // Select expects "selected" to be an array of the "value" props from the relevant optionProps
++  const selected = filterValue ? filterValue.map(getOptionValueFromOptionKey) : [];
+ 
+-  const chips = selections ? selections.map(getChipFromOptionValue) : [];
++  const chips = selected.map(getChipFromOptionValue);
+ 
+   const renderSelectOptions = (options: OptionPropsWithKey[]) =>
+-    options.map(optionProps => <SelectOption {...optionProps} key={optionProps.key} />);
++    options.map(optionProps => (
++      <SelectOption key={optionProps.key} value={optionProps.value} isSelected={selected.includes(optionProps.value)}>
++        {optionProps.label || optionProps.value.toString()}
++      </SelectOption>
++    ));
++
++  const toggle = (toggleRef: React.RefObject<HTMLDivElement | HTMLButtonElement>) => (
++    <MenuToggle
++      ref={toggleRef}
++      onClick={onToggleClick}
++      aria-label={category.title}
++      aria-expanded={isFilterDropdownOpen}
++      aria-haspopup="listbox"
++      isDisabled={isDisabled || category.selectOptions.length === 0}
++      isExpanded={isFilterDropdownOpen}
++    >
++      {selected.length > 0 && selected[0] ? selected[0].toString() : 'Any'}
++    </MenuToggle>
++  );
+ 
+   return (
+     <ToolbarFilter
+       id={`${id}-filter-control-${category.key}`}
+-      chips={chips}
+-      deleteChip={(_, chip) => onFilterClear(chip as string)}
++      labels={chips}
++      deleteLabel={(_, chip) => onFilterClear(chip as string)}
+       categoryName={category.title}
+       showToolbarItem={showToolbarItem}
+     >
+       <Select
+         className={css(isScrollable && 'isScrollable')}
+-        aria-label={category.title}
+-        toggleId={`${id}-${category.key}-filter-value-select`}
+-        onToggle={() => setIsFilterDropdownOpen(!isFilterDropdownOpen)}
+-        selections={selections || []}
+-        onSelect={(_, value) => onFilterSelect(value)}
+         isOpen={isFilterDropdownOpen}
+-        placeholderText="Any"
+-        isDisabled={isDisabled || category.selectOptions.length === 0}
++        selected={selected}
++        onSelect={onFilterSelect}
++        onOpenChange={setIsFilterDropdownOpen}
++        toggle={toggle}
+       >
+-        {renderSelectOptions(category.selectOptions)}
++        <SelectList>{renderSelectOptions(category.selectOptions)}</SelectList>
+       </Select>
+     </ToolbarFilter>
+   );
+diff --git a/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/select-overrides.css b/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/select-overrides.css
+index 8fe8da929..3f793cb34 100644
+--- a/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/select-overrides.css
++++ b/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/select-overrides.css
+@@ -1,4 +1,4 @@
+-.pf-v5-c-select.isScrollable .pf-v5-c-select__menu {
++.pf-v6-c-select.isScrollable .pf-v6-c-select__menu {
+   max-height: 60vh;
+   overflow-y: auto;
+ }
+diff --git a/src/vendor/react-table-batteries/tackle2-ui-legacy/components/TableControls/NoDataEmptyState.tsx b/src/vendor/react-table-batteries/tackle2-ui-legacy/components/TableControls/NoDataEmptyState.tsx
+index 4398e8a4b..7f19b29b2 100644
+--- a/src/vendor/react-table-batteries/tackle2-ui-legacy/components/TableControls/NoDataEmptyState.tsx
++++ b/src/vendor/react-table-batteries/tackle2-ui-legacy/components/TableControls/NoDataEmptyState.tsx
+@@ -1,5 +1,5 @@
+ import React from 'react';
+-import { EmptyState, EmptyStateBody, EmptyStateIcon, EmptyStateVariant, Title } from '@patternfly/react-core';
++import { EmptyState, EmptyStateBody, EmptyStateVariant, Title } from '@patternfly/react-core';
+ import CubesIcon from '@patternfly/react-icons/dist/esm/icons/cubes-icon';
+ 
+ export interface NoDataEmptyStateProps {
+@@ -8,11 +8,9 @@ export interface NoDataEmptyStateProps {
+ }
+ 
+ export const NoDataEmptyState: React.FC<NoDataEmptyStateProps> = ({ title, description }) => (
+-  <EmptyState variant={EmptyStateVariant.sm}>
+-    <EmptyStateIcon icon={CubesIcon} />
+-    <Title headingLevel="h2" size="lg">
++  <EmptyState titleText={<Title headingLevel="h2" size="lg">
+       {title}
+-    </Title>
++    </Title>} icon={CubesIcon} variant={EmptyStateVariant.sm}>
+     {description && <EmptyStateBody>{description}</EmptyStateBody>}
+   </EmptyState>
+ );
+diff --git a/src/vendor/react-table-batteries/tackle2-ui-legacy/components/TableControls/StateError.tsx b/src/vendor/react-table-batteries/tackle2-ui-legacy/components/TableControls/StateError.tsx
+index ce2e83426..05ec6bfb2 100644
+--- a/src/vendor/react-table-batteries/tackle2-ui-legacy/components/TableControls/StateError.tsx
++++ b/src/vendor/react-table-batteries/tackle2-ui-legacy/components/TableControls/StateError.tsx
+@@ -1,14 +1,12 @@
+ import React from 'react';
+-import { EmptyState, EmptyStateIcon, EmptyStateVariant, Title, EmptyStateBody } from '@patternfly/react-core';
++import { EmptyState, EmptyStateVariant, Title, EmptyStateBody } from '@patternfly/react-core';
+ import ExclamationCircleIcon from '@patternfly/react-icons/dist/esm/icons/exclamation-circle-icon';
+-import { global_danger_color_200 as globalDangerColor200 } from '@patternfly/react-tokens';
++
+ 
+ export const StateError: React.FC = () => (
+-  <EmptyState variant={EmptyStateVariant.sm}>
+-    <EmptyStateIcon icon={ExclamationCircleIcon} color={globalDangerColor200.value} />
+-    <Title headingLevel="h2" size="lg">
++  <EmptyState titleText={<Title headingLevel="h2" size="lg">
+       Unable to connect
+-    </Title>
++    </Title>} icon={ExclamationCircleIcon} variant={EmptyStateVariant.sm}>
+     <EmptyStateBody>There was an error retrieving data. Check your connection and try again.</EmptyStateBody>
+   </EmptyState>
+ );
+diff --git a/src/vendor/react-table-batteries/tackle2-ui-legacy/components/ToolbarBulkSelector.tsx b/src/vendor/react-table-batteries/tackle2-ui-legacy/components/ToolbarBulkSelector.tsx
+index 664061a2b..c5602bf5e 100644
+--- a/src/vendor/react-table-batteries/tackle2-ui-legacy/components/ToolbarBulkSelector.tsx
++++ b/src/vendor/react-table-batteries/tackle2-ui-legacy/components/ToolbarBulkSelector.tsx
+@@ -131,8 +131,7 @@ export const ToolbarBulkSelector = <T,>({
+               ref={toggleRef}
+               onClick={() => setIsOpen(!isOpen)}
+               aria-label="Bulk selection menu toggle"
+-              splitButtonOptions={{
+-                items: [
++              splitButtonItems={[
+                   <MenuToggleCheckbox
+                     id="bulk-selected-items-checkbox"
+                     key="bulk-select-checkbox"
+@@ -148,8 +147,7 @@ export const ToolbarBulkSelector = <T,>({
+                     }}
+                     isChecked={getBulkSelectState()}
+                   />
+-                ]
+-              }}
++                ]}
+             />
+           )}
+         >
+diff --git a/src/views/credentials/__tests__/__snapshots__/addCredentialModal.test.tsx.snap b/src/views/credentials/__tests__/__snapshots__/addCredentialModal.test.tsx.snap
+index be9128737..b38031f5c 100644
+--- a/src/views/credentials/__tests__/__snapshots__/addCredentialModal.test.tsx.snap
++++ b/src/views/credentials/__tests__/__snapshots__/addCredentialModal.test.tsx.snap
+@@ -17,7 +17,7 @@ exports[`AddCredentialModal should call onSubmit with the correct filtered data
+ 
+ exports[`AddCredentialModal should have the correct title: AddCredentialModal Title 1`] = `
+ <span
+-  class="pf-v5-c-modal-box__title-text"
++  class="pf-v6-c-modal-box__title-text"
+ >
+   Add credential: network
+ </span>
+@@ -1285,11 +1285,11 @@ exports[`CredentialForm should render specific to authType for type openshift: o
+ </Form>
+ `;
+ 
+-exports[`CredentialForm should submit updated credential data: edit credential form, after 1`] = `"<form novalidate="" class="pf-v5-c-form"><div class="pf-v5-c-form__group"><div class="pf-v5-c-form__group-label"><label class="pf-v5-c-form__label" for="name"><span class="pf-v5-c-form__label-text">Name</span><span class="pf-v5-c-form__label-required" aria-hidden="true"> *</span></label> </div><div class="pf-v5-c-form__group-control"><span class="pf-v5-c-form-control"><input id="credential-name" name="name" type="text" aria-invalid="false" required="" placeholder="Enter a name for the credential" data-ouia-component-type="PF5/TextInput" data-ouia-safe="true" data-ouia-component-id="cred_name" value="Test changing name"></span></div></div><div class="pf-v5-c-form__group"><div class="pf-v5-c-form__group-label"><label class="pf-v5-c-form__label" for="auth_type"><span class="pf-v5-c-form__label-text">Authentication Type</span></label> </div><div class="pf-v5-c-form__group-control"><button class="pf-v5-c-menu-toggle pf-m-full-width" type="button" aria-label="Dropdown menu" aria-expanded="false" data-ouia-component-id="auth_type"><span class="pf-v5-c-menu-toggle__text">Username and Password</span><span class="pf-v5-c-menu-toggle__controls"><span class="pf-v5-c-menu-toggle__toggle-icon"><svg class="pf-v5-svg" viewBox="0 0 320 512" fill="currentColor" aria-hidden="true" role="img" width="1em" height="1em"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg></span></span></button></div></div><div class="pf-v5-c-form__group"><div class="pf-v5-c-form__group-label"><label class="pf-v5-c-form__label" for="username"><span class="pf-v5-c-form__label-text">Username</span><span class="pf-v5-c-form__label-required" aria-hidden="true"> *</span></label> </div><div class="pf-v5-c-form__group-control"><span class="pf-v5-c-form-control"><input id="credential-username" name="username" type="text" aria-invalid="false" required="" placeholder="Enter username" data-ouia-component-type="PF5/TextInput" data-ouia-safe="true" data-ouia-component-id="username" value="discovery"></span></div></div><div class="pf-v5-c-form__group"><div class="pf-v5-c-form__group-label"><label class="pf-v5-c-form__label" for="password"><span class="pf-v5-c-form__label-text">Password</span><span class="pf-v5-c-form__label-required" aria-hidden="true"> *</span></label> </div><div class="pf-v5-c-form__group-control"><span class="pf-v5-c-form-control"><input id="credential-password" name="password" type="password" aria-invalid="false" required="" placeholder="****" data-ouia-component-type="PF5/TextInput" data-ouia-safe="true" data-ouia-component-id="password" value=""></span></div></div><div class="pf-v5-c-form__group"><div class="pf-v5-c-form__group-label"><label class="pf-v5-c-form__label" for="become_method"><span class="pf-v5-c-form__label-text">Become Method</span></label> </div><div class="pf-v5-c-form__group-control"><button class="pf-v5-c-menu-toggle pf-m-full-width" type="button" aria-label="Dropdown menu" aria-expanded="false" data-ouia-component-id="become_method"><span class="pf-v5-c-menu-toggle__text">Select option</span><span class="pf-v5-c-menu-toggle__controls"><span class="pf-v5-c-menu-toggle__toggle-icon"><svg class="pf-v5-svg" viewBox="0 0 320 512" fill="currentColor" aria-hidden="true" role="img" width="1em" height="1em"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg></span></span></button></div></div><div class="pf-v5-c-form__group"><div class="pf-v5-c-form__group-label"><label class="pf-v5-c-form__label" for="become_user"><span class="pf-v5-c-form__label-text">Become User</span></label> </div><div class="pf-v5-c-form__group-control"><span class="pf-v5-c-form-control"><input id="become_user" name="become_user" type="text" aria-invalid="false" placeholder="Enter become user (optional)" data-ouia-component-type="PF5/TextInput" data-ouia-safe="true" data-ouia-component-id="become_user" value=""></span></div></div><div class="pf-v5-c-form__group"><div class="pf-v5-c-form__group-label"><label class="pf-v5-c-form__label" for="become_password"><span class="pf-v5-c-form__label-text">Become Password</span></label> </div><div class="pf-v5-c-form__group-control"><span class="pf-v5-c-form-control"><input id="become_password" name="become_password" type="password" aria-invalid="false" placeholder="Enter become password (optional)" data-ouia-component-type="PF5/TextInput" data-ouia-safe="true" data-ouia-component-id="become_password" value=""></span></div></div><div class="pf-v5-c-form__group pf-m-action"><div class="pf-v5-c-form__group-control"><div class="pf-v5-c-form__actions"><button aria-disabled="false" class="pf-v5-c-button pf-m-primary" type="button" data-ouia-component-type="PF5/Button" data-ouia-safe="true" data-ouia-component-id="OUIA-Generated-Button-primary-10">Save</button><button aria-disabled="false" class="pf-v5-c-button pf-m-link" type="button" data-ouia-component-type="PF5/Button" data-ouia-safe="true" data-ouia-component-id="OUIA-Generated-Button-link-10">Cancel</button></div></div></div></form>"`;
++exports[`CredentialForm should submit updated credential data: edit credential form, after 1`] = `"<form novalidate="" class="pf-v6-c-form"><div class="pf-v6-c-form__group"><div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="name"><span class="pf-v6-c-form__label-text">Name</span><span class="pf-v6-c-form__label-required" aria-hidden="true"> *</span></label>&nbsp;&nbsp;</div><div class="pf-v6-c-form__group-control"><span class="pf-v6-c-form-control"><input id="credential-name" name="name" type="text" aria-invalid="false" required="" placeholder="Enter a name for the credential" data-ouia-component-type="PF6/TextInput" data-ouia-safe="true" data-ouia-component-id="cred_name" value="Test changing name"></span></div></div><div class="pf-v6-c-form__group"><div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="auth_type"><span class="pf-v6-c-form__label-text">Authentication Type</span></label>&nbsp;&nbsp;</div><div class="pf-v6-c-form__group-control"><button class="pf-v6-c-menu-toggle pf-m-full-width" type="button" aria-label="Dropdown menu" aria-expanded="false" data-ouia-component-type="PF6/MenuToggle" data-ouia-safe="true" data-ouia-component-id="auth_type"><span class="pf-v6-c-menu-toggle__text">Username and Password</span><span class="pf-v6-c-menu-toggle__controls"><span class="pf-v6-c-menu-toggle__toggle-icon"><svg class="pf-v6-svg" viewBox="0 0 320 512" fill="currentColor" aria-hidden="true" role="img" width="1em" height="1em"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg></span></span></button></div></div><div class="pf-v6-c-form__group"><div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="username"><span class="pf-v6-c-form__label-text">Username</span><span class="pf-v6-c-form__label-required" aria-hidden="true"> *</span></label>&nbsp;&nbsp;</div><div class="pf-v6-c-form__group-control"><span class="pf-v6-c-form-control"><input id="credential-username" name="username" type="text" aria-invalid="false" required="" placeholder="Enter username" data-ouia-component-type="PF6/TextInput" data-ouia-safe="true" data-ouia-component-id="username" value="discovery"></span></div></div><div class="pf-v6-c-form__group"><div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="password"><span class="pf-v6-c-form__label-text">Password</span><span class="pf-v6-c-form__label-required" aria-hidden="true"> *</span></label>&nbsp;&nbsp;</div><div class="pf-v6-c-form__group-control"><span class="pf-v6-c-form-control"><input id="credential-password" name="password" type="password" aria-invalid="false" required="" placeholder="****" data-ouia-component-type="PF6/TextInput" data-ouia-safe="true" data-ouia-component-id="password" value=""></span></div></div><div class="pf-v6-c-form__group"><div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="become_method"><span class="pf-v6-c-form__label-text">Become Method</span></label>&nbsp;&nbsp;</div><div class="pf-v6-c-form__group-control"><button class="pf-v6-c-menu-toggle pf-m-full-width" type="button" aria-label="Dropdown menu" aria-expanded="false" data-ouia-component-type="PF6/MenuToggle" data-ouia-safe="true" data-ouia-component-id="become_method"><span class="pf-v6-c-menu-toggle__text">Select option</span><span class="pf-v6-c-menu-toggle__controls"><span class="pf-v6-c-menu-toggle__toggle-icon"><svg class="pf-v6-svg" viewBox="0 0 320 512" fill="currentColor" aria-hidden="true" role="img" width="1em" height="1em"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg></span></span></button></div></div><div class="pf-v6-c-form__group"><div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="become_user"><span class="pf-v6-c-form__label-text">Become User</span></label>&nbsp;&nbsp;</div><div class="pf-v6-c-form__group-control"><span class="pf-v6-c-form-control"><input id="become_user" name="become_user" type="text" aria-invalid="false" placeholder="Enter become user (optional)" data-ouia-component-type="PF6/TextInput" data-ouia-safe="true" data-ouia-component-id="become_user" value=""></span></div></div><div class="pf-v6-c-form__group"><div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="become_password"><span class="pf-v6-c-form__label-text">Become Password</span></label>&nbsp;&nbsp;</div><div class="pf-v6-c-form__group-control"><span class="pf-v6-c-form-control"><input id="become_password" name="become_password" type="password" aria-invalid="false" placeholder="Enter become password (optional)" data-ouia-component-type="PF6/TextInput" data-ouia-safe="true" data-ouia-component-id="become_password" value=""></span></div></div><div class="pf-v6-c-form__group pf-m-action"><div class="pf-v6-c-form__group-control"><div class="pf-v6-c-form__actions"><button class="pf-v6-c-button pf-m-primary" type="button" data-ouia-component-type="PF6/Button" data-ouia-safe="true" data-ouia-component-id="OUIA-Generated-Button-primary-10"><span class="pf-v6-c-button__text">Save</span></button><button class="pf-v6-c-button pf-m-link" type="button" data-ouia-component-type="PF6/Button" data-ouia-safe="true" data-ouia-component-id="OUIA-Generated-Button-link-10"><span class="pf-v6-c-button__text">Cancel</span></button></div></div></div></form>"`;
+ 
+-exports[`CredentialForm should work with default onClose: onClose 1`] = `"<form novalidate="" class="pf-v5-c-form"><div class="pf-v5-c-form__group"><div class="pf-v5-c-form__group-label"><label class="pf-v5-c-form__label" for="name"><span class="pf-v5-c-form__label-text">Name</span><span class="pf-v5-c-form__label-required" aria-hidden="true"> *</span></label> </div><div class="pf-v5-c-form__group-control"><span class="pf-v5-c-form-control"><input id="credential-name" name="name" type="text" aria-invalid="false" required="" placeholder="Enter a name for the credential" data-ouia-component-type="PF5/TextInput" data-ouia-safe="true" data-ouia-component-id="cred_name" value=""></span></div></div><div class="pf-v5-c-form__group"><div class="pf-v5-c-form__group-label"><label class="pf-v5-c-form__label" for="auth_type"><span class="pf-v5-c-form__label-text">Authentication Type</span></label> </div><div class="pf-v5-c-form__group-control"><button class="pf-v5-c-menu-toggle pf-m-full-width" type="button" aria-label="Dropdown menu" aria-expanded="false" data-ouia-component-id="auth_type"><span class="pf-v5-c-menu-toggle__text">Username and Password</span><span class="pf-v5-c-menu-toggle__controls"><span class="pf-v5-c-menu-toggle__toggle-icon"><svg class="pf-v5-svg" viewBox="0 0 320 512" fill="currentColor" aria-hidden="true" role="img" width="1em" height="1em"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg></span></span></button></div></div><div class="pf-v5-c-form__group"><div class="pf-v5-c-form__group-label"><label class="pf-v5-c-form__label" for="username"><span class="pf-v5-c-form__label-text">Username</span><span class="pf-v5-c-form__label-required" aria-hidden="true"> *</span></label> </div><div class="pf-v5-c-form__group-control"><span class="pf-v5-c-form-control"><input id="credential-username" name="username" type="text" aria-invalid="false" required="" placeholder="Enter username" data-ouia-component-type="PF5/TextInput" data-ouia-safe="true" data-ouia-component-id="username" value=""></span></div></div><div class="pf-v5-c-form__group"><div class="pf-v5-c-form__group-label"><label class="pf-v5-c-form__label" for="password"><span class="pf-v5-c-form__label-text">Password</span><span class="pf-v5-c-form__label-required" aria-hidden="true"> *</span></label> </div><div class="pf-v5-c-form__group-control"><span class="pf-v5-c-form-control"><input id="credential-password" name="password" type="password" aria-invalid="false" required="" placeholder="Enter password" data-ouia-component-type="PF5/TextInput" data-ouia-safe="true" data-ouia-component-id="password" value=""></span></div></div><div class="pf-v5-c-form__group"><div class="pf-v5-c-form__group-label"><label class="pf-v5-c-form__label" for="become_method"><span class="pf-v5-c-form__label-text">Become Method</span></label> </div><div class="pf-v5-c-form__group-control"><button class="pf-v5-c-menu-toggle pf-m-full-width" type="button" aria-label="Dropdown menu" aria-expanded="false" data-ouia-component-id="become_method"><span class="pf-v5-c-menu-toggle__text">Select option</span><span class="pf-v5-c-menu-toggle__controls"><span class="pf-v5-c-menu-toggle__toggle-icon"><svg class="pf-v5-svg" viewBox="0 0 320 512" fill="currentColor" aria-hidden="true" role="img" width="1em" height="1em"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg></span></span></button></div></div><div class="pf-v5-c-form__group"><div class="pf-v5-c-form__group-label"><label class="pf-v5-c-form__label" for="become_user"><span class="pf-v5-c-form__label-text">Become User</span></label> </div><div class="pf-v5-c-form__group-control"><span class="pf-v5-c-form-control"><input id="become_user" name="become_user" type="text" aria-invalid="false" placeholder="Enter become user (optional)" data-ouia-component-type="PF5/TextInput" data-ouia-safe="true" data-ouia-component-id="become_user" value=""></span></div></div><div class="pf-v5-c-form__group"><div class="pf-v5-c-form__group-label"><label class="pf-v5-c-form__label" for="become_password"><span class="pf-v5-c-form__label-text">Become Password</span></label> </div><div class="pf-v5-c-form__group-control"><span class="pf-v5-c-form-control"><input id="become_password" name="become_password" type="password" aria-invalid="false" placeholder="Enter become password (optional)" data-ouia-component-type="PF5/TextInput" data-ouia-safe="true" data-ouia-component-id="become_password" value=""></span></div></div><div class="pf-v5-c-form__group pf-m-action"><div class="pf-v5-c-form__group-control"><div class="pf-v5-c-form__actions"><button aria-disabled="false" class="pf-v5-c-button pf-m-primary" type="button" data-ouia-component-type="PF5/Button" data-ouia-safe="true" data-ouia-component-id="OUIA-Generated-Button-primary-8">Save</button><button aria-disabled="false" class="pf-v5-c-button pf-m-link" type="button" data-ouia-component-type="PF5/Button" data-ouia-safe="true" data-ouia-component-id="OUIA-Generated-Button-link-8">Cancel</button></div></div></div></form>"`;
++exports[`CredentialForm should work with default onClose: onClose 1`] = `"<form novalidate="" class="pf-v6-c-form"><div class="pf-v6-c-form__group"><div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="name"><span class="pf-v6-c-form__label-text">Name</span><span class="pf-v6-c-form__label-required" aria-hidden="true"> *</span></label>&nbsp;&nbsp;</div><div class="pf-v6-c-form__group-control"><span class="pf-v6-c-form-control"><input id="credential-name" name="name" type="text" aria-invalid="false" required="" placeholder="Enter a name for the credential" data-ouia-component-type="PF6/TextInput" data-ouia-safe="true" data-ouia-component-id="cred_name" value=""></span></div></div><div class="pf-v6-c-form__group"><div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="auth_type"><span class="pf-v6-c-form__label-text">Authentication Type</span></label>&nbsp;&nbsp;</div><div class="pf-v6-c-form__group-control"><button class="pf-v6-c-menu-toggle pf-m-full-width" type="button" aria-label="Dropdown menu" aria-expanded="false" data-ouia-component-type="PF6/MenuToggle" data-ouia-safe="true" data-ouia-component-id="auth_type"><span class="pf-v6-c-menu-toggle__text">Username and Password</span><span class="pf-v6-c-menu-toggle__controls"><span class="pf-v6-c-menu-toggle__toggle-icon"><svg class="pf-v6-svg" viewBox="0 0 320 512" fill="currentColor" aria-hidden="true" role="img" width="1em" height="1em"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg></span></span></button></div></div><div class="pf-v6-c-form__group"><div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="username"><span class="pf-v6-c-form__label-text">Username</span><span class="pf-v6-c-form__label-required" aria-hidden="true"> *</span></label>&nbsp;&nbsp;</div><div class="pf-v6-c-form__group-control"><span class="pf-v6-c-form-control"><input id="credential-username" name="username" type="text" aria-invalid="false" required="" placeholder="Enter username" data-ouia-component-type="PF6/TextInput" data-ouia-safe="true" data-ouia-component-id="username" value=""></span></div></div><div class="pf-v6-c-form__group"><div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="password"><span class="pf-v6-c-form__label-text">Password</span><span class="pf-v6-c-form__label-required" aria-hidden="true"> *</span></label>&nbsp;&nbsp;</div><div class="pf-v6-c-form__group-control"><span class="pf-v6-c-form-control"><input id="credential-password" name="password" type="password" aria-invalid="false" required="" placeholder="Enter password" data-ouia-component-type="PF6/TextInput" data-ouia-safe="true" data-ouia-component-id="password" value=""></span></div></div><div class="pf-v6-c-form__group"><div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="become_method"><span class="pf-v6-c-form__label-text">Become Method</span></label>&nbsp;&nbsp;</div><div class="pf-v6-c-form__group-control"><button class="pf-v6-c-menu-toggle pf-m-full-width" type="button" aria-label="Dropdown menu" aria-expanded="false" data-ouia-component-type="PF6/MenuToggle" data-ouia-safe="true" data-ouia-component-id="become_method"><span class="pf-v6-c-menu-toggle__text">Select option</span><span class="pf-v6-c-menu-toggle__controls"><span class="pf-v6-c-menu-toggle__toggle-icon"><svg class="pf-v6-svg" viewBox="0 0 320 512" fill="currentColor" aria-hidden="true" role="img" width="1em" height="1em"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg></span></span></button></div></div><div class="pf-v6-c-form__group"><div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="become_user"><span class="pf-v6-c-form__label-text">Become User</span></label>&nbsp;&nbsp;</div><div class="pf-v6-c-form__group-control"><span class="pf-v6-c-form-control"><input id="become_user" name="become_user" type="text" aria-invalid="false" placeholder="Enter become user (optional)" data-ouia-component-type="PF6/TextInput" data-ouia-safe="true" data-ouia-component-id="become_user" value=""></span></div></div><div class="pf-v6-c-form__group"><div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="become_password"><span class="pf-v6-c-form__label-text">Become Password</span></label>&nbsp;&nbsp;</div><div class="pf-v6-c-form__group-control"><span class="pf-v6-c-form-control"><input id="become_password" name="become_password" type="password" aria-invalid="false" placeholder="Enter become password (optional)" data-ouia-component-type="PF6/TextInput" data-ouia-safe="true" data-ouia-component-id="become_password" value=""></span></div></div><div class="pf-v6-c-form__group pf-m-action"><div class="pf-v6-c-form__group-control"><div class="pf-v6-c-form__actions"><button class="pf-v6-c-button pf-m-primary" type="button" data-ouia-component-type="PF6/Button" data-ouia-safe="true" data-ouia-component-id="OUIA-Generated-Button-primary-8"><span class="pf-v6-c-button__text">Save</span></button><button class="pf-v6-c-button pf-m-link" type="button" data-ouia-component-type="PF6/Button" data-ouia-safe="true" data-ouia-component-id="OUIA-Generated-Button-link-8"><span class="pf-v6-c-button__text">Cancel</span></button></div></div></div></form>"`;
+ 
+-exports[`CredentialForm should work with default onSubmit: onSave 1`] = `"<form novalidate="" class="pf-v5-c-form"><div class="pf-v5-c-form__group"><div class="pf-v5-c-form__group-label"><label class="pf-v5-c-form__label" for="name"><span class="pf-v5-c-form__label-text">Name</span><span class="pf-v5-c-form__label-required" aria-hidden="true"> *</span></label> </div><div class="pf-v5-c-form__group-control"><span class="pf-v5-c-form-control"><input id="credential-name" name="name" type="text" aria-invalid="false" required="" placeholder="Enter a name for the credential" data-ouia-component-type="PF5/TextInput" data-ouia-safe="true" data-ouia-component-id="cred_name" value=""></span></div></div><div class="pf-v5-c-form__group"><div class="pf-v5-c-form__group-label"><label class="pf-v5-c-form__label" for="auth_type"><span class="pf-v5-c-form__label-text">Authentication Type</span></label> </div><div class="pf-v5-c-form__group-control"><button class="pf-v5-c-menu-toggle pf-m-full-width" type="button" aria-label="Dropdown menu" aria-expanded="false" data-ouia-component-id="auth_type"><span class="pf-v5-c-menu-toggle__text">Username and Password</span><span class="pf-v5-c-menu-toggle__controls"><span class="pf-v5-c-menu-toggle__toggle-icon"><svg class="pf-v5-svg" viewBox="0 0 320 512" fill="currentColor" aria-hidden="true" role="img" width="1em" height="1em"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg></span></span></button></div></div><div class="pf-v5-c-form__group"><div class="pf-v5-c-form__group-label"><label class="pf-v5-c-form__label" for="username"><span class="pf-v5-c-form__label-text">Username</span><span class="pf-v5-c-form__label-required" aria-hidden="true"> *</span></label> </div><div class="pf-v5-c-form__group-control"><span class="pf-v5-c-form-control"><input id="credential-username" name="username" type="text" aria-invalid="false" required="" placeholder="Enter username" data-ouia-component-type="PF5/TextInput" data-ouia-safe="true" data-ouia-component-id="username" value=""></span></div></div><div class="pf-v5-c-form__group"><div class="pf-v5-c-form__group-label"><label class="pf-v5-c-form__label" for="password"><span class="pf-v5-c-form__label-text">Password</span><span class="pf-v5-c-form__label-required" aria-hidden="true"> *</span></label> </div><div class="pf-v5-c-form__group-control"><span class="pf-v5-c-form-control"><input id="credential-password" name="password" type="password" aria-invalid="false" required="" placeholder="Enter password" data-ouia-component-type="PF5/TextInput" data-ouia-safe="true" data-ouia-component-id="password" value=""></span></div></div><div class="pf-v5-c-form__group"><div class="pf-v5-c-form__group-label"><label class="pf-v5-c-form__label" for="become_method"><span class="pf-v5-c-form__label-text">Become Method</span></label> </div><div class="pf-v5-c-form__group-control"><button class="pf-v5-c-menu-toggle pf-m-full-width" type="button" aria-label="Dropdown menu" aria-expanded="false" data-ouia-component-id="become_method"><span class="pf-v5-c-menu-toggle__text">Select option</span><span class="pf-v5-c-menu-toggle__controls"><span class="pf-v5-c-menu-toggle__toggle-icon"><svg class="pf-v5-svg" viewBox="0 0 320 512" fill="currentColor" aria-hidden="true" role="img" width="1em" height="1em"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg></span></span></button></div></div><div class="pf-v5-c-form__group"><div class="pf-v5-c-form__group-label"><label class="pf-v5-c-form__label" for="become_user"><span class="pf-v5-c-form__label-text">Become User</span></label> </div><div class="pf-v5-c-form__group-control"><span class="pf-v5-c-form-control"><input id="become_user" name="become_user" type="text" aria-invalid="false" placeholder="Enter become user (optional)" data-ouia-component-type="PF5/TextInput" data-ouia-safe="true" data-ouia-component-id="become_user" value=""></span></div></div><div class="pf-v5-c-form__group"><div class="pf-v5-c-form__group-label"><label class="pf-v5-c-form__label" for="become_password"><span class="pf-v5-c-form__label-text">Become Password</span></label> </div><div class="pf-v5-c-form__group-control"><span class="pf-v5-c-form-control"><input id="become_password" name="become_password" type="password" aria-invalid="false" placeholder="Enter become password (optional)" data-ouia-component-type="PF5/TextInput" data-ouia-safe="true" data-ouia-component-id="become_password" value=""></span></div></div><div class="pf-v5-c-form__group pf-m-action"><div class="pf-v5-c-form__group-control"><div class="pf-v5-c-form__actions"><button aria-disabled="false" class="pf-v5-c-button pf-m-primary" type="button" data-ouia-component-type="PF5/Button" data-ouia-safe="true" data-ouia-component-id="OUIA-Generated-Button-primary-9">Save</button><button aria-disabled="false" class="pf-v5-c-button pf-m-link" type="button" data-ouia-component-type="PF5/Button" data-ouia-safe="true" data-ouia-component-id="OUIA-Generated-Button-link-9">Cancel</button></div></div></div></form>"`;
++exports[`CredentialForm should work with default onSubmit: onSave 1`] = `"<form novalidate="" class="pf-v6-c-form"><div class="pf-v6-c-form__group"><div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="name"><span class="pf-v6-c-form__label-text">Name</span><span class="pf-v6-c-form__label-required" aria-hidden="true"> *</span></label>&nbsp;&nbsp;</div><div class="pf-v6-c-form__group-control"><span class="pf-v6-c-form-control"><input id="credential-name" name="name" type="text" aria-invalid="false" required="" placeholder="Enter a name for the credential" data-ouia-component-type="PF6/TextInput" data-ouia-safe="true" data-ouia-component-id="cred_name" value=""></span></div></div><div class="pf-v6-c-form__group"><div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="auth_type"><span class="pf-v6-c-form__label-text">Authentication Type</span></label>&nbsp;&nbsp;</div><div class="pf-v6-c-form__group-control"><button class="pf-v6-c-menu-toggle pf-m-full-width" type="button" aria-label="Dropdown menu" aria-expanded="false" data-ouia-component-type="PF6/MenuToggle" data-ouia-safe="true" data-ouia-component-id="auth_type"><span class="pf-v6-c-menu-toggle__text">Username and Password</span><span class="pf-v6-c-menu-toggle__controls"><span class="pf-v6-c-menu-toggle__toggle-icon"><svg class="pf-v6-svg" viewBox="0 0 320 512" fill="currentColor" aria-hidden="true" role="img" width="1em" height="1em"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg></span></span></button></div></div><div class="pf-v6-c-form__group"><div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="username"><span class="pf-v6-c-form__label-text">Username</span><span class="pf-v6-c-form__label-required" aria-hidden="true"> *</span></label>&nbsp;&nbsp;</div><div class="pf-v6-c-form__group-control"><span class="pf-v6-c-form-control"><input id="credential-username" name="username" type="text" aria-invalid="false" required="" placeholder="Enter username" data-ouia-component-type="PF6/TextInput" data-ouia-safe="true" data-ouia-component-id="username" value=""></span></div></div><div class="pf-v6-c-form__group"><div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="password"><span class="pf-v6-c-form__label-text">Password</span><span class="pf-v6-c-form__label-required" aria-hidden="true"> *</span></label>&nbsp;&nbsp;</div><div class="pf-v6-c-form__group-control"><span class="pf-v6-c-form-control"><input id="credential-password" name="password" type="password" aria-invalid="false" required="" placeholder="Enter password" data-ouia-component-type="PF6/TextInput" data-ouia-safe="true" data-ouia-component-id="password" value=""></span></div></div><div class="pf-v6-c-form__group"><div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="become_method"><span class="pf-v6-c-form__label-text">Become Method</span></label>&nbsp;&nbsp;</div><div class="pf-v6-c-form__group-control"><button class="pf-v6-c-menu-toggle pf-m-full-width" type="button" aria-label="Dropdown menu" aria-expanded="false" data-ouia-component-type="PF6/MenuToggle" data-ouia-safe="true" data-ouia-component-id="become_method"><span class="pf-v6-c-menu-toggle__text">Select option</span><span class="pf-v6-c-menu-toggle__controls"><span class="pf-v6-c-menu-toggle__toggle-icon"><svg class="pf-v6-svg" viewBox="0 0 320 512" fill="currentColor" aria-hidden="true" role="img" width="1em" height="1em"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg></span></span></button></div></div><div class="pf-v6-c-form__group"><div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="become_user"><span class="pf-v6-c-form__label-text">Become User</span></label>&nbsp;&nbsp;</div><div class="pf-v6-c-form__group-control"><span class="pf-v6-c-form-control"><input id="become_user" name="become_user" type="text" aria-invalid="false" placeholder="Enter become user (optional)" data-ouia-component-type="PF6/TextInput" data-ouia-safe="true" data-ouia-component-id="become_user" value=""></span></div></div><div class="pf-v6-c-form__group"><div class="pf-v6-c-form__group-label"><label class="pf-v6-c-form__label" for="become_password"><span class="pf-v6-c-form__label-text">Become Password</span></label>&nbsp;&nbsp;</div><div class="pf-v6-c-form__group-control"><span class="pf-v6-c-form-control"><input id="become_password" name="become_password" type="password" aria-invalid="false" placeholder="Enter become password (optional)" data-ouia-component-type="PF6/TextInput" data-ouia-safe="true" data-ouia-component-id="become_password" value=""></span></div></div><div class="pf-v6-c-form__group pf-m-action"><div class="pf-v6-c-form__group-control"><div class="pf-v6-c-form__actions"><button class="pf-v6-c-button pf-m-primary" type="button" data-ouia-component-type="PF6/Button" data-ouia-safe="true" data-ouia-component-id="OUIA-Generated-Button-primary-9"><span class="pf-v6-c-button__text">Save</span></button><button class="pf-v6-c-button pf-m-link" type="button" data-ouia-component-type="PF6/Button" data-ouia-safe="true" data-ouia-component-id="OUIA-Generated-Button-link-9"><span class="pf-v6-c-button__text">Cancel</span></button></div></div></div></form>"`;
+ 
+ exports[`getCleanedFormData should clean formData correctly for different authTypes: SSH Key" auth cleanedData " 1`] = `
+ {
+diff --git a/src/views/credentials/addCredentialModal.tsx b/src/views/credentials/addCredentialModal.tsx
+index 37396aee6..006040da0 100644
+--- a/src/views/credentials/addCredentialModal.tsx
++++ b/src/views/credentials/addCredentialModal.tsx
+@@ -4,17 +4,8 @@
+  * @module AddCredentialModal
+  */
+ import React, { useCallback, useEffect, useState } from 'react';
+-import {
+-  ActionGroup,
+-  Button,
+-  Form,
+-  FormGroup,
+-  FormHelperText,
+-  Modal,
+-  ModalVariant,
+-  TextArea,
+-  TextInput
+-} from '@patternfly/react-core';
++import { ActionGroup, Button, Form, FormGroup, FormHelperText, TextArea, TextInput } from '@patternfly/react-core';
++import { Modal, ModalVariant } from '@patternfly/react-core/deprecated';
+ import { SimpleDropdown } from '../../components/simpleDropdown/simpleDropdown';
+ import { helpers } from '../../helpers';
+ import { type CredentialType } from '../../types/types';
+diff --git a/src/views/credentials/viewCredentialsList.tsx b/src/views/credentials/viewCredentialsList.tsx
+index 5ab27b529..dd3b4fa08 100644
+--- a/src/views/credentials/viewCredentialsList.tsx
++++ b/src/views/credentials/viewCredentialsList.tsx
+@@ -19,17 +19,14 @@ import {
+   EmptyStateActions,
+   EmptyStateBody,
+   EmptyStateFooter,
+-  EmptyStateHeader,
+-  EmptyStateIcon,
+   List,
+   ListItem,
+-  Modal,
+-  ModalVariant,
+   PageSection,
+   ToolbarContent,
+   ToolbarItem,
+   getUniqueId
+ } from '@patternfly/react-core';
++import { Modal, ModalVariant } from '@patternfly/react-core/deprecated';
+ import { PlusCircleIcon } from '@patternfly/react-icons';
+ import ActionMenu from '../../components/actionMenu/actionMenu';
+ import { ErrorMessage } from '../../components/errorMessage/errorMessage';
+@@ -137,32 +134,26 @@ const CredentialsListView: React.FunctionComponent = () => {
+           selectOptions: [
+             {
+               key: API_DATA_SOURCE_TYPES.ANSIBLE,
+-              label: API_DATA_SOURCE_TYPES.ANSIBLE,
+               value: t('dataSource.ansible')
+             },
+             {
+               key: API_DATA_SOURCE_TYPES.NETWORK,
+-              label: API_DATA_SOURCE_TYPES.NETWORK,
+               value: t('dataSource.network')
+             },
+             {
+               key: API_DATA_SOURCE_TYPES.OPENSHIFT,
+-              label: API_DATA_SOURCE_TYPES.OPENSHIFT,
+               value: t('dataSource.openshift')
+             },
+             {
+               key: API_DATA_SOURCE_TYPES.RHACS,
+-              label: API_DATA_SOURCE_TYPES.RHACS,
+               value: t('dataSource.rhacs')
+             },
+             {
+               key: API_DATA_SOURCE_TYPES.SATELLITE,
+-              label: API_DATA_SOURCE_TYPES.SATELLITE,
+               value: t('dataSource.satellite')
+             },
+             {
+               key: API_DATA_SOURCE_TYPES.VCENTER,
+-              label: API_DATA_SOURCE_TYPES.VCENTER,
+               value: t('dataSource.vcenter')
+             }
+           ]
+@@ -246,7 +237,7 @@ const CredentialsListView: React.FunctionComponent = () => {
+   );
+ 
+   return (
+-    <PageSection variant="light">
++    <PageSection hasBodyWrapper={false}>
+       {renderToolbar()}
+       <Table aria-label="Example things table" variant="compact">
+         <Thead>
+@@ -265,12 +256,11 @@ const CredentialsListView: React.FunctionComponent = () => {
+           isNoData={currentPageItems.length === 0}
+           errorEmptyState={<ErrorMessage title={t('view.error_title', { context: 'credentials' })} />}
+           noDataEmptyState={
+-            <EmptyState>
+-              <EmptyStateHeader
+-                headingLevel="h4"
+-                titleText={t('view.empty-state', { context: 'credentials_title' })}
+-                icon={<EmptyStateIcon icon={PlusCircleIcon} />}
+-              />
++            <EmptyState
++              headingLevel="h4"
++              icon={PlusCircleIcon}
++              titleText={t('view.empty-state', { context: 'credentials_title' })}
++            >
+               <EmptyStateBody>{t('view.empty-state', { context: 'credentials_description' })}</EmptyStateBody>
+               <EmptyStateFooter>
+                 <EmptyStateActions>{renderAddCredsButton()}</EmptyStateActions>
+@@ -285,9 +275,10 @@ const CredentialsListView: React.FunctionComponent = () => {
+                 <Td columnKey="name">{credential.name}</Td>
+                 <Td columnKey="type">{getTranslatedCredentialTypeLabel(credential.cred_type)}</Td>
+                 <Td columnKey="auth_type">{helpers.getAuthType(credential)}</Td>
+-                <Td columnKey="sources">
++                <Td hasAction columnKey="sources">
+                   <Button
+                     variant={ButtonVariant.link}
++                    size="sm"
+                     onClick={() => {
+                       if (credential.sources && credential.sources.length > 0) {
+                         setSourcesSelected(credential.sources);
+@@ -304,6 +295,7 @@ const CredentialsListView: React.FunctionComponent = () => {
+                   <ActionMenu<CredentialType>
+                     popperProps={{ position: 'right' }}
+                     item={credential}
++                    size="sm"
+                     actions={[
+                       {
+                         label: t('table.label', { context: 'edit' }),
+diff --git a/src/views/notFound/__tests__/__snapshots__/notFound.test.tsx.snap b/src/views/notFound/__tests__/__snapshots__/notFound.test.tsx.snap
+index 107491d7d..9a63844c9 100644
+--- a/src/views/notFound/__tests__/__snapshots__/notFound.test.tsx.snap
++++ b/src/views/notFound/__tests__/__snapshots__/notFound.test.tsx.snap
+@@ -1,21 +1,17 @@
+ // Jest Snapshot v1, https://goo.gl/fbAQLP
+ 
+ exports[`NotFound should render a basic component: basic 1`] = `
+-<PageSection>
++<PageSection
++  hasBodyWrapper={false}
++>
+   <EmptyState
+-    variant="full"
+-  >
+-    <EmptyStateHeader
+-      headingLevel="h1"
+-      icon={
+-        <EmptyStateIcon
+-          icon={[Function]}
+-        />
+-      }
+-      titleText="t([
++    headingLevel="h1"
++    icon={[Function]}
++    titleText="t([
+   "view.empty-state_title_not-found"
+ ])"
+-    />
++    variant="full"
++  >
+     <EmptyStateBody>
+       t([
+   "view.empty-state_description_not-found"
+diff --git a/src/views/notFound/notFound.tsx b/src/views/notFound/notFound.tsx
+index f42002474..695d80db9 100644
+--- a/src/views/notFound/notFound.tsx
++++ b/src/views/notFound/notFound.tsx
+@@ -8,15 +8,7 @@
+ import React from 'react';
+ import { useTranslation } from 'react-i18next';
+ import { useNavigate } from 'react-router-dom';
+-import {
+-  Button,
+-  EmptyState,
+-  EmptyStateBody,
+-  EmptyStateFooter,
+-  EmptyStateHeader,
+-  EmptyStateIcon,
+-  PageSection
+-} from '@patternfly/react-core';
++import { Button, EmptyState, EmptyStateBody, EmptyStateFooter, PageSection } from '@patternfly/react-core';
+ import { ExclamationTriangleIcon } from '@patternfly/react-icons';
+ 
+ const NotFound: React.FC = () => {
+@@ -24,13 +16,13 @@ const NotFound: React.FC = () => {
+   const navigate = useNavigate();
+ 
+   return (
+-    <PageSection>
+-      <EmptyState variant="full">
+-        <EmptyStateHeader
+-          titleText={t('view.empty-state_title_not-found')}
+-          icon={<EmptyStateIcon icon={ExclamationTriangleIcon} />}
+-          headingLevel="h1"
+-        />
++    <PageSection hasBodyWrapper={false}>
++      <EmptyState
++        headingLevel="h1"
++        icon={ExclamationTriangleIcon}
++        titleText={t('view.empty-state_title_not-found')}
++        variant="full"
++      >
+         <EmptyStateBody>{t('view.empty-state_description_not-found')}</EmptyStateBody>
+         <EmptyStateFooter>
+           <Button onClick={() => navigate('/')}>{t('view.label_not-found_home')}</Button>
+diff --git a/src/views/scans/__tests__/__snapshots__/showAggregateReportModal.test.tsx.snap b/src/views/scans/__tests__/__snapshots__/showAggregateReportModal.test.tsx.snap
+index 25f299b6a..f307f0679 100644
+--- a/src/views/scans/__tests__/__snapshots__/showAggregateReportModal.test.tsx.snap
++++ b/src/views/scans/__tests__/__snapshots__/showAggregateReportModal.test.tsx.snap
+@@ -3,7 +3,7 @@
+ exports[`ShowAggregateReportModal should have a consistent content: content 1`] = `
+ [
+   <span
+-    class="pf-v5-c-description-list__text"
++    class="pf-v6-c-description-list__text"
+   >
+     t([
+   "modal.label",
+@@ -13,7 +13,7 @@ exports[`ShowAggregateReportModal should have a consistent content: content 1`]
+ ])
+   </span>,
+   <span
+-    class="pf-v5-c-description-list__text"
++    class="pf-v6-c-description-list__text"
+   >
+     t([
+   "modal.label",
+@@ -27,7 +27,7 @@ exports[`ShowAggregateReportModal should have a consistent content: content 1`]
+ 
+ exports[`ShowAggregateReportModal should have a consistent title: title 1`] = `
+ <span
+-  class="pf-v5-c-modal-box__title-text"
++  class="pf-v6-c-modal-box__title-text"
+ >
+   t([
+   "modal.title",
+@@ -63,7 +63,7 @@ exports[`ShowAggregateReportModal should render a basic component: basic 1`] = `
+   variant="small"
+ >
+   <Title
+-    className="pf-v5-u-mb-lg"
++    className="pf-v6-u-mb-lg"
+     headingLevel="h2"
+     size="md"
+   >
+diff --git a/src/views/scans/__tests__/__snapshots__/showScansModal.test.tsx.snap b/src/views/scans/__tests__/__snapshots__/showScansModal.test.tsx.snap
+index 537d463ba..4e015bafd 100644
+--- a/src/views/scans/__tests__/__snapshots__/showScansModal.test.tsx.snap
++++ b/src/views/scans/__tests__/__snapshots__/showScansModal.test.tsx.snap
+@@ -10,7 +10,7 @@ exports[`ShowScansModal should call onDownload with a report id when clicked: on
+ 
+ exports[`ShowScansModal should have the correct title: title 1`] = `
+ <span
+-  class="pf-v5-c-modal-box__title-text"
++  class="pf-v6-c-modal-box__title-text"
+ >
+   t([
+   "view.label",
+@@ -48,17 +48,11 @@ exports[`ShowScansModal should render a basic component: basic 1`] = `
+   variant="medium"
+ >
+   <Bullseye>
+-    <EmptyState>
+-      <EmptyStateHeader
+-        headingLevel="h2"
+-        icon={
+-          <EmptyStateIcon
+-            icon={[Function]}
+-          />
+-        }
+-        titleText="Loading scans"
+-      />
+-    </EmptyState>
++    <EmptyState
++      headingLevel="h2"
++      icon={[Function]}
++      titleText="Loading scans"
++    />
+   </Bullseye>
+ </Modal>
+ `;
+diff --git a/src/views/scans/showAggregateReportModal.tsx b/src/views/scans/showAggregateReportModal.tsx
+index f2f2d70c2..b8e234d5b 100644
+--- a/src/views/scans/showAggregateReportModal.tsx
++++ b/src/views/scans/showAggregateReportModal.tsx
+@@ -5,10 +5,9 @@ import {
+   DescriptionListTerm,
+   DescriptionListDescription,
+   DescriptionListGroup,
+-  Modal,
+-  ModalVariant,
+   Title
+ } from '@patternfly/react-core';
++import { Modal, ModalVariant } from '@patternfly/react-core/deprecated';
+ import { helpers } from '../../helpers';
+ import { type ReportAggregateDiagnosticsType, type ReportAggregateResultsType } from '../../types/types';
+ 
+@@ -92,7 +91,7 @@ const ShowAggregateReportModal: React.FC<ShowAggregateReportModalProps> = ({
+       onClose={() => onClose()}
+       {...(actions && { actions })}
+     >
+-      <Title className="pf-v5-u-mb-lg" headingLevel="h2" size="md">
++      <Title className="pf-v6-u-mb-lg" headingLevel="h2" size="md">
+         {t('modal.subtitle', { context: 'scan-id', value: report?.id })}
+       </Title>
+       <DescriptionList isHorizontal isFluid isCompact>
+diff --git a/src/views/scans/showScansModal.tsx b/src/views/scans/showScansModal.tsx
+index c213fde41..2d4e27f51 100644
+--- a/src/views/scans/showScansModal.tsx
++++ b/src/views/scans/showScansModal.tsx
+@@ -1,15 +1,7 @@
+ import React, { useEffect, useState } from 'react';
+ import { useTranslation } from 'react-i18next';
+-import {
+-  Bullseye,
+-  Button,
+-  EmptyState,
+-  EmptyStateHeader,
+-  EmptyStateIcon,
+-  Modal,
+-  ModalVariant,
+-  Spinner
+-} from '@patternfly/react-core';
++import { Bullseye, Button, EmptyState, Spinner } from '@patternfly/react-core';
++import { Modal, ModalVariant } from '@patternfly/react-core/deprecated';
+ import { DownloadIcon } from '@patternfly/react-icons';
+ import { Table, Thead, Tr, Th, Tbody, Td, type ThProps } from '@patternfly/react-table';
+ import { helpers } from '../../helpers';
+@@ -148,9 +140,7 @@ const ShowScansModal: React.FC<ShowScansModalProps> = ({
+         </React.Fragment>
+       ) : (
+         <Bullseye>
+-          <EmptyState>
+-            <EmptyStateHeader titleText="Loading scans" headingLevel="h2" icon={<EmptyStateIcon icon={Spinner} />} />
+-          </EmptyState>
++          <EmptyState headingLevel="h2" icon={Spinner} titleText="Loading scans"></EmptyState>
+         </Bullseye>
+       )}
+     </Modal>
+diff --git a/src/views/scans/viewScansList.tsx b/src/views/scans/viewScansList.tsx
+index 82e50720c..530f20a50 100644
+--- a/src/views/scans/viewScansList.tsx
++++ b/src/views/scans/viewScansList.tsx
+@@ -20,18 +20,15 @@ import {
+   EmptyStateActions,
+   EmptyStateBody,
+   EmptyStateFooter,
+-  EmptyStateHeader,
+-  EmptyStateIcon,
+   List,
+   ListItem,
+-  Modal,
+-  ModalVariant,
+   PageSection,
+   ToolbarContent,
+   ToolbarItem,
+   Tooltip,
+   getUniqueId
+ } from '@patternfly/react-core';
++import { Modal, ModalVariant } from '@patternfly/react-core/deprecated';
+ import { PlusCircleIcon } from '@patternfly/react-icons';
+ import ActionMenu from '../../components/actionMenu/actionMenu';
+ import { ContextIcon, ContextIconVariant } from '../../components/contextIcon/contextIcon';
+@@ -66,7 +63,10 @@ const ScansListView: React.FunctionComponent = () => {
+   const [scanSelected, setScanSelected] = React.useState<Scan>();
+   const [scanJobs, setScanJobs] = React.useState<ScanJobType[]>();
+   const [pendingDeleteScan, setPendingDeleteScan] = React.useState<Scan>();
+-  const [aggregateReport, setAggregateReport] = React.useState<{ id: number; report: ReportsAggregateResponse }>();
++  const [aggregateReport, setAggregateReport] = React.useState<{
++    id: number;
++    report: ReportsAggregateResponse;
++  }>();
+   const { queryClient } = useQueryClientConfig();
+   const { alerts, addAlert, removeAlert } = useAlerts();
+   const { deleteScans } = useDeleteScanApi(addAlert);
+@@ -103,13 +103,19 @@ const ScansListView: React.FunctionComponent = () => {
+           key: API_QUERY_TYPES.SEARCH_NAME,
+           title: t('toolbar.label', { context: 'option_name' }),
+           type: FilterType.search,
+-          placeholderText: t('toolbar.label', { context: 'placeholder_filter_search_by_name' })
++          placeholderText: t('toolbar.label', {
++            context: 'placeholder_filter_search_by_name'
++          })
+         },
+         {
+           key: API_QUERY_TYPES.SEARCH_SOURCES_NAME,
+-          title: t('toolbar.label', { context: 'option_search_sources_by_name' }),
++          title: t('toolbar.label', {
++            context: 'option_search_sources_by_name'
++          }),
+           type: FilterType.search,
+-          placeholderText: t('toolbar.label', { context: 'placeholder_filter_search_sources_by_name' })
++          placeholderText: t('toolbar.label', {
++            context: 'placeholder_filter_search_sources_by_name'
++          })
+         }
+       ]
+     },
+@@ -122,7 +128,10 @@ const ScansListView: React.FunctionComponent = () => {
+     selection: { isEnabled: true }
+   });
+ 
+-  const { isError, isLoading, data } = useScansQuery({ tableState, setRefreshTime });
++  const { isError, isLoading, data } = useScansQuery({
++    tableState,
++    setRefreshTime
++  });
+ 
+   const tableBatteries = useTablePropHelpers({
+     ...tableState,
+@@ -171,6 +180,7 @@ const ScansListView: React.FunctionComponent = () => {
+   const renderConnection = (scan: Scan) => (
+     <Button
+       variant={ButtonVariant.link}
++      size="sm"
+       isDisabled={!scan.most_recent}
+       onClick={() => {
+         setScanSelected(scan);
+@@ -194,7 +204,7 @@ const ScansListView: React.FunctionComponent = () => {
+   );
+ 
+   return (
+-    <PageSection variant="light">
++    <PageSection hasBodyWrapper={false}>
+       {renderToolbar()}
+       <Table aria-label="Example things table" variant="compact">
+         <Thead>
+@@ -211,12 +221,11 @@ const ScansListView: React.FunctionComponent = () => {
+           isNoData={currentPageItems.length === 0}
+           errorEmptyState={<ErrorMessage title={t('view.error_title', { context: 'scans' })} />}
+           noDataEmptyState={
+-            <EmptyState>
+-              <EmptyStateHeader
+-                headingLevel="h4"
+-                titleText={t('view.empty-state', { context: 'scans_title' })}
+-                icon={<EmptyStateIcon icon={PlusCircleIcon} />}
+-              />
++            <EmptyState
++              headingLevel="h4"
++              icon={PlusCircleIcon}
++              titleText={t('view.empty-state', { context: 'scans_title' })}
++            >
+               <EmptyStateBody>{t('view.empty-state', { context: 'scans_description' })}</EmptyStateBody>
+               <EmptyStateFooter>
+                 <EmptyStateActions>
+@@ -233,10 +242,13 @@ const ScansListView: React.FunctionComponent = () => {
+             {currentPageItems?.map((scan: Scan, rowIndex) => (
+               <Tr key={scan.id} item={scan} rowIndex={rowIndex}>
+                 <Td columnKey="name">{scan.name}</Td>
+-                <Td columnKey="most_recent">{renderConnection(scan)}</Td>
+-                <Td columnKey="sources">
++                <Td hasAction columnKey="most_recent">
++                  {renderConnection(scan)}
++                </Td>
++                <Td hasAction columnKey="sources">
+                   <Button
+                     variant={ButtonVariant.link}
++                    size="sm"
+                     onClick={() => {
+                       setScanSelectedForSources(scan);
+                     }}
+@@ -249,6 +261,7 @@ const ScansListView: React.FunctionComponent = () => {
+                     <ActionMenu<Scan>
+                       popperProps={{ position: 'right' }}
+                       item={scan}
++                      size="sm"
+                       actions={[
+                         {
+                           label: t('table.label', { context: 'summary' }),
+@@ -275,7 +288,9 @@ const ScansListView: React.FunctionComponent = () => {
+                           label: t('table.label', { context: 'rescan' }),
+                           onClick: () => {
+                             runScans(scan, true).finally(() => {
+-                              queryClient.invalidateQueries({ queryKey: [API_SCANS_LIST_QUERY] });
++                              queryClient.invalidateQueries({
++                                queryKey: [API_SCANS_LIST_QUERY]
++                              });
+                               setScanSelected(undefined);
+                             });
+                           },
+diff --git a/src/views/sources/__tests__/__snapshots__/addSourceModal.test.tsx.snap b/src/views/sources/__tests__/__snapshots__/addSourceModal.test.tsx.snap
+index 58790a075..21386b74d 100644
+--- a/src/views/sources/__tests__/__snapshots__/addSourceModal.test.tsx.snap
++++ b/src/views/sources/__tests__/__snapshots__/addSourceModal.test.tsx.snap
+@@ -17,7 +17,7 @@ exports[`AddSourceModal-network should call onSubmit with the correct filtered d
+ 
+ exports[`AddSourceModal-network should have the correct title: title 1`] = `
+ <span
+-  class="pf-v5-c-modal-box__title-text"
++  class="pf-v6-c-modal-box__title-text"
+ >
+   Add Source: network
+ </span>
+@@ -132,7 +132,9 @@ exports[`SourceForm should not render proxy_url field for network sources: proxy
+         type="text"
+         value=""
+       />
+-      <HelperText>
++      <HelperText
++        id="source-port-helper-text"
++      >
+         Default port is 22
+       </HelperText>
+     </FormGroup>
+@@ -243,7 +245,9 @@ exports[`SourceForm should render a basic component: basic 1`] = `
+         type="text"
+         value=""
+       />
+-      <HelperText>
++      <HelperText
++        id="source-port-helper-text"
++      >
+         Default port is 
+         443
+       </HelperText>
+@@ -411,7 +415,9 @@ exports[`SourceForm should render proxy_url field for non-network sources: proxy
+         type="text"
+         value=""
+       />
+-      <HelperText>
++      <HelperText
++        id="source-port-helper-text"
++      >
+         Default port is 
+         443
+       </HelperText>
+@@ -579,7 +585,9 @@ exports[`SourceForm should render proxy_url field for non-network sources: proxy
+         type="text"
+         value=""
+       />
+-      <HelperText>
++      <HelperText
++        id="source-port-helper-text"
++      >
+         Default port is 
+         6443
+       </HelperText>
+@@ -747,7 +755,9 @@ exports[`SourceForm should render proxy_url field for non-network sources: proxy
+         type="text"
+         value=""
+       />
+-      <HelperText>
++      <HelperText
++        id="source-port-helper-text"
++      >
+         Default port is 
+         443
+       </HelperText>
+@@ -915,7 +925,9 @@ exports[`SourceForm should render proxy_url field for non-network sources: proxy
+         type="text"
+         value=""
+       />
+-      <HelperText>
++      <HelperText
++        id="source-port-helper-text"
++      >
+         Default port is 
+         443
+       </HelperText>
+@@ -1083,7 +1095,9 @@ exports[`SourceForm should render proxy_url field for non-network sources: proxy
+         type="text"
+         value=""
+       />
+-      <HelperText>
++      <HelperText
++        id="source-port-helper-text"
++      >
+         Default port is 
+         443
+       </HelperText>
+@@ -1182,7 +1196,8 @@ exports[`SourceForm should render proxy_url field for non-network sources: proxy
+ 
+ exports[`SourceForm should render specifics to different source types: form, ansible 1`] = `
+ <div
+-  class="pf-v5-c-helper-text"
++  class="pf-v6-c-helper-text"
++  id="source-port-helper-text"
+ >
+   Default port is 
+   443
+@@ -1191,7 +1206,8 @@ exports[`SourceForm should render specifics to different source types: form, ans
+ 
+ exports[`SourceForm should render specifics to different source types: form, network 1`] = `
+ <div
+-  class="pf-v5-c-helper-text"
++  class="pf-v6-c-helper-text"
++  id="source-port-helper-text"
+ >
+   Default port is 22
+ </div>
+@@ -1199,7 +1215,8 @@ exports[`SourceForm should render specifics to different source types: form, net
+ 
+ exports[`SourceForm should render specifics to different source types: form, openshift 1`] = `
+ <div
+-  class="pf-v5-c-helper-text"
++  class="pf-v6-c-helper-text"
++  id="source-port-helper-text"
+ >
+   Default port is 
+   6443
+@@ -1208,7 +1225,8 @@ exports[`SourceForm should render specifics to different source types: form, ope
+ 
+ exports[`SourceForm should render specifics to different source types: form, rhacs 1`] = `
+ <div
+-  class="pf-v5-c-helper-text"
++  class="pf-v6-c-helper-text"
++  id="source-port-helper-text"
+ >
+   Default port is 
+   443
+@@ -1217,7 +1235,8 @@ exports[`SourceForm should render specifics to different source types: form, rha
+ 
+ exports[`SourceForm should render specifics to different source types: form, satellite 1`] = `
+ <div
+-  class="pf-v5-c-helper-text"
++  class="pf-v6-c-helper-text"
++  id="source-port-helper-text"
+ >
+   Default port is 
+   443
+@@ -1226,7 +1245,8 @@ exports[`SourceForm should render specifics to different source types: form, sat
+ 
+ exports[`SourceForm should render specifics to different source types: form, vcenter 1`] = `
+ <div
+-  class="pf-v5-c-helper-text"
++  class="pf-v6-c-helper-text"
++  id="source-port-helper-text"
+ >
+   Default port is 
+   443
+diff --git a/src/views/sources/__tests__/__snapshots__/addSourcesScanModal.test.tsx.snap b/src/views/sources/__tests__/__snapshots__/addSourcesScanModal.test.tsx.snap
+index d820021fa..616cb520d 100644
+--- a/src/views/sources/__tests__/__snapshots__/addSourcesScanModal.test.tsx.snap
++++ b/src/views/sources/__tests__/__snapshots__/addSourcesScanModal.test.tsx.snap
+@@ -22,7 +22,7 @@ exports[`AddSourceModal should call onSubmit with the correct filtered data when
+ 
+ exports[`AddSourceModal should have the correct title: title 1`] = `
+ <span
+-  class="pf-v5-c-modal-box__title-text"
++  class="pf-v6-c-modal-box__title-text"
+ >
+   Scan
+ </span>
+diff --git a/src/views/sources/__tests__/__snapshots__/showSourceConnectionsModal.test.tsx.snap b/src/views/sources/__tests__/__snapshots__/showSourceConnectionsModal.test.tsx.snap
+index bbb4ffc29..e48b5f2dc 100644
+--- a/src/views/sources/__tests__/__snapshots__/showSourceConnectionsModal.test.tsx.snap
++++ b/src/views/sources/__tests__/__snapshots__/showSourceConnectionsModal.test.tsx.snap
+@@ -2,7 +2,7 @@
+ 
+ exports[`ShowConnectionsModal should have the correct title: title 1`] = `
+ <span
+-  class="pf-v5-c-modal-box__title-text"
++  class="pf-v6-c-modal-box__title-text"
+ >
+   Lorem ipsum
+ </span>
+@@ -38,6 +38,8 @@ exports[`ShowConnectionsModal should render a basic component: basic 1`] = `
+ >
+   <Table
+     aria-label="Connections lists"
++    hasAnimations={true}
++    isExpandable={true}
+   >
+     <Tbody
+       isExpanded={false}
+diff --git a/src/views/sources/__tests__/addSourceModal.test.tsx b/src/views/sources/__tests__/addSourceModal.test.tsx
+index 487dec7d2..e2fc33e1e 100644
+--- a/src/views/sources/__tests__/addSourceModal.test.tsx
++++ b/src/views/sources/__tests__/addSourceModal.test.tsx
+@@ -273,8 +273,7 @@ describe('SourceForm', () => {
+     const sourceTypes = ['network', 'openshift', 'rhacs', 'ansible', 'satellite', 'vcenter'];
+     for (const type of sourceTypes) {
+       const component = await shallowComponent(<SourceForm sourceType={type} />);
+-      const portFormGroup = component.querySelector('#source-port').closest('.pf-v5-c-form__group');
+-      const portHelperText = portFormGroup.querySelector('.pf-v5-c-helper-text');
++      const portHelperText = component.querySelector('#source-port-helper-text');
+       expect(portHelperText).toMatchSnapshot(`form, ${type}`);
+     }
+   });
+diff --git a/src/views/sources/addSourceModal.tsx b/src/views/sources/addSourceModal.tsx
+index 8e3e85d78..5b0a2f4bf 100644
+--- a/src/views/sources/addSourceModal.tsx
++++ b/src/views/sources/addSourceModal.tsx
+@@ -15,11 +15,10 @@ import {
+   FormGroup,
+   HelperText,
+   HelperTextItem,
+-  Modal,
+-  ModalVariant,
+   TextArea,
+   TextInput
+ } from '@patternfly/react-core';
++import { Modal, ModalVariant } from '@patternfly/react-core/deprecated';
+ import { SimpleDropdown } from '../../components/simpleDropdown/simpleDropdown';
+ import { TypeaheadCheckboxes } from '../../components/typeAheadCheckboxes/typeaheadCheckboxes';
+ import { helpers } from '../../helpers';
+@@ -263,7 +262,7 @@ const SourceForm: React.FC<SourceFormProps> = ({
+               onChange={event => handleInputChange('port', (event.target as HTMLInputElement).value)}
+               ouiaId="port"
+             />
+-            <HelperText>Default port is 22</HelperText>
++            <HelperText id="source-port-helper-text">Default port is 22</HelperText>
+           </FormGroup>
+         </React.Fragment>
+       ) : (
+@@ -291,7 +290,7 @@ const SourceForm: React.FC<SourceFormProps> = ({
+               onChange={event => handleInputChange('port', (event.target as HTMLInputElement).value)}
+               ouiaId="port"
+             />
+-            <HelperText>Default port is {isOpenshift ? '6443' : '443'}</HelperText>
++            <HelperText id="source-port-helper-text">Default port is {isOpenshift ? '6443' : '443'}</HelperText>
+           </FormGroup>
+           <FormGroup label="Proxy URL" fieldId="proxy_url">
+             <TextInput
+diff --git a/src/views/sources/addSourcesScanModal.tsx b/src/views/sources/addSourcesScanModal.tsx
+index 8c7650eba..6e8a203d9 100644
+--- a/src/views/sources/addSourcesScanModal.tsx
++++ b/src/views/sources/addSourcesScanModal.tsx
+@@ -13,12 +13,11 @@ import {
+   FormContextProvider,
+   FormGroup,
+   HelperText,
+-  Modal,
+-  ModalVariant,
+   NumberInput,
+   TextArea,
+   TextInput
+ } from '@patternfly/react-core';
++import { Modal, ModalVariant } from '@patternfly/react-core/deprecated';
+ import { helpers } from '../../helpers';
+ import { type Scan, type SourceType } from '../../types/types';
+ 
+diff --git a/src/views/sources/showSourceConnectionsModal.css b/src/views/sources/showSourceConnectionsModal.css
+index 829bee71d..24b8da633 100644
+--- a/src/views/sources/showSourceConnectionsModal.css
++++ b/src/views/sources/showSourceConnectionsModal.css
+@@ -1,3 +1,4 @@
+-.pf-v5-c-table {
+-    --pf-v5-c-table__expandable-row-content--PaddingTop: 0;
+-}
+\ No newline at end of file
++.pf-v6-c-table {
++    --pf-v6-c-table__expandable-row-content--PaddingBlockStart: 0;
++    --pf-v6-c-table__expandable-row-content--PaddingBlockEnd: 0;
++}
+diff --git a/src/views/sources/showSourceConnectionsModal.tsx b/src/views/sources/showSourceConnectionsModal.tsx
+index 11b2966e5..1a3f9960f 100644
+--- a/src/views/sources/showSourceConnectionsModal.tsx
++++ b/src/views/sources/showSourceConnectionsModal.tsx
+@@ -5,7 +5,8 @@
+  * @module connectionsModal
+  */
+ import React, { useCallback, useState } from 'react';
+-import { Modal, ModalVariant, Button, Icon, List, ListItem } from '@patternfly/react-core';
++import { Button, Icon, List, ListItem } from '@patternfly/react-core';
++import { Modal, ModalVariant } from '@patternfly/react-core/deprecated';
+ import { ExclamationCircleIcon, ExclamationTriangleIcon, CheckCircleIcon } from '@patternfly/react-icons';
+ import { Tbody, Tr, Td, Table, ExpandableRowContent } from '@patternfly/react-table';
+ import { type SourceType, type Connections } from '../../types/types';
+@@ -59,7 +60,7 @@ const ShowConnectionsModal: React.FC<ShowConnectionsModalProps> = ({
+         </Button>
+       ]}
+     >
+-      <Table aria-label={'Connections lists'}>
++      <Table aria-label={'Connections lists'} isExpandable hasAnimations>
+         {[
+           {
+             category: 'failed',
+diff --git a/src/views/sources/viewSourcesList.tsx b/src/views/sources/viewSourcesList.tsx
+index 421ffe5bb..2368043a3 100644
+--- a/src/views/sources/viewSourcesList.tsx
++++ b/src/views/sources/viewSourcesList.tsx
+@@ -19,17 +19,14 @@ import {
+   EmptyStateActions,
+   EmptyStateBody,
+   EmptyStateFooter,
+-  EmptyStateHeader,
+-  EmptyStateIcon,
+   List,
+   ListItem,
+-  Modal,
+-  ModalVariant,
+   PageSection,
+   ToolbarContent,
+   ToolbarItem,
+   getUniqueId
+ } from '@patternfly/react-core';
++import { Modal, ModalVariant } from '@patternfly/react-core/deprecated';
+ import { PlusCircleIcon } from '@patternfly/react-icons';
+ import ActionMenu from '../../components/actionMenu/actionMenu';
+ import { ContextIcon, ContextIconVariant } from '../../components/contextIcon/contextIcon';
+@@ -177,32 +174,26 @@ const SourcesListView: React.FunctionComponent = () => {
+           selectOptions: [
+             {
+               key: API_DATA_SOURCE_TYPES.ANSIBLE,
+-              label: API_DATA_SOURCE_TYPES.ANSIBLE,
+               value: t('dataSource.ansible')
+             },
+             {
+               key: API_DATA_SOURCE_TYPES.NETWORK,
+-              label: API_DATA_SOURCE_TYPES.NETWORK,
+               value: t('dataSource.network')
+             },
+             {
+               key: API_DATA_SOURCE_TYPES.OPENSHIFT,
+-              label: API_DATA_SOURCE_TYPES.OPENSHIFT,
+               value: t('dataSource.openshift')
+             },
+             {
+               key: API_DATA_SOURCE_TYPES.RHACS,
+-              label: API_DATA_SOURCE_TYPES.RHACS,
+               value: t('dataSource.rhacs')
+             },
+             {
+               key: API_DATA_SOURCE_TYPES.SATELLITE,
+-              label: API_DATA_SOURCE_TYPES.SATELLITE,
+               value: t('dataSource.satellite')
+             },
+             {
+               key: API_DATA_SOURCE_TYPES.VCENTER,
+-              label: API_DATA_SOURCE_TYPES.VCENTER,
+               value: t('dataSource.vcenter')
+             }
+           ]
+@@ -304,7 +295,7 @@ const SourcesListView: React.FunctionComponent = () => {
+   const renderConnection = (source: SourceType) => {
+     if (!sourceHasConnection(source)) {
+       return (
+-        <Button variant={ButtonVariant.link} isDisabled={true}>
++        <Button variant={ButtonVariant.link} size="sm" isDisabled={true}>
+           <ContextIcon symbol="off" /> {t('table.label_status_not_started', { context: 'sources' })}
+         </Button>
+       );
+@@ -319,6 +310,7 @@ const SourcesListView: React.FunctionComponent = () => {
+     return (
+       <Button
+         variant={ButtonVariant.link}
++        size="sm"
+         onClick={() => {
+           showConnections(source)
+             .then(success => setConnectionsData(success))
+@@ -337,7 +329,7 @@ const SourcesListView: React.FunctionComponent = () => {
+   };
+ 
+   return (
+-    <PageSection variant="light">
++    <PageSection hasBodyWrapper={false}>
+       {renderToolbar()}
+       <Table aria-label="Example things table" variant="compact">
+         <Thead>
+@@ -356,12 +348,11 @@ const SourcesListView: React.FunctionComponent = () => {
+           isNoData={currentPageItems.length === 0}
+           errorEmptyState={<ErrorMessage title={t('view.error_title', { context: 'sources' })} />}
+           noDataEmptyState={
+-            <EmptyState>
+-              <EmptyStateHeader
+-                headingLevel="h4"
+-                titleText={t('view.empty-state', { context: 'sources_title' })}
+-                icon={<EmptyStateIcon icon={PlusCircleIcon} />}
+-              />
++            <EmptyState
++              headingLevel="h4"
++              icon={PlusCircleIcon}
++              titleText={t('view.empty-state', { context: 'sources_title' })}
++            >
+               <EmptyStateBody>{t('view.empty-state', { context: 'sources_description' })}</EmptyStateBody>
+               <EmptyStateFooter>
+                 <EmptyStateActions>{renderAddSourceButton()}</EmptyStateActions>
+@@ -374,11 +365,14 @@ const SourcesListView: React.FunctionComponent = () => {
+             {currentPageItems?.map((source: SourceType, rowIndex) => (
+               <Tr key={source.id} item={source} rowIndex={rowIndex}>
+                 <Td columnKey="name">{source.name}</Td>
+-                <Td columnKey="connection">{renderConnection(source)}</Td>
++                <Td hasAction columnKey="connection">
++                  {renderConnection(source)}
++                </Td>
+                 <Td columnKey="type">{getTranslatedSourceTypeLabel(source.source_type)}</Td>
+-                <Td columnKey="credentials">
++                <Td hasAction columnKey="credentials">
+                   <Button
+                     variant={ButtonVariant.link}
++                    size="sm"
+                     onClick={() => {
+                       setCredentialsSelected(source.credentials);
+                     }}
+@@ -386,10 +380,11 @@ const SourcesListView: React.FunctionComponent = () => {
+                     {source.credentials.length}
+                   </Button>
+                 </Td>
+-                <Td isActionCell columnKey="scan">
++                <Td hasAction columnKey="scan">
+                   <Button
+                     isDisabled={source.connection?.status === 'pending'}
+                     variant={ButtonVariant.link}
++                    size="sm"
+                     onClick={() => onScanSource(source)}
+                     ouiaId="scan_button"
+                   >
+@@ -400,6 +395,7 @@ const SourcesListView: React.FunctionComponent = () => {
+                   <ActionMenu<SourceType>
+                     popperProps={{ position: 'right' }}
+                     item={source}
++                    size="sm"
+                     actions={[
+                       { label: t('table.label', { context: 'edit' }), onClick: onEditSource, ouiaId: 'edit-source' },
+                       {
+diff --git a/tests/__snapshots__/code.test.ts.snap b/tests/__snapshots__/code.test.ts.snap
+index fa28ac59f..4dd5a1fe3 100644
+--- a/tests/__snapshots__/code.test.ts.snap
++++ b/tests/__snapshots__/code.test.ts.snap
+@@ -32,13 +32,13 @@ exports[`General code checks should only have specific console.[warn|log|info|er
+   "vendor/react-table-batteries/hooks/selection/useSelectionDerivedState.ts:154:        console.warn(",
+   "vendor/react-table-batteries/hooks/storage/useStorage.ts:14:    console.error(error);",
+   "vendor/react-table-batteries/hooks/storage/useStorage.ts:40:    console.error(error);",
+-  "views/credentials/viewCredentialsList.tsx:399:                console.error(err);",
+-  "views/credentials/viewCredentialsList.tsx:416:                console.error(err);",
+-  "views/scans/viewScansList.tsx:262:                                    console.error(err);",
+-  "views/sources/addSourceModal.tsx:139:          console.error(err);",
+-  "views/sources/viewSourcesList.tsx:327:                console.error(err);",
+-  "views/sources/viewSourcesList.tsx:498:                console.error(err);",
+-  "views/sources/viewSourcesList.tsx:515:                console.error(err);",
+-  "views/sources/viewSourcesList.tsx:531:                console.error(err);",
++  "views/credentials/viewCredentialsList.tsx:391:                console.error(err);",
++  "views/credentials/viewCredentialsList.tsx:408:                console.error(err);",
++  "views/scans/viewScansList.tsx:275:                                    console.error(err);",
++  "views/sources/addSourceModal.tsx:138:          console.error(err);",
++  "views/sources/viewSourcesList.tsx:319:                console.error(err);",
++  "views/sources/viewSourcesList.tsx:494:                console.error(err);",
++  "views/sources/viewSourcesList.tsx:511:                console.error(err);",
++  "views/sources/viewSourcesList.tsx:527:                console.error(err);",
+ ]
+ `;
+diff --git a/tests/__snapshots__/dist.test.ts.snap b/tests/__snapshots__/dist.test.ts.snap
+index b6aa4143b..1a1448ae4 100644
+--- a/tests/__snapshots__/dist.test.ts.snap
++++ b/tests/__snapshots__/dist.test.ts.snap
+@@ -13,21 +13,11 @@ exports[`Build distribution should match a specific file output: dist-output 1`]
+   "./build/favicon.ico",
+   "./build/fonts/078865af129336cde269.woff2",
+   "./build/fonts/18ca482120faaa701d8b.woff2",
+-  "./build/fonts/57234ce675330fa60781.woff2",
+-  "./build/fonts/66ac08a9a7d29ae51581.woff2",
++  "./build/fonts/463d4ddeac4dae277fc4.woff2",
+   "./build/fonts/6e3027616d8de472723c.woff2",
+   "./build/fonts/813182e673c38ef5ee4b.woff2",
+-  "./build/fonts/841cdd0ebb3d9038a7e7.woff2",
+-  "./build/fonts/9c02e9a1e10fbc86466d.woff2",
+-  "./build/fonts/aa07940756a803076b34.woff2",
+-  "./build/fonts/b01a8365f7214919a9c3.woff2",
+-  "./build/fonts/b36d694117bf12672d49.woff2",
+-  "./build/fonts/c06f4d6490c387fd1d92.woff2",
+   "./build/fonts/c33624692c8b41e36780.woff2",
+-  "./build/fonts/d8d66dd2281610675aca.woff2",
+-  "./build/fonts/e0f30d27bec7c8dbb6fc.woff2",
+   "./build/fonts/e4faf134e53e0f37296b.woff2",
+-  "./build/fonts/ed292ec87cce0d76fd3c.woff2",
+   "./build/images/133911d429584887f5c7.svg",
+   "./build/images/4ca682d556b7bf59f5c6.svg",
+   "./build/images/c0ce9e7676e8e8f83167.png",
