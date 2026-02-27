@@ -185,3 +185,18 @@ Started: Fri Feb 27 04:37:21 PM EST 2026
   - Regex for `\bText\b` needs negative lookahead `(?!Content|List|Variants|Props)` to avoid matching TextContent, TextList, etc.
   - Toolbar variant detection checks for both renamed values (chip-group->label-group) and removed values (bulk-select, overflow-menu, search-filter)
 ---
+
+## 2026-02-27 - US-013
+- What was implemented: 3 moderate pattern detectors for Toolbar gap/spacer changes, Button icon prop restructuring, and PageSection variant removal
+- Files changed:
+  - eval/approach1/src/patterns/toolbar-gap.ts (detects spacer/spaceItems -> gap/columnGap/rowGap prop changes on Toolbar/ToolbarGroup/ToolbarItem)
+  - eval/approach1/src/patterns/button-icon-prop.ts (detects Button icon restructuring from children to icon prop; uses AST when available)
+  - eval/approach1/src/patterns/page-section-variant.ts (detects PageSection variant removal: light/dark/darker variants and PageSectionVariants enum)
+  - eval/approach1/src/patterns/__tests__/moderate-detectors-batch2.test.ts (30 tests covering all 3 detectors)
+- **Learnings for future iterations:**
+  - Toolbar gap detector checks for both `spacer` prop (breakpoint objects) and `spaceItems` prop, mapping to PF6 `gap`/`columnGap`/`rowGap` props
+  - Button icon prop detector uses AST when available to check for icon prop presence on Button components; falls back to diff-based detection checking for `icon={` pattern in added lines
+  - PageSection variant detector handles both string literal variants (`variant="light"`) and enum usage (`variant={PageSectionVariants.light}`), plus import removal of PageSectionVariants
+  - The `hasVariantImportRemoval` helper checks for both `PageSectionVariants` and `import` on the same line to avoid false positives on non-import references
+  - Regex for `\bspacer\s*=\s*\{` correctly avoids matching substring patterns by requiring `=` and `{` after the prop name
+---
