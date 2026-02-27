@@ -156,3 +156,17 @@ Started: Fri Feb 27 04:37:21 PM EST 2026
   - Use `\b` word boundary in regex to avoid matching substrings (e.g., `\binnerRef\b` won't match `myInnerRefHelper`)
   - Boolean prop detection (alignRight, isActionCell) just needs `\b` word boundary since they appear as bare props without `=`
 ---
+
+## 2026-02-27 - US-011
+- What was implemented: 4 trivial pattern detectors for import and component renames, each self-registering with the pattern registry
+- Files changed:
+  - eval/approach1/src/patterns/ouia-component-id.ts (detects data-ouia-component-id -> ouiaId renames)
+  - eval/approach1/src/patterns/chips-to-labels.ts (detects chips/deleteChip -> labels/deleteLabel renames)
+  - eval/approach1/src/patterns/split-button-items.ts (detects splitButtonOptions -> splitButtonItems renames)
+  - eval/approach1/src/patterns/modal-import-path.ts (detects Modal import path change to @patternfly/react-core/deprecated)
+  - eval/approach1/src/patterns/__tests__/trivial-detectors-batch3.test.ts (23 tests covering all 4 detectors)
+- **Learnings for future iterations:**
+  - Word boundary `\b` won't match inside camelCase — e.g., `\bdeleteChip\b` does NOT match `onDeleteChip` because `n` and `d` are both word characters. Use the actual prop name as it appears in JSX (e.g., `deleteChip={...}` not `onDeleteChip={...}`)
+  - Modal import path detector checks both the `Modal` specifier AND the `@patternfly/react-core` module in the same line, requiring both regexes to match
+  - Chips-to-labels detector covers multiple related renames (chips, deleteChip, Chip, ChipGroup -> labels, deleteLabel, Label, LabelGroup) in a single pattern using alternation regex
+---
