@@ -215,3 +215,17 @@ Started: Fri Feb 27 04:37:21 PM EST 2026
   - Avatar adoption detector checks for both `isBordered` and `size` as PF6-specific props, with AST-based detection taking priority when available
   - react-tokens detector covers three sub-patterns: bare import path changes, global_ to t_ token name changes, and icon dist/esm or dist/js path simplification
 ---
+
+## 2026-02-27 - US-015
+- What was implemented: Complex pattern detector for Select component rewrite from PF5 API (onToggle, isOpen, selections, placeholderText, SelectVariant) to PF6 API (MenuToggle, SelectList, toggle prop, onOpenChange)
+- Files changed:
+  - eval/approach1/src/patterns/select-rewrite.ts (detects Select component rewrite; uses AST when available for prop/children comparison; handles partial migrations)
+  - eval/approach1/src/patterns/__tests__/complex-detectors-select.test.ts (18 tests: NOT_APPLICABLE, FILE_MISSING, CORRECT full rewrite, CORRECT with MenuToggle/SelectList/onOpenChange, MISSING, INCORRECT with old props re-added, INCORRECT with old API removed but new not added, AST-based correct/incorrect, realistic PF5-to-PF6 migration, SelectOption/SelectGroup exclusion)
+- **Learnings for future iterations:**
+  - Complex detectors follow the same structure as moderate but with weight=3 and complexity='complex'
+  - Select rewrite is the most significant component API change in PF5->PF6: completely new component hierarchy with MenuToggle replacing built-in toggle, SelectList wrapping SelectOptions
+  - PF5 Select props to detect: onToggle, isOpen, selections, placeholderText, SelectVariant enum
+  - PF6 Select patterns to detect: MenuToggle component, SelectList component, toggle= prop, onOpenChange prop
+  - Use negative lookahead `(?!Option|List|Group|Variant)` on `\bSelect\b` to avoid matching SelectOption, SelectList, etc.
+  - For partial migration detection, check if PF5 props appear in migration addedLines (re-added = INCORRECT)
+---
