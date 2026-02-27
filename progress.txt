@@ -320,3 +320,20 @@ Started: Fri Feb 27 04:37:21 PM EST 2026
   - Noise instances are assigned to FileResult objects by matching the noise file path to the file result's filePath
   - Grade calculation is duplicated from markdown-reporter (A>=90, B>=80, C>=70, D>=60, F<60) for the CLI summary output
 ---
+
+## 2026-02-27 - US-023
+- What was implemented: Integration test against known golden (quipucords/quipucords-ui#664) and migration (jwmatthews/quipucords-ui#4) PRs with full pipeline validation and regression baseline
+- Files changed:
+  - eval/approach1/src/__tests__/fixtures/golden-pr-664.diff (fixture: golden PR diff from quipucords/quipucords-ui#664)
+  - eval/approach1/src/__tests__/fixtures/migration-pr-4.diff (fixture: migration PR diff from jwmatthews/quipucords-ui#4)
+  - eval/approach1/src/__tests__/fixtures/baselines/quipucords-regression-baseline.json (regression baseline JSON output)
+  - eval/approach1/src/__tests__/integration.test.ts (17 tests: diff parsing, file coverage with 8 missed/2 extra files, pattern detection for placeholder tokens/innerRef/masthead, noise detection, scoring in 60-70% range, regression baseline saving)
+- **Learnings for future iterations:**
+  - Integration test runs the full pipeline in-memory: parseDiff -> matchFiles -> analyzeFileDiff -> pattern detection -> noise detection -> scoring
+  - Must import all 24 pattern detector files with side-effect imports for self-registration (same as cli.ts)
+  - Actual scores: overallScore=66.69%, fileCoverage=78.95%, patternScore=64.46%, noisePenalty=40%
+  - Golden PR has 38 non-excluded files, migration has 32; 30 matched, 8 missed, 2 extra
+  - The migration PR contains t_temp_dev_tbd placeholder tokens in contextIcon.tsx (codemod artifacts)
+  - The 4 useT*WithBatteries.tsx files (innerRef patterns) are entirely missed by the migration
+  - Regression baseline uses a fixed timestamp for stable comparisons
+---
