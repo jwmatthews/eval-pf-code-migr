@@ -13,6 +13,7 @@
 - ts-morph Project: use `useInMemoryFileSystem: true`, `skipFileDependencyResolution: true`, `skipAddingFilesFromTsConfig: true`
 - Always use .tsx extension when creating ts-morph source files (for JSX parsing)
 - JsxAttribute children: boolean attrs (e.g. `isDisabled`) have 1 child (name), value attrs have 3 (name, =, value) - check `getChildCount()` before accessing index 2
+- Don't use regex with `g` flag and `.test()` in loops - the `lastIndex` state persists between calls. Use a fresh regex literal instead.
 
 # Ralph Progress Log
 Started: Fri Feb 27 04:37:21 PM EST 2026
@@ -92,4 +93,16 @@ Started: Fri Feb 27 04:37:21 PM EST 2026
   - JsxSpreadAttribute has the spread expression at child index 2
   - `reconstructContentFromDiff()` rebuilds file content from added lines for PR mode where full files aren't available
   - analyzeAST exports: `analyzeAST(content, filePath)` for full file content, `analyzeFileDiff(diff)` for FileDiff objects
+---
+
+## 2026-02-27 - US-007
+- What was implemented: CSS pattern analyzer using regex to detect PatternFly CSS class references, custom properties, and utility classes in source code
+- Files changed:
+  - eval/approach1/src/analysis/css-analyzer.ts (analyzeCSSPatterns main function + helpers: findPF5Classes, findPF6Classes, findPF5CustomProperties, findPF6CustomProperties, findPF5UtilityClasses, findPF6UtilityClasses)
+  - eval/approach1/src/analysis/__tests__/css-analyzer.test.ts (20 tests: className props, template literals, string concatenation, custom properties, utility classes, version filtering, empty input)
+- **Learnings for future iterations:**
+  - CSS analyzer takes `Array<{ content: string; lineNumber: number }>` as input, making it easy to use with DiffLine arrays from FileDiff
+  - Don't use global-flag regex with `.test()` in a loop - `lastIndex` state persists between calls causing alternate matches to fail. Use a fresh regex literal instead.
+  - CSSClassReference has a `context` field that categorizes where the class appears: className-prop, template-literal, string-concat, or string-literal
+  - PF class patterns: `pf-v5-*` / `pf-v6-*` for general classes, `pf-v5-u-*` / `pf-v6-u-*` for utility classes, `--pf-v5-*` / `--pf-v6-*` for CSS custom properties
 ---
