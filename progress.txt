@@ -64,3 +64,15 @@ Started: Fri Feb 27 04:37:21 PM EST 2026
   - Use `git merge-base <default-branch> HEAD` to find the common ancestor, then `git diff <merge-base> HEAD` for the branch diff
   - readFileContents uses Promise.all for parallel file reads and silently skips unreadable files (deleted, binary, etc.)
 ---
+
+## 2026-02-27 - US-005
+- What was implemented: File matcher that pairs golden PR files with migration PR files by normalized path
+- Files changed:
+  - eval/approach1/src/analysis/file-matcher.ts (matchFiles function: normalizes paths, strips a/b/ prefixes, normalizes backslashes, excludes .snap and lockfiles, returns MatchResult with matched/missed/extra)
+  - eval/approach1/src/analysis/__tests__/file-matcher.test.ts (11 tests: exact matches, missed files, extra files, both missed+extra, snapshot exclusion, lockfile exclusion, a/b prefix normalization, backslash normalization, empty inputs, golden-only, snapshot exclusion from both sides)
+- **Learnings for future iterations:**
+  - MatchResult type is defined in types.ts with matched pairs, missedFiles, and extraFiles arrays
+  - Analysis modules go in src/analysis/ with tests in src/analysis/__tests__/
+  - Excluded file patterns: .snap, package-lock.json, yarn.lock, pnpm-lock.yaml
+  - Path normalization: strip a/ b/ prefixes + convert backslashes to forward slashes
+---
