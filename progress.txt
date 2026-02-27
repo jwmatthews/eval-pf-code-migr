@@ -9,6 +9,7 @@
 - Tests go in __tests__/ directories alongside source (e.g., src/input/__tests__/diff-parser.test.ts)
 - Import with .js extension for ESM (e.g., import from '../types.js')
 - Don't use `promisify(execFile)` with vitest mocks - write a manual Promise wrapper instead
+- When execFile has an options arg (e.g., cwd), mock must handle both 3-arg and 4-arg overloads
 
 # Ralph Progress Log
 Started: Fri Feb 27 04:37:21 PM EST 2026
@@ -50,4 +51,16 @@ Started: Fri Feb 27 04:37:21 PM EST 2026
   - Don't use `promisify(execFile)` when mocking with vitest - the real execFile has util.promisify.custom that returns {stdout, stderr}, but vi.fn() doesn't. Write a manual Promise wrapper instead.
   - Mock `node:child_process` at module level with `vi.mock('node:child_process', ...)` and use sequential mock implementations for multi-call flows (auth check then actual command)
   - PR URL validation regex: `^https://github.com/[\w.-]+/[\w.-]+/pull/\d+/?$`
+---
+
+## 2026-02-27 - US-004
+- What was implemented: Local directory reader that generates diffs from git repos and reads file contents for AST analysis
+- Files changed:
+  - eval/approach1/src/input/local-reader.ts (validateGitRepo, readLocalDiff, readFileContents functions with auto-detection of default branch and merge-base diffing)
+  - eval/approach1/src/input/__tests__/local-reader.test.ts (13 tests: git repo validation, diff reading, default branch fallback, multi-file diffs, file content reading, error handling)
+- **Learnings for future iterations:**
+  - When mocking execFile with an options argument (cwd), the callback is the 4th argument, not the 3rd. Must handle both overload signatures in mock: `typeof _opts === 'function' ? _opts : callback`
+  - Default branch detection: first try `git symbolic-ref refs/remotes/origin/HEAD`, then fall back to checking `main` and `master` with `git rev-parse --verify`
+  - Use `git merge-base <default-branch> HEAD` to find the common ancestor, then `git diff <merge-base> HEAD` for the branch diff
+  - readFileContents uses Promise.all for parallel file reads and silently skips unreadable files (deleted, binary, etc.)
 ---
