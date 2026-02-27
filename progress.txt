@@ -14,6 +14,7 @@
 - Always use .tsx extension when creating ts-morph source files (for JSX parsing)
 - JsxAttribute children: boolean attrs (e.g. `isDisabled`) have 1 child (name), value attrs have 3 (name, =, value) - check `getChildCount()` before accessing index 2
 - Don't use regex with `g` flag and `.test()` in loops - the `lastIndex` state persists between calls. Use a fresh regex literal instead.
+- When matching npm package imports, anchor with quotes (`['"]`) not `\b` to avoid matching subpaths (e.g., `@patternfly/react-tokens['"]` won't match `@patternfly/react-tokens/dist/...`)
 - Pattern detectors go in src/patterns/ with tests in src/patterns/__tests__/
 - Registry is a module-level singleton array; use clearPatterns() in test beforeEach
 - PatternDefinition already defined in src/types.ts; re-exported from src/patterns/types.ts
@@ -199,4 +200,18 @@ Started: Fri Feb 27 04:37:21 PM EST 2026
   - PageSection variant detector handles both string literal variants (`variant="light"`) and enum usage (`variant={PageSectionVariants.light}`), plus import removal of PageSectionVariants
   - The `hasVariantImportRemoval` helper checks for both `PageSectionVariants` and `import` on the same line to avoid false positives on non-import references
   - Regex for `\bspacer\s*=\s*\{` correctly avoids matching substring patterns by requiring `=` and `{` after the prop name
+---
+
+## 2026-02-27 - US-014
+- What was implemented: 3 moderate pattern detectors for Page masthead prop migration, react-tokens/icon/status import path changes, and Avatar component adoption patterns
+- Files changed:
+  - eval/approach1/src/patterns/page-masthead.ts (detects Page header/PageHeader -> masthead/Masthead migration)
+  - eval/approach1/src/patterns/react-tokens-icon-status.ts (detects react-tokens bare import -> dist subpath, global_ -> t_ tokens, icon dist path -> top-level imports)
+  - eval/approach1/src/patterns/avatar-adoption.ts (detects Avatar component PF6 prop adoption: isBordered, size; uses AST when available)
+  - eval/approach1/src/patterns/__tests__/moderate-detectors-batch3.test.ts (31 tests covering all 3 detectors)
+- **Learnings for future iterations:**
+  - When matching import paths like `@patternfly/react-tokens`, use `['"]` anchors at the end (e.g., `/from\s+['"]@patternfly\/react-tokens['"]/`) to avoid matching subpaths like `@patternfly/react-tokens/dist/...`. Using `\b` alone is insufficient because `/` is a word boundary.
+  - Page masthead detector uses negative lookahead `(?!Content|Brand|Toggle|Main)` on `\bMasthead\b` to avoid matching sub-components like MastheadContent, MastheadBrand, etc.
+  - Avatar adoption detector checks for both `isBordered` and `size` as PF6-specific props, with AST-based detection taking priority when available
+  - react-tokens detector covers three sub-patterns: bare import path changes, global_ to t_ token name changes, and icon dist/esm or dist/js path simplification
 ---
