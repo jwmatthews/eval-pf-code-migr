@@ -308,3 +308,15 @@ Started: Fri Feb 27 04:37:21 PM EST 2026
   - Score-to-grade mapping: A>=90, B>=80, C>=70, D>=60, F<60
   - Recommendations are generated from MISSING, INCORRECT, FILE_MISSING patterns and noise instances (artifacts, placeholders)
 ---
+
+## 2026-02-27 - US-022
+- What was implemented: Full CLI pipeline wiring - input fetching (PR or local), file matching, AST analysis, pattern detection across all matched+missed files, noise detection, scoring, and JSON+Markdown report generation
+- Files changed:
+  - eval/approach1/src/cli.ts (complete rewrite: imports all 24 pattern detectors for self-registration, orchestrates full pipeline from input through scoring to report output)
+- **Learnings for future iterations:**
+  - All 24 pattern detector files must be imported with side-effect imports (`import './patterns/xxx.js'`) so they self-register at module load time
+  - AST analysis uses `readFileContents` in local mode (full file content) but `analyzeFileDiff` in PR mode (reconstructs content from diff added lines)
+  - Missed files (in golden but not in migration) must also be run through pattern detectors with `migrationDiff=null` to get FILE_MISSING status
+  - Noise instances are assigned to FileResult objects by matching the noise file path to the file result's filePath
+  - Grade calculation is duplicated from markdown-reporter (A>=90, B>=80, C>=70, D>=60, F<60) for the CLI summary output
+---
