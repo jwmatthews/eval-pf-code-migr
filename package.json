@@ -1,0 +1,23 @@
+{
+  "name": "pf-migration-eval",
+  "version": "0.1.0",
+  "description": "PatternFly 5-to-6 Migration Evaluation Suite",
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "start": "tsx src/cli.ts"
+  },
+  "dependencies": {
+    "chalk": "^5.4.0",
+    "commander": "^13.0.0",
+    "ts-morph": "^27.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  }
+}

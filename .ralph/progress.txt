@@ -1,0 +1,339 @@
+## Codebase Patterns
+- Project lives at eval/approach1/ - all source in eval/approach1/src/
+- ESM project with "type": "module" in package.json
+- TypeScript strict mode with JSX preserve and bundler module resolution
+- Use `npx tsc --noEmit` from eval/approach1/ for typecheck
+- Use `npx vitest run` from eval/approach1/ for tests
+- Shared types in src/types.ts - import from there
+- Logger utility in src/utils/logger.ts with chalk-based methods
+- Tests go in __tests__/ directories alongside source (e.g., src/input/__tests__/diff-parser.test.ts)
+- Import with .js extension for ESM (e.g., import from '../types.js')
+- Don't use `promisify(execFile)` with vitest mocks - write a manual Promise wrapper instead
+- When execFile has an options arg (e.g., cwd), mock must handle both 3-arg and 4-arg overloads
+- ts-morph Project: use `useInMemoryFileSystem: true`, `skipFileDependencyResolution: true`, `skipAddingFilesFromTsConfig: true`
+- Always use .tsx extension when creating ts-morph source files (for JSX parsing)
+- JsxAttribute children: boolean attrs (e.g. `isDisabled`) have 1 child (name), value attrs have 3 (name, =, value) - check `getChildCount()` before accessing index 2
+- Don't use regex with `g` flag and `.test()` in loops - the `lastIndex` state persists between calls. Use a fresh regex literal instead.
+- When matching npm package imports, anchor with quotes (`['"]`) not `\b` to avoid matching subpaths (e.g., `@patternfly/react-tokens['"]` won't match `@patternfly/react-tokens/dist/...`)
+- Pattern detectors go in src/patterns/ with tests in src/patterns/__tests__/
+- Registry is a module-level singleton array; use clearPatterns() in test beforeEach
+- PatternDefinition already defined in src/types.ts; re-exported from src/patterns/types.ts
+- Detector file pattern: export `{ pattern }`, call `registerPattern(pattern)` at module level, detect fn checks golden first (NOT_APPLICABLE), then null migration (FILE_MISSING), then compare (CORRECT/MISSING/INCORRECT)
+
+# Ralph Progress Log
+Started: Fri Feb 27 04:37:21 PM EST 2026
+---
+
+## 2026-02-27 - US-001
+- What was implemented: Project scaffolding with package.json, tsconfig.json, types.ts, cli.ts, and logger.ts
+- Files changed:
+  - eval/approach1/package.json (dependencies: ts-morph, commander, chalk; devDeps: typescript, tsx, vitest, @types/node)
+  - eval/approach1/tsconfig.json (strict, ESM, JSX preserve, bundler resolution)
+  - eval/approach1/src/types.ts (all shared interfaces: FileDiff, ASTRepresentation, PatternDefinition, DetectionResult, DetectionStatus enum, EvalReport, MatchResult, NoiseInstance)
+  - eval/approach1/src/cli.ts (commander-based CLI with --golden-pr, --migration-pr, --golden-dir, --migration-dir, --output-dir, --verbose)
+  - eval/approach1/src/utils/logger.ts (chalk-based logging: info, warn, error, verbose, success)
+- **Learnings for future iterations:**
+  - npm install succeeds and npx tsc --noEmit passes clean
+  - CLI uses commander with both PR URL and local directory modes
+  - DetectionStatus enum has 6 values: CORRECT, MISSING, INCORRECT, UNNECESSARY, FILE_MISSING, NOT_APPLICABLE
+---
+
+## 2026-02-27 - US-002
+- What was implemented: Unified diff parser that converts raw diff text into structured FileDiff objects
+- Files changed:
+  - eval/approach1/src/input/diff-parser.ts (parseDiff function: splits diff into file chunks, parses hunks, extracts added/removed lines with line numbers)
+  - eval/approach1/src/input/__tests__/diff-parser.test.ts (10 tests: empty input, single-file, multi-file, renames, binary, no-newline-at-eof, hunk headers, multiple hunks, new file, deleted file)
+- **Learnings for future iterations:**
+  - Unified diff format: "diff --git a/path b/path" separates files, "@@ -old,count +new,count @@" separates hunks
+  - The "\ No newline at end of file" marker should be preserved in hunk lines but not counted as added/removed
+  - Renamed files use "rename from/to" lines and also have different --- and +++ paths
+  - Binary files have "Binary files ... differ" or "GIT binary patch" markers
+  - stripABPrefix utility removes a/ or b/ prefix from diff paths
+---
+
+## 2026-02-27 - US-003
+- What was implemented: PR fetcher that calls `gh pr diff <url>` and returns parsed FileDiff[]
+- Files changed:
+  - eval/approach1/src/input/pr-fetcher.ts (fetchPRDiff, validateGhCli functions with manual execFile async wrapper)
+  - eval/approach1/src/input/__tests__/pr-fetcher.test.ts (9 tests: gh auth validation, invalid URLs, mocked diff parsing, empty diff, error handling)
+- **Learnings for future iterations:**
+  - Don't use `promisify(execFile)` when mocking with vitest - the real execFile has util.promisify.custom that returns {stdout, stderr}, but vi.fn() doesn't. Write a manual Promise wrapper instead.
+  - Mock `node:child_process` at module level with `vi.mock('node:child_process', ...)` and use sequential mock implementations for multi-call flows (auth check then actual command)
+  - PR URL validation regex: `^https://github.com/[\w.-]+/[\w.-]+/pull/\d+/?$`
+---
+
+## 2026-02-27 - US-004
+- What was implemented: Local directory reader that generates diffs from git repos and reads file contents for AST analysis
+- Files changed:
+  - eval/approach1/src/input/local-reader.ts (validateGitRepo, readLocalDiff, readFileContents functions with auto-detection of default branch and merge-base diffing)
+  - eval/approach1/src/input/__tests__/local-reader.test.ts (13 tests: git repo validation, diff reading, default branch fallback, multi-file diffs, file content reading, error handling)
+- **Learnings for future iterations:**
+  - When mocking execFile with an options argument (cwd), the callback is the 4th argument, not the 3rd. Must handle both overload signatures in mock: `typeof _opts === 'function' ? _opts : callback`
+  - Default branch detection: first try `git symbolic-ref refs/remotes/origin/HEAD`, then fall back to checking `main` and `master` with `git rev-parse --verify`
+  - Use `git merge-base <default-branch> HEAD` to find the common ancestor, then `git diff <merge-base> HEAD` for the branch diff
+  - readFileContents uses Promise.all for parallel file reads and silently skips unreadable files (deleted, binary, etc.)
+---
+
+## 2026-02-27 - US-005
+- What was implemented: File matcher that pairs golden PR files with migration PR files by normalized path
+- Files changed:
+  - eval/approach1/src/analysis/file-matcher.ts (matchFiles function: normalizes paths, strips a/b/ prefixes, normalizes backslashes, excludes .snap and lockfiles, returns MatchResult with matched/missed/extra)
+  - eval/approach1/src/analysis/__tests__/file-matcher.test.ts (11 tests: exact matches, missed files, extra files, both missed+extra, snapshot exclusion, lockfile exclusion, a/b prefix normalization, backslash normalization, empty inputs, golden-only, snapshot exclusion from both sides)
+- **Learnings for future iterations:**
+  - MatchResult type is defined in types.ts with matched pairs, missedFiles, and extraFiles arrays
+  - Analysis modules go in src/analysis/ with tests in src/analysis/__tests__/
+  - Excluded file patterns: .snap, package-lock.json, yarn.lock, pnpm-lock.yaml
+  - Path normalization: strip a/ b/ prefixes + convert backslashes to forward slashes
+---
+
+## 2026-02-27 - US-006
+- What was implemented: AST analyzer using ts-morph to extract import declarations and JSX component usages from TypeScript/TSX source code
+- Files changed:
+  - eval/approach1/src/analysis/ast-analyzer.ts (analyzeAST, analyzeFileDiff, reconstructContentFromDiff functions)
+  - eval/approach1/src/analysis/__tests__/ast-analyzer.test.ts (17 tests: import extraction, JSX component/prop extraction, PF5/PF6 code snippets, error handling, diff reconstruction)
+- **Learnings for future iterations:**
+  - ts-morph Project config: `useInMemoryFileSystem: true`, `skipFileDependencyResolution: true`, `skipAddingFilesFromTsConfig: true` for isolated analysis
+  - Always create source files with `.tsx` extension so JSX nodes are parsed correctly
+  - JsxAttribute has 1 child (name only) for boolean shorthand props like `isDisabled`, but 3 children (name, =, value) for valued props - must check `getChildCount()` before accessing child at index 2
+  - JsxSpreadAttribute has the spread expression at child index 2
+  - `reconstructContentFromDiff()` rebuilds file content from added lines for PR mode where full files aren't available
+  - analyzeAST exports: `analyzeAST(content, filePath)` for full file content, `analyzeFileDiff(diff)` for FileDiff objects
+---
+
+## 2026-02-27 - US-007
+- What was implemented: CSS pattern analyzer using regex to detect PatternFly CSS class references, custom properties, and utility classes in source code
+- Files changed:
+  - eval/approach1/src/analysis/css-analyzer.ts (analyzeCSSPatterns main function + helpers: findPF5Classes, findPF6Classes, findPF5CustomProperties, findPF6CustomProperties, findPF5UtilityClasses, findPF6UtilityClasses)
+  - eval/approach1/src/analysis/__tests__/css-analyzer.test.ts (20 tests: className props, template literals, string concatenation, custom properties, utility classes, version filtering, empty input)
+- **Learnings for future iterations:**
+  - CSS analyzer takes `Array<{ content: string; lineNumber: number }>` as input, making it easy to use with DiffLine arrays from FileDiff
+  - Don't use global-flag regex with `.test()` in a loop - `lastIndex` state persists between calls causing alternate matches to fail. Use a fresh regex literal instead.
+  - CSSClassReference has a `context` field that categorizes where the class appears: className-prop, template-literal, string-concat, or string-literal
+  - PF class patterns: `pf-v5-*` / `pf-v6-*` for general classes, `pf-v5-u-*` / `pf-v6-u-*` for utility classes, `--pf-v5-*` / `--pf-v6-*` for CSS custom properties
+---
+
+## 2026-02-27 - US-008
+- What was implemented: Pattern registry and detector framework with register, get, filter-by-complexity, and clear operations
+- Files changed:
+  - eval/approach1/src/patterns/types.ts (re-exports PatternDefinition and related types from src/types.ts)
+  - eval/approach1/src/patterns/registry.ts (registerPattern, getPatterns, getPatternsByComplexity, clearPatterns functions)
+  - eval/approach1/src/patterns/__tests__/registry.test.ts (9 tests: empty start, register+return, mutation safety, multiple patterns, filter by trivial/moderate/complex, empty filter result, clear)
+- **Learnings for future iterations:**
+  - Registry is a module-level singleton array - detectors will call registerPattern() at import time
+  - getPatterns() returns a copy to prevent external mutation
+  - clearPatterns() is needed for test isolation (call in beforeEach)
+  - PatternDefinition is already fully defined in src/types.ts with the correct detect function signature
+---
+
+## 2026-02-27 - US-009
+- What was implemented: 4 trivial pattern detectors for CSS and class renames, each self-registering with the pattern registry
+- Files changed:
+  - eval/approach1/src/patterns/css-class-prefix.ts (detects pf-v5-* -> pf-v6-* class prefix renames)
+  - eval/approach1/src/patterns/utility-class-rename.ts (detects pf-v5-u-* -> pf-v6-u-* utility class renames)
+  - eval/approach1/src/patterns/css-logical-properties.ts (detects physical -> logical CSS property renames like PaddingTop -> PaddingBlockStart)
+  - eval/approach1/src/patterns/theme-dark-removal.ts (detects removal of theme="dark" prop)
+  - eval/approach1/src/patterns/__tests__/trivial-detectors-batch1.test.ts (21 tests covering all 4 detectors)
+- **Learnings for future iterations:**
+  - Detector pattern: each detector file exports `{ pattern }` and calls `registerPattern(pattern)` at module level
+  - Detector detect function takes (goldenDiff, migrationDiff | null, goldenAST?, migrationAST?) and returns DetectionResult
+  - Always check golden diff first for relevance (return NOT_APPLICABLE if pattern not present)
+  - Then check if migrationDiff is null (return FILE_MISSING)
+  - Then compare migration behavior: CORRECT, MISSING, or INCORRECT
+  - Tests use dynamic `import()` to get the pattern's detect function directly, avoiding registry state issues with module caching
+  - Non-global regex (without `g` flag) is fine for `.test()` checks in detectors
+---
+
+## 2026-02-27 - US-010
+- What was implemented: 4 trivial pattern detectors for prop renames, each self-registering with the pattern registry
+- Files changed:
+  - eval/approach1/src/patterns/inner-ref-to-ref.ts (detects innerRef -> ref prop renames)
+  - eval/approach1/src/patterns/align-right-to-end.ts (detects alignRight -> alignEnd prop renames)
+  - eval/approach1/src/patterns/is-action-cell.ts (detects isActionCell -> hasAction prop renames)
+  - eval/approach1/src/patterns/space-items-removal.ts (detects removal of spaceItems prop)
+  - eval/approach1/src/patterns/__tests__/trivial-detectors-batch2.test.ts (22 tests covering all 4 detectors)
+- **Learnings for future iterations:**
+  - Prop rename detectors follow the same pattern as CSS detectors: check golden removed lines for old prop, then check migration for removal + replacement
+  - For prop removal detectors (like spaceItems), check that the prop isn't re-added in migration addedLines (similar to theme-dark-removal pattern)
+  - Use `\b` word boundary in regex to avoid matching substrings (e.g., `\binnerRef\b` won't match `myInnerRefHelper`)
+  - Boolean prop detection (alignRight, isActionCell) just needs `\b` word boundary since they appear as bare props without `=`
+---
+
+## 2026-02-27 - US-011
+- What was implemented: 4 trivial pattern detectors for import and component renames, each self-registering with the pattern registry
+- Files changed:
+  - eval/approach1/src/patterns/ouia-component-id.ts (detects data-ouia-component-id -> ouiaId renames)
+  - eval/approach1/src/patterns/chips-to-labels.ts (detects chips/deleteChip -> labels/deleteLabel renames)
+  - eval/approach1/src/patterns/split-button-items.ts (detects splitButtonOptions -> splitButtonItems renames)
+  - eval/approach1/src/patterns/modal-import-path.ts (detects Modal import path change to @patternfly/react-core/deprecated)
+  - eval/approach1/src/patterns/__tests__/trivial-detectors-batch3.test.ts (23 tests covering all 4 detectors)
+- **Learnings for future iterations:**
+  - Word boundary `\b` won't match inside camelCase — e.g., `\bdeleteChip\b` does NOT match `onDeleteChip` because `n` and `d` are both word characters. Use the actual prop name as it appears in JSX (e.g., `deleteChip={...}` not `onDeleteChip={...}`)
+  - Modal import path detector checks both the `Modal` specifier AND the `@patternfly/react-core` module in the same line, requiring both regexes to match
+  - Chips-to-labels detector covers multiple related renames (chips, deleteChip, Chip, ChipGroup -> labels, deleteLabel, Label, LabelGroup) in a single pattern using alternation regex
+---
+
+## 2026-02-27 - US-012
+- What was implemented: 3 moderate pattern detectors for Text->Content consolidation, EmptyState children restructuring, and Toolbar variant prop changes
+- Files changed:
+  - eval/approach1/src/patterns/text-content-consolidation.ts (detects Text/TextContent/TextList/TextListItem -> Content consolidation, including isVisited->isVisitedLink and isPlain->isPlainList prop renames)
+  - eval/approach1/src/patterns/empty-state-restructure.ts (detects EmptyStateHeader/EmptyStateIcon moved from children to EmptyState props; uses AST when available)
+  - eval/approach1/src/patterns/toolbar-variant.ts (detects ToolbarItem variant changes: chip-group->label-group, removal of bulk-select/overflow-menu/search-filter)
+  - eval/approach1/src/patterns/__tests__/moderate-detectors-batch1.test.ts (30 tests covering all 3 detectors)
+- **Learnings for future iterations:**
+  - Moderate detectors follow the same basic pattern as trivial ones but with weight=2 and complexity='moderate'
+  - Text consolidation involves multiple PF5 components (Text, TextContent, TextList, TextListItem) all mapping to a single PF6 `Content` component
+  - EmptyState restructure detector uses AST when available for more reliable detection of component hierarchy changes (checks jsxComponents for EmptyStateHeader/EmptyStateIcon presence)
+  - Regex for `\bText\b` needs negative lookahead `(?!Content|List|Variants|Props)` to avoid matching TextContent, TextList, etc.
+  - Toolbar variant detection checks for both renamed values (chip-group->label-group) and removed values (bulk-select, overflow-menu, search-filter)
+---
+
+## 2026-02-27 - US-013
+- What was implemented: 3 moderate pattern detectors for Toolbar gap/spacer changes, Button icon prop restructuring, and PageSection variant removal
+- Files changed:
+  - eval/approach1/src/patterns/toolbar-gap.ts (detects spacer/spaceItems -> gap/columnGap/rowGap prop changes on Toolbar/ToolbarGroup/ToolbarItem)
+  - eval/approach1/src/patterns/button-icon-prop.ts (detects Button icon restructuring from children to icon prop; uses AST when available)
+  - eval/approach1/src/patterns/page-section-variant.ts (detects PageSection variant removal: light/dark/darker variants and PageSectionVariants enum)
+  - eval/approach1/src/patterns/__tests__/moderate-detectors-batch2.test.ts (30 tests covering all 3 detectors)
+- **Learnings for future iterations:**
+  - Toolbar gap detector checks for both `spacer` prop (breakpoint objects) and `spaceItems` prop, mapping to PF6 `gap`/`columnGap`/`rowGap` props
+  - Button icon prop detector uses AST when available to check for icon prop presence on Button components; falls back to diff-based detection checking for `icon={` pattern in added lines
+  - PageSection variant detector handles both string literal variants (`variant="light"`) and enum usage (`variant={PageSectionVariants.light}`), plus import removal of PageSectionVariants
+  - The `hasVariantImportRemoval` helper checks for both `PageSectionVariants` and `import` on the same line to avoid false positives on non-import references
+  - Regex for `\bspacer\s*=\s*\{` correctly avoids matching substring patterns by requiring `=` and `{` after the prop name
+---
+
+## 2026-02-27 - US-014
+- What was implemented: 3 moderate pattern detectors for Page masthead prop migration, react-tokens/icon/status import path changes, and Avatar component adoption patterns
+- Files changed:
+  - eval/approach1/src/patterns/page-masthead.ts (detects Page header/PageHeader -> masthead/Masthead migration)
+  - eval/approach1/src/patterns/react-tokens-icon-status.ts (detects react-tokens bare import -> dist subpath, global_ -> t_ tokens, icon dist path -> top-level imports)
+  - eval/approach1/src/patterns/avatar-adoption.ts (detects Avatar component PF6 prop adoption: isBordered, size; uses AST when available)
+  - eval/approach1/src/patterns/__tests__/moderate-detectors-batch3.test.ts (31 tests covering all 3 detectors)
+- **Learnings for future iterations:**
+  - When matching import paths like `@patternfly/react-tokens`, use `['"]` anchors at the end (e.g., `/from\s+['"]@patternfly\/react-tokens['"]/`) to avoid matching subpaths like `@patternfly/react-tokens/dist/...`. Using `\b` alone is insufficient because `/` is a word boundary.
+  - Page masthead detector uses negative lookahead `(?!Content|Brand|Toggle|Main)` on `\bMasthead\b` to avoid matching sub-components like MastheadContent, MastheadBrand, etc.
+  - Avatar adoption detector checks for both `isBordered` and `size` as PF6-specific props, with AST-based detection taking priority when available
+  - react-tokens detector covers three sub-patterns: bare import path changes, global_ to t_ token name changes, and icon dist/esm or dist/js path simplification
+---
+
+## 2026-02-27 - US-015
+- What was implemented: Complex pattern detector for Select component rewrite from PF5 API (onToggle, isOpen, selections, placeholderText, SelectVariant) to PF6 API (MenuToggle, SelectList, toggle prop, onOpenChange)
+- Files changed:
+  - eval/approach1/src/patterns/select-rewrite.ts (detects Select component rewrite; uses AST when available for prop/children comparison; handles partial migrations)
+  - eval/approach1/src/patterns/__tests__/complex-detectors-select.test.ts (18 tests: NOT_APPLICABLE, FILE_MISSING, CORRECT full rewrite, CORRECT with MenuToggle/SelectList/onOpenChange, MISSING, INCORRECT with old props re-added, INCORRECT with old API removed but new not added, AST-based correct/incorrect, realistic PF5-to-PF6 migration, SelectOption/SelectGroup exclusion)
+- **Learnings for future iterations:**
+  - Complex detectors follow the same structure as moderate but with weight=3 and complexity='complex'
+  - Select rewrite is the most significant component API change in PF5->PF6: completely new component hierarchy with MenuToggle replacing built-in toggle, SelectList wrapping SelectOptions
+  - PF5 Select props to detect: onToggle, isOpen, selections, placeholderText, SelectVariant enum
+  - PF6 Select patterns to detect: MenuToggle component, SelectList component, toggle= prop, onOpenChange prop
+  - Use negative lookahead `(?!Option|List|Group|Variant)` on `\bSelect\b` to avoid matching SelectOption, SelectList, etc.
+  - For partial migration detection, check if PF5 props appear in migration addedLines (re-added = INCORRECT)
+---
+
+## 2026-02-27 - US-016
+- What was implemented: Complex pattern detector for Masthead component hierarchy reorganization from PF5 to PF6
+- Files changed:
+  - eval/approach1/src/patterns/masthead-reorganization.ts (detects Masthead hierarchy reorganization: MastheadToggle moves into MastheadMain, MastheadLogo introduced; uses AST when available)
+  - eval/approach1/src/patterns/__tests__/complex-detectors-masthead.test.ts (14 tests: NOT_APPLICABLE, FILE_MISSING, CORRECT with MastheadLogo, CORRECT with restructuring, MISSING, INCORRECT without MastheadLogo, realistic full restructuring, AST-based correct/incorrect, MastheadLogo import detection)
+- **Learnings for future iterations:**
+  - PF5->PF6 Masthead reorganization: MastheadToggle moves from sibling of MastheadMain to child of MastheadMain; MastheadLogo is a new PF6 component that wraps brand content inside MastheadBrand
+  - Two reorganization signals: (1) MastheadLogo introduction in added lines, (2) sub-components present in both removed and added lines (restructuring)
+  - MastheadLogo is the strongest PF6 signal — its presence in migration means correct reorganization; its absence when golden has it means INCORRECT
+  - AST detection checks component tag names for MastheadLogo, MastheadToggle, MastheadMain, MastheadBrand presence
+---
+
+## 2026-02-27 - US-017
+- What was implemented: Complex pattern detector for test selector rewrite from PF5 to PF6, detecting data-testid, aria-label, CSS selector (pf-v5-c-* -> pf-v6-c-*), and test query function changes
+- Files changed:
+  - eval/approach1/src/patterns/test-selector-rewrite.ts (detects test selector updates: data-testid changes, aria-label changes, PF5->PF6 CSS selector updates, test query function updates; handles partial migrations)
+  - eval/approach1/src/patterns/__tests__/complex-detectors-test-selector.test.ts (15 tests: NOT_APPLICABLE, FILE_MISSING, CORRECT for data-testid/aria-label/CSS selectors/test queries/combined, MISSING, INCORRECT for PF5 still present and partial updates, realistic scenarios with getByRole/Cypress/queryByLabelText)
+- **Learnings for future iterations:**
+  - Test selector detector covers 4 categories: data-testid attributes, aria-label attributes, PF5/PF6 CSS class selectors (.pf-v5-c-* -> .pf-v6-c-*), and test query functions (getByTestId, getByRole, getByLabelText, cy.get)
+  - The detector tracks per-category matching to give granular INCORRECT feedback when only some categories are updated
+  - PF5 CSS selectors re-added in migration addedLines (without PF6 counterparts) triggers a specific INCORRECT message about still using old selectors
+  - Test query patterns cover both React Testing Library (screen.getByTestId, etc.) and Cypress (cy.get) conventions
+---
+
+## 2026-02-27 - US-018
+- What was implemented: Weighted scoring engine that computes FinalScore = (0.20 * FileCoverage) + (0.65 * PatternScore) + (0.15 * (1 - NoisePenalty))
+- Files changed:
+  - eval/approach1/src/scoring/engine.ts (computeScore, computeFileCoverage, computePatternScore, computeNoisePenalty functions)
+  - eval/approach1/src/scoring/__tests__/engine.test.ts (23 tests: file coverage, pattern score with weights, noise penalty capping, perfect/empty/partial/noisy migration scoring)
+- **Learnings for future iterations:**
+  - Scoring modules go in src/scoring/ with tests in src/scoring/__tests__/
+  - WeightedDetectionResult pairs a DetectionResult with its pattern weight for weighted scoring
+  - PatternScore uses CREDIT map: CORRECT=1.0, INCORRECT=0.25, MISSING=0, FILE_MISSING=0, NOT_APPLICABLE excluded from denominator
+  - NoisePenalty is capped at 1.0 (100%) to prevent negative overall scores
+  - All scores normalized to 0-100% range with 2 decimal places precision
+  - When all patterns are NOT_APPLICABLE or results are empty, patternScore defaults to 1.0 (no penalty)
+---
+
+## 2026-02-27 - US-019
+- What was implemented: Noise detector that identifies 5 types of migration noise: unnecessary changes, formatting-only changes, incorrect migrations, artifacts, and placeholder tokens
+- Files changed:
+  - eval/approach1/src/scoring/noise-detector.ts (detectNoise function with sub-detectors for each noise type; NoiseDetectorInput interface)
+  - eval/approach1/src/scoring/__tests__/noise-detector.test.ts (22 tests covering all 5 noise types, combined detection, and penalty accumulation)
+- **Learnings for future iterations:**
+  - NoiseDetectorInput takes matchResult (for extra files), migrationDiffs (for artifact/placeholder scanning), and detectionResults (for INCORRECT status penalties)
+  - Penalty values: unnecessary_change=0.01/file, formatting_only=0.02/file, incorrect_migration=0.03/instance, artifact=0.05/instance, placeholder_token=0.05/instance
+  - Formatting-only detection normalizes whitespace and sorts lines to compare; only checks files in the matched set
+  - Artifact patterns: console.log, console.debug, // TODO, // @ts-ignore, debugger
+  - Placeholder patterns: t_temp_dev_tbd, TEMP_PLACEHOLDER, PLACEHOLDER, FIXME, HACK, XXX
+  - One penalty per line (break after first pattern match) to avoid double-counting
+  - Use `toBeCloseTo` instead of `toBe` for floating-point sum assertions in tests
+---
+
+## 2026-02-27 - US-020
+- What was implemented: JSON reporter that writes an EvalReport to a timestamped JSON file with 2-space indentation
+- Files changed:
+  - eval/approach1/src/reporting/json-reporter.ts (writeJsonReport function: creates output dir, generates timestamped filename, writes JSON with 2-space indent)
+  - eval/approach1/src/reporting/__tests__/json-reporter.test.ts (11 tests: file creation, timestamped filename, valid JSON with 2-space indent, metadata/summary/fileResults/patternBreakdown/noiseInstances sections, nested dir creation, empty results, trailing newline)
+- **Learnings for future iterations:**
+  - Reporting modules go in src/reporting/ with tests in src/reporting/__tests__/
+  - Use `mkdir(dir, { recursive: true })` to ensure output directory exists before writing
+  - Timestamp sanitization for filenames: replace `:` and `.` with `-`, replace `T` and space with `_`
+  - JSON.stringify with 2-space indent + trailing newline for clean output
+---
+
+## 2026-02-27 - US-021
+- What was implemented: Markdown reporter that generates a human-readable Markdown file from an EvalReport with sections for Executive Summary, File Coverage, Pattern Results, Noise Findings, and Recommendations
+- Files changed:
+  - eval/approach1/src/reporting/markdown-reporter.ts (generateMarkdown, writeMarkdownReport functions with grade mapping, status icons, complexity grouping, and recommendations generation)
+  - eval/approach1/src/reporting/__tests__/markdown-reporter.test.ts (18 tests covering all sections, grade mapping, status icons, empty results, pipe escaping, noise with/without line numbers, nested output dirs)
+- **Learnings for future iterations:**
+  - Markdown reporter follows same file/test patterns as JSON reporter (timestamped filename, mkdir recursive, etc.)
+  - generateMarkdown is exported separately from writeMarkdownReport for easy unit testing without filesystem
+  - Pattern complexity grouping is done by matching known pattern IDs to complexity levels (trivial/moderate/complex) - if new patterns are added, update the groupByComplexity mapping
+  - Pipe characters in table cell content must be escaped with backslash to avoid breaking Markdown table formatting
+  - Score-to-grade mapping: A>=90, B>=80, C>=70, D>=60, F<60
+  - Recommendations are generated from MISSING, INCORRECT, FILE_MISSING patterns and noise instances (artifacts, placeholders)
+---
+
+## 2026-02-27 - US-022
+- What was implemented: Full CLI pipeline wiring - input fetching (PR or local), file matching, AST analysis, pattern detection across all matched+missed files, noise detection, scoring, and JSON+Markdown report generation
+- Files changed:
+  - eval/approach1/src/cli.ts (complete rewrite: imports all 24 pattern detectors for self-registration, orchestrates full pipeline from input through scoring to report output)
+- **Learnings for future iterations:**
+  - All 24 pattern detector files must be imported with side-effect imports (`import './patterns/xxx.js'`) so they self-register at module load time
+  - AST analysis uses `readFileContents` in local mode (full file content) but `analyzeFileDiff` in PR mode (reconstructs content from diff added lines)
+  - Missed files (in golden but not in migration) must also be run through pattern detectors with `migrationDiff=null` to get FILE_MISSING status
+  - Noise instances are assigned to FileResult objects by matching the noise file path to the file result's filePath
+  - Grade calculation is duplicated from markdown-reporter (A>=90, B>=80, C>=70, D>=60, F<60) for the CLI summary output
+---
+
+## 2026-02-27 - US-023
+- What was implemented: Integration test against known golden (quipucords/quipucords-ui#664) and migration (jwmatthews/quipucords-ui#4) PRs with full pipeline validation and regression baseline
+- Files changed:
+  - eval/approach1/src/__tests__/fixtures/golden-pr-664.diff (fixture: golden PR diff from quipucords/quipucords-ui#664)
+  - eval/approach1/src/__tests__/fixtures/migration-pr-4.diff (fixture: migration PR diff from jwmatthews/quipucords-ui#4)
+  - eval/approach1/src/__tests__/fixtures/baselines/quipucords-regression-baseline.json (regression baseline JSON output)
+  - eval/approach1/src/__tests__/integration.test.ts (17 tests: diff parsing, file coverage with 8 missed/2 extra files, pattern detection for placeholder tokens/innerRef/masthead, noise detection, scoring in 60-70% range, regression baseline saving)
+- **Learnings for future iterations:**
+  - Integration test runs the full pipeline in-memory: parseDiff -> matchFiles -> analyzeFileDiff -> pattern detection -> noise detection -> scoring
+  - Must import all 24 pattern detector files with side-effect imports for self-registration (same as cli.ts)
+  - Actual scores: overallScore=66.69%, fileCoverage=78.95%, patternScore=64.46%, noisePenalty=40%
+  - Golden PR has 38 non-excluded files, migration has 32; 30 matched, 8 missed, 2 extra
+  - The migration PR contains t_temp_dev_tbd placeholder tokens in contextIcon.tsx (codemod artifacts)
+  - The 4 useT*WithBatteries.tsx files (innerRef patterns) are entirely missed by the migration
+  - Regression baseline uses a fixed timestamp for stable comparisons
+---
