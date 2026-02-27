@@ -229,3 +229,15 @@ Started: Fri Feb 27 04:37:21 PM EST 2026
   - Use negative lookahead `(?!Option|List|Group|Variant)` on `\bSelect\b` to avoid matching SelectOption, SelectList, etc.
   - For partial migration detection, check if PF5 props appear in migration addedLines (re-added = INCORRECT)
 ---
+
+## 2026-02-27 - US-016
+- What was implemented: Complex pattern detector for Masthead component hierarchy reorganization from PF5 to PF6
+- Files changed:
+  - eval/approach1/src/patterns/masthead-reorganization.ts (detects Masthead hierarchy reorganization: MastheadToggle moves into MastheadMain, MastheadLogo introduced; uses AST when available)
+  - eval/approach1/src/patterns/__tests__/complex-detectors-masthead.test.ts (14 tests: NOT_APPLICABLE, FILE_MISSING, CORRECT with MastheadLogo, CORRECT with restructuring, MISSING, INCORRECT without MastheadLogo, realistic full restructuring, AST-based correct/incorrect, MastheadLogo import detection)
+- **Learnings for future iterations:**
+  - PF5->PF6 Masthead reorganization: MastheadToggle moves from sibling of MastheadMain to child of MastheadMain; MastheadLogo is a new PF6 component that wraps brand content inside MastheadBrand
+  - Two reorganization signals: (1) MastheadLogo introduction in added lines, (2) sub-components present in both removed and added lines (restructuring)
+  - MastheadLogo is the strongest PF6 signal — its presence in migration means correct reorganization; its absence when golden has it means INCORRECT
+  - AST detection checks component tag names for MastheadLogo, MastheadToggle, MastheadMain, MastheadBrand presence
+---
