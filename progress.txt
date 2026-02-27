@@ -1,0 +1,41 @@
+## Codebase Patterns
+- Project lives at eval/approach1/ - all source in eval/approach1/src/
+- ESM project with "type": "module" in package.json
+- TypeScript strict mode with JSX preserve and bundler module resolution
+- Use `npx tsc --noEmit` from eval/approach1/ for typecheck
+- Use `npx vitest run` from eval/approach1/ for tests
+- Shared types in src/types.ts - import from there
+- Logger utility in src/utils/logger.ts with chalk-based methods
+- Tests go in __tests__/ directories alongside source (e.g., src/input/__tests__/diff-parser.test.ts)
+- Import with .js extension for ESM (e.g., import from '../types.js')
+
+# Ralph Progress Log
+Started: Fri Feb 27 04:37:21 PM EST 2026
+---
+
+## 2026-02-27 - US-001
+- What was implemented: Project scaffolding with package.json, tsconfig.json, types.ts, cli.ts, and logger.ts
+- Files changed:
+  - eval/approach1/package.json (dependencies: ts-morph, commander, chalk; devDeps: typescript, tsx, vitest, @types/node)
+  - eval/approach1/tsconfig.json (strict, ESM, JSX preserve, bundler resolution)
+  - eval/approach1/src/types.ts (all shared interfaces: FileDiff, ASTRepresentation, PatternDefinition, DetectionResult, DetectionStatus enum, EvalReport, MatchResult, NoiseInstance)
+  - eval/approach1/src/cli.ts (commander-based CLI with --golden-pr, --migration-pr, --golden-dir, --migration-dir, --output-dir, --verbose)
+  - eval/approach1/src/utils/logger.ts (chalk-based logging: info, warn, error, verbose, success)
+- **Learnings for future iterations:**
+  - npm install succeeds and npx tsc --noEmit passes clean
+  - CLI uses commander with both PR URL and local directory modes
+  - DetectionStatus enum has 6 values: CORRECT, MISSING, INCORRECT, UNNECESSARY, FILE_MISSING, NOT_APPLICABLE
+---
+
+## 2026-02-27 - US-002
+- What was implemented: Unified diff parser that converts raw diff text into structured FileDiff objects
+- Files changed:
+  - eval/approach1/src/input/diff-parser.ts (parseDiff function: splits diff into file chunks, parses hunks, extracts added/removed lines with line numbers)
+  - eval/approach1/src/input/__tests__/diff-parser.test.ts (10 tests: empty input, single-file, multi-file, renames, binary, no-newline-at-eof, hunk headers, multiple hunks, new file, deleted file)
+- **Learnings for future iterations:**
+  - Unified diff format: "diff --git a/path b/path" separates files, "@@ -old,count +new,count @@" separates hunks
+  - The "\ No newline at end of file" marker should be preserved in hunk lines but not counted as added/removed
+  - Renamed files use "rename from/to" lines and also have different --- and +++ paths
+  - Binary files have "Binary files ... differ" or "GIT binary patch" markers
+  - stripABPrefix utility removes a/ or b/ prefix from diff paths
+---

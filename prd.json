@@ -1,0 +1,390 @@
+{
+  "project": "PF Migration Eval",
+  "branchName": "ralph/pf-migration-eval",
+  "description": "PatternFly 5-to-6 Migration Evaluation Suite - scores AI migration quality by comparing against a golden source PR using weighted pattern detection",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Initialize project scaffolding",
+      "description": "As a developer, I need the project structure, dependencies, and build tooling so I can start implementing features.",
+      "acceptanceCriteria": [
+        "eval/approach1/package.json with dependencies: ts-morph ^27.0.2, commander ^13.0.0, chalk ^5.4.0 and devDependencies: typescript ^5.7.0, tsx ^4.21.0, vitest ^3.0.0, @types/node ^22.0.0",
+        "eval/approach1/tsconfig.json configured for TypeScript with JSX support (jsx: preserve), ESM output, strict mode",
+        "eval/approach1/src/types.ts with all shared interfaces: FileDiff, ASTRepresentation, PatternDefinition, DetectionResult, DetectionStatus enum (CORRECT|MISSING|INCORRECT|UNNECESSARY|FILE_MISSING|NOT_APPLICABLE), EvalReport, MatchResult, NoiseInstance",
+        "eval/approach1/src/cli.ts skeleton using commander with options: --golden-pr, --migration-pr, --golden-dir, --migration-dir, --output-dir (default ./results), --verbose",
+        "eval/approach1/src/utils/logger.ts with chalk-based console logging (info, warn, error, verbose, success methods)",
+        "npm install succeeds",
+        "npx tsc --noEmit passes with no errors"
+      ],
+      "priority": 1,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-002",
+      "title": "Parse unified diffs into structured data",
+      "description": "As the evaluation engine, I need to parse unified diff output into structured FileDiff objects so pattern detectors can examine added/removed lines per file.",
+      "acceptanceCriteria": [
+        "src/input/diff-parser.ts parses standard unified diff format into FileDiff[]",
+        "Each FileDiff contains: file path, list of added lines (with line numbers), list of removed lines (with line numbers), raw hunks",
+        "Handles renamed files (detects a/old-path -> b/new-path)",
+        "Handles binary files gracefully (skips them)",
+        "Handles files with no newline at end of file",
+        "Unit tests cover: single-file diff, multi-file diff, renamed files, empty diff, binary files",
+        "Typecheck passes"
+      ],
+      "priority": 2,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-003",
+      "title": "Fetch diffs from GitHub PR URLs",
+      "description": "As a user, I want to provide GitHub PR URLs so I can evaluate migrations without cloning repos.",
+      "acceptanceCriteria": [
+        "src/input/pr-fetcher.ts calls 'gh pr diff <url>' and returns parsed FileDiff[]",
+        "Validates that gh CLI is available and authenticated before attempting fetch",
+        "Provides clear error message if gh is not installed or PR URL is invalid",
+        "Works with PRs from any public GitHub repository",
+        "Unit test with mocked gh output",
+        "Typecheck passes"
+      ],
+      "priority": 3,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-004",
+      "title": "Read diffs from local directories",
+      "description": "As a user, I want to provide local directories (checked-out branches) so I can evaluate migrations from local git repos.",
+      "acceptanceCriteria": [
+        "src/input/local-reader.ts runs git diff between the merge base and branch HEAD",
+        "Also reads full file contents from disk for AST analysis",
+        "Validates that provided directories are valid git repositories",
+        "Provides clear error message if directory doesn't exist or isn't a git repo",
+        "Unit test with a temporary git repo fixture",
+        "Typecheck passes"
+      ],
+      "priority": 4,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-005",
+      "title": "Match golden files to migration files",
+      "description": "As the evaluation engine, I need to pair files from the golden PR with corresponding files in the migration PR so I can compare them.",
+      "acceptanceCriteria": [
+        "src/analysis/file-matcher.ts matches files by normalized path (strips a/ b/ prefixes, normalizes separators)",
+        "Identifies files present in golden but missing in migration (missed files)",
+        "Identifies files present in migration but not in golden (extra files)",
+        "Excludes snapshot files (.snap) and lockfiles from matching",
+        "Returns a MatchResult with: matched pairs, missed files, extra files",
+        "Unit tests cover: exact matches, missed files, extra files, snapshot exclusion, path prefix normalization",
+        "Typecheck passes"
+      ],
+      "priority": 5,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-006",
+      "title": "Extract AST information from TypeScript/TSX files",
+      "description": "As pattern detectors, I need structured AST data (imports, component usages, props) so I can perform semantic comparison beyond simple text matching.",
+      "acceptanceCriteria": [
+        "src/analysis/ast-analyzer.ts uses ts-morph with skipFileDependencyResolution: true and skipAddingFilesFromTsConfig: true",
+        "Files are added with .tsx extension for JSX parsing",
+        "Extracts import declarations (module specifier + named imports)",
+        "Extracts JSX component usages (tag name + props with values + children structure)",
+        "Handles files that fail to parse gracefully (returns partial result + warning)",
+        "Works with both full file content (local mode) and reconstructed content from diff (PR mode)",
+        "Unit tests against known PF5 and PF6 code snippets",
+        "Typecheck passes"
+      ],
+      "priority": 6,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-007",
+      "title": "Detect CSS patterns via regex",
+      "description": "As pattern detectors, I need to identify CSS class references and custom property names so I can check CSS-related migration patterns.",
+      "acceptanceCriteria": [
+        "src/analysis/css-analyzer.ts detects class name references in JSX className props, template literals, and string concatenation",
+        "Detects CSS custom property references (e.g., --pf-v5-* vs --pf-v6-*)",
+        "Detects pf-v5-u-* utility class references",
+        "Unit tests for className strings, template literals, CSS custom properties",
+        "Typecheck passes"
+      ],
+      "priority": 7,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-008",
+      "title": "Build pattern registry and detector framework",
+      "description": "As a developer, I need a registry that catalogs pattern detectors and dispatches detection so individual detectors have a consistent interface.",
+      "acceptanceCriteria": [
+        "src/patterns/types.ts defines PatternDefinition interface: id, name, complexity (trivial|moderate|complex), weight (1|2|3), description, detect function",
+        "Detect function signature: (goldenDiff: FileDiff, migrationDiff: FileDiff | null, goldenAST?: ASTRepresentation, migrationAST?: ASTRepresentation) => DetectionResult",
+        "src/patterns/registry.ts exports a list of registered PatternDefinition objects and can filter by complexity level",
+        "Registry initially empty, ready for detectors to register themselves",
+        "Unit test: registry accepts and returns patterns, filters by complexity",
+        "Typecheck passes"
+      ],
+      "priority": 8,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-009",
+      "title": "Implement trivial detectors batch 1: CSS and class renames",
+      "description": "As the evaluation engine, I need detectors for the 4 CSS/class-related trivial migration patterns.",
+      "acceptanceCriteria": [
+        "css-class-prefix.ts detects pf-v5-* -> pf-v6-* class renames in diff lines",
+        "utility-class-rename.ts detects pf-v5-u-* -> pf-v6-u-* renames",
+        "css-logical-properties.ts detects --PaddingTop -> --PaddingBlockStart and similar logical property renames",
+        "theme-dark-removal.ts detects removal of theme='dark' prop",
+        "Each detector returns NOT_APPLICABLE when the pattern doesn't exist in the golden diff",
+        "Each detector registered in the pattern registry",
+        "Each detector has at least one unit test with a golden/migration diff pair",
+        "Typecheck passes"
+      ],
+      "priority": 9,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-010",
+      "title": "Implement trivial detectors batch 2: prop renames",
+      "description": "As the evaluation engine, I need detectors for 4 prop-rename trivial migration patterns.",
+      "acceptanceCriteria": [
+        "inner-ref-to-ref.ts detects innerRef -> ref prop renames",
+        "align-right-to-end.ts detects alignRight -> alignEnd prop renames",
+        "is-action-cell.ts detects isActionCell -> hasAction prop renames",
+        "space-items-removal.ts detects removal of spaceItems prop",
+        "Each detector returns NOT_APPLICABLE when the pattern doesn't exist in the golden diff",
+        "Each detector registered in the pattern registry",
+        "Each detector has at least one unit test with a golden/migration diff pair",
+        "Typecheck passes"
+      ],
+      "priority": 10,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-011",
+      "title": "Implement trivial detectors batch 3: import and component renames",
+      "description": "As the evaluation engine, I need detectors for 4 import/component-rename trivial migration patterns.",
+      "acceptanceCriteria": [
+        "ouia-component-id.ts detects data-ouia-component-id -> ouiaId renames",
+        "chips-to-labels.ts detects chips/deleteChip -> labels/deleteLabel renames",
+        "split-button-items.ts detects splitButtonOptions -> splitButtonItems renames",
+        "modal-import-path.ts detects Modal import path change to deprecated path",
+        "Each detector returns NOT_APPLICABLE when the pattern doesn't exist in the golden diff",
+        "Each detector registered in the pattern registry",
+        "Each detector has at least one unit test with a golden/migration diff pair",
+        "Typecheck passes"
+      ],
+      "priority": 11,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-012",
+      "title": "Implement moderate detectors batch 1: text, empty state, toolbar",
+      "description": "As the evaluation engine, I need detectors for 3 moderately complex migration patterns involving component restructuring.",
+      "acceptanceCriteria": [
+        "text-content-consolidation.ts detects TextContent component consolidation changes",
+        "empty-state-restructure.ts detects EmptyState children restructuring (uses AST when available)",
+        "toolbar-variant.ts detects Toolbar variant prop changes",
+        "Each detector returns NOT_APPLICABLE when the pattern doesn't exist in the golden diff",
+        "Each detector registered in the pattern registry with weight=2",
+        "Each detector has at least one unit test",
+        "Typecheck passes"
+      ],
+      "priority": 12,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-013",
+      "title": "Implement moderate detectors batch 2: toolbar gap, button icon, page section",
+      "description": "As the evaluation engine, I need detectors for 3 moderately complex migration patterns involving prop changes.",
+      "acceptanceCriteria": [
+        "toolbar-gap.ts detects Toolbar gap/spacer changes",
+        "button-icon-prop.ts detects Button icon prop restructuring (uses AST when available)",
+        "page-section-variant.ts detects PageSection variant changes",
+        "Each detector returns NOT_APPLICABLE when the pattern doesn't exist in the golden diff",
+        "Each detector registered in the pattern registry with weight=2",
+        "Each detector has at least one unit test",
+        "Typecheck passes"
+      ],
+      "priority": 13,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-014",
+      "title": "Implement moderate detectors batch 3: masthead, tokens, avatar",
+      "description": "As the evaluation engine, I need detectors for 3 moderately complex migration patterns involving imports and component adoption.",
+      "acceptanceCriteria": [
+        "page-masthead.ts detects Page masthead prop migration",
+        "react-tokens-icon-status.ts detects react-tokens and icon/status import path changes",
+        "avatar-adoption.ts detects Avatar component adoption patterns",
+        "Each detector returns NOT_APPLICABLE when the pattern doesn't exist in the golden diff",
+        "Each detector registered in the pattern registry with weight=2",
+        "Each detector has at least one unit test",
+        "Typecheck passes"
+      ],
+      "priority": 14,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-015",
+      "title": "Implement complex detector: Select rewrite",
+      "description": "As the evaluation engine, I need to detect the Select component rewrite from PF5 to PF6 API, which involves significant prop and children changes.",
+      "acceptanceCriteria": [
+        "select-rewrite.ts detects Select component rewrite to new PF6 API",
+        "Uses AST when available for prop/children comparison",
+        "Handles partial migrations (returns INCORRECT with explanatory notes)",
+        "Returns NOT_APPLICABLE when Select is not used in the golden diff",
+        "Registered in the pattern registry with weight=3",
+        "Unit test with realistic PF5 Select and PF6 Select code snippets",
+        "Typecheck passes"
+      ],
+      "priority": 15,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-016",
+      "title": "Implement complex detector: Masthead reorganization",
+      "description": "As the evaluation engine, I need to detect the Masthead component hierarchy reorganization from PF5 to PF6.",
+      "acceptanceCriteria": [
+        "masthead-reorganization.ts detects Masthead component hierarchy reorganization",
+        "Uses AST when available for children structure comparison",
+        "Handles partial migrations (returns INCORRECT with explanatory notes)",
+        "Returns NOT_APPLICABLE when Masthead is not used in the golden diff",
+        "Registered in the pattern registry with weight=3",
+        "Unit test with realistic Masthead restructuring code snippets",
+        "Typecheck passes"
+      ],
+      "priority": 16,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-017",
+      "title": "Implement complex detector: Test selector rewrite",
+      "description": "As the evaluation engine, I need to detect test selector updates (data-testid, aria-label changes) from PF5 to PF6.",
+      "acceptanceCriteria": [
+        "test-selector-rewrite.ts detects test selector updates (data-testid, aria-label changes)",
+        "Handles partial migrations (returns INCORRECT with explanatory notes)",
+        "Returns NOT_APPLICABLE when test selectors are not changed in the golden diff",
+        "Registered in the pattern registry with weight=3",
+        "Unit test with realistic test selector code snippets",
+        "Typecheck passes"
+      ],
+      "priority": 17,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-018",
+      "title": "Implement weighted scoring engine",
+      "description": "As a user, I want an overall quality score that weights pattern detection results by complexity and accounts for file coverage and noise.",
+      "acceptanceCriteria": [
+        "src/scoring/engine.ts implements: FinalScore = (0.20 * FileCoverage) + (0.65 * PatternScore) + (0.15 * (1 - NoisePenalty))",
+        "FileCoverage = matched files / golden files (excluding snapshots and lockfiles)",
+        "PatternScore = sum(weight * credit) / sum(weight * expected) where CORRECT=1.0, INCORRECT=0.25, MISSING=0, FILE_MISSING=0, NOT_APPLICABLE excluded from denominator",
+        "NoisePenalty = min(1.0, sum of all penalty amounts)",
+        "Score is normalized to 0-100% range",
+        "Unit tests: perfect migration = 100%, empty migration produces low score, partial migration scores proportionally",
+        "Typecheck passes"
+      ],
+      "priority": 18,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-019",
+      "title": "Implement noise detection and penalties",
+      "description": "As a user, I want the tool to identify and penalize artifacts, placeholder tokens, and unnecessary changes so the score reflects real migration quality.",
+      "acceptanceCriteria": [
+        "src/scoring/noise-detector.ts detects: unnecessary changes not in golden (0.01/file), formatting-only changes (0.02/file), incorrect migrations (0.03/instance), artifacts (0.05/instance), placeholder tokens like t_temp_dev_tbd (0.05/instance)",
+        "Returns a list of NoiseInstance objects with type, file, line, description",
+        "Total penalty is capped at 1.0",
+        "Unit tests for each noise type",
+        "Typecheck passes"
+      ],
+      "priority": 19,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-020",
+      "title": "Generate JSON report",
+      "description": "As a developer, I want machine-readable JSON output so I can track scores over time and compare runs.",
+      "acceptanceCriteria": [
+        "src/reporting/json-reporter.ts writes an EvalReport to a JSON file",
+        "Report includes: metadata (timestamp, golden source, migration source), summary (overall score, file coverage, pattern score, noise penalty), per-file breakdown, per-pattern breakdown, noise instances",
+        "Output file is written to --output-dir with a timestamped filename",
+        "JSON is formatted with 2-space indentation",
+        "Typecheck passes"
+      ],
+      "priority": 20,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-021",
+      "title": "Generate Markdown report",
+      "description": "As a user, I want a human-readable Markdown report so I can quickly understand what the migration got right and what it missed.",
+      "acceptanceCriteria": [
+        "src/reporting/markdown-reporter.ts generates a Markdown file from the EvalReport",
+        "Report sections: Executive Summary (score + grade), File Coverage (table of matched/missed/extra), Pattern Results (grouped by complexity with status icons), Noise Findings (list with file/line references), Recommendations (top issues to fix)",
+        "Uses tables and status icons (checkmark, X, warning) for scannability",
+        "Output file is written to --output-dir with a timestamped filename",
+        "Typecheck passes"
+      ],
+      "priority": 21,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-022",
+      "title": "Wire CLI end-to-end",
+      "description": "As a user, I want to run a single command that fetches inputs, runs analysis, scores results, and produces reports.",
+      "acceptanceCriteria": [
+        "src/cli.ts orchestrates the full pipeline: input -> file matching -> AST analysis -> pattern detection -> scoring -> reporting",
+        "PR URL mode works: tsx src/cli.ts --golden-pr <url> --migration-pr <url>",
+        "Local directory mode works: tsx src/cli.ts --golden-dir <path> --migration-dir <path>",
+        "--output-dir defaults to ./results",
+        "--verbose prints per-file detection results during analysis",
+        "Exits with code 0 on success, non-zero on error",
+        "Prints summary score to stdout on completion",
+        "Typecheck passes"
+      ],
+      "priority": 22,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-023",
+      "title": "Integration test against known PRs",
+      "description": "As a developer, I need to validate the tool against the known golden and migration PRs to ensure scores match manual analysis.",
+      "acceptanceCriteria": [
+        "Run tool against quipucords/quipucords-ui#664 (golden) and jwmatthews/quipucords-ui#4 (migration)",
+        "File coverage correctly identifies the 7 missed files and 2 extra files",
+        "Pattern detectors catch known issues: title vs titleText, placeholder tokens (t_temp_dev_tbd), missing innerRef->ref renames, incomplete masthead migration",
+        "Overall score falls in the 60-70% range",
+        "JSON output is saved as a regression baseline",
+        "Typecheck passes"
+      ],
+      "priority": 23,
+      "passes": false,
+      "notes": ""
+    }
+  ]
+}
