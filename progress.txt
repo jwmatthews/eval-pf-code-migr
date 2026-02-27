@@ -14,6 +14,9 @@
 - Always use .tsx extension when creating ts-morph source files (for JSX parsing)
 - JsxAttribute children: boolean attrs (e.g. `isDisabled`) have 1 child (name), value attrs have 3 (name, =, value) - check `getChildCount()` before accessing index 2
 - Don't use regex with `g` flag and `.test()` in loops - the `lastIndex` state persists between calls. Use a fresh regex literal instead.
+- Pattern detectors go in src/patterns/ with tests in src/patterns/__tests__/
+- Registry is a module-level singleton array; use clearPatterns() in test beforeEach
+- PatternDefinition already defined in src/types.ts; re-exported from src/patterns/types.ts
 
 # Ralph Progress Log
 Started: Fri Feb 27 04:37:21 PM EST 2026
@@ -105,4 +108,17 @@ Started: Fri Feb 27 04:37:21 PM EST 2026
   - Don't use global-flag regex with `.test()` in a loop - `lastIndex` state persists between calls causing alternate matches to fail. Use a fresh regex literal instead.
   - CSSClassReference has a `context` field that categorizes where the class appears: className-prop, template-literal, string-concat, or string-literal
   - PF class patterns: `pf-v5-*` / `pf-v6-*` for general classes, `pf-v5-u-*` / `pf-v6-u-*` for utility classes, `--pf-v5-*` / `--pf-v6-*` for CSS custom properties
+---
+
+## 2026-02-27 - US-008
+- What was implemented: Pattern registry and detector framework with register, get, filter-by-complexity, and clear operations
+- Files changed:
+  - eval/approach1/src/patterns/types.ts (re-exports PatternDefinition and related types from src/types.ts)
+  - eval/approach1/src/patterns/registry.ts (registerPattern, getPatterns, getPatternsByComplexity, clearPatterns functions)
+  - eval/approach1/src/patterns/__tests__/registry.test.ts (9 tests: empty start, register+return, mutation safety, multiple patterns, filter by trivial/moderate/complex, empty filter result, clear)
+- **Learnings for future iterations:**
+  - Registry is a module-level singleton array - detectors will call registerPattern() at import time
+  - getPatterns() returns a copy to prevent external mutation
+  - clearPatterns() is needed for test isolation (call in beforeEach)
+  - PatternDefinition is already fully defined in src/types.ts with the correct detect function signature
 ---
