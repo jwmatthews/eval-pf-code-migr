@@ -282,3 +282,15 @@ Started: Fri Feb 27 04:37:21 PM EST 2026
   - One penalty per line (break after first pattern match) to avoid double-counting
   - Use `toBeCloseTo` instead of `toBe` for floating-point sum assertions in tests
 ---
+
+## 2026-02-27 - US-020
+- What was implemented: JSON reporter that writes an EvalReport to a timestamped JSON file with 2-space indentation
+- Files changed:
+  - eval/approach1/src/reporting/json-reporter.ts (writeJsonReport function: creates output dir, generates timestamped filename, writes JSON with 2-space indent)
+  - eval/approach1/src/reporting/__tests__/json-reporter.test.ts (11 tests: file creation, timestamped filename, valid JSON with 2-space indent, metadata/summary/fileResults/patternBreakdown/noiseInstances sections, nested dir creation, empty results, trailing newline)
+- **Learnings for future iterations:**
+  - Reporting modules go in src/reporting/ with tests in src/reporting/__tests__/
+  - Use `mkdir(dir, { recursive: true })` to ensure output directory exists before writing
+  - Timestamp sanitization for filenames: replace `:` and `.` with `-`, replace `T` and space with `_`
+  - JSON.stringify with 2-space indent + trailing newline for clean output
+---
