@@ -267,3 +267,18 @@ Started: Fri Feb 27 04:37:21 PM EST 2026
   - All scores normalized to 0-100% range with 2 decimal places precision
   - When all patterns are NOT_APPLICABLE or results are empty, patternScore defaults to 1.0 (no penalty)
 ---
+
+## 2026-02-27 - US-019
+- What was implemented: Noise detector that identifies 5 types of migration noise: unnecessary changes, formatting-only changes, incorrect migrations, artifacts, and placeholder tokens
+- Files changed:
+  - eval/approach1/src/scoring/noise-detector.ts (detectNoise function with sub-detectors for each noise type; NoiseDetectorInput interface)
+  - eval/approach1/src/scoring/__tests__/noise-detector.test.ts (22 tests covering all 5 noise types, combined detection, and penalty accumulation)
+- **Learnings for future iterations:**
+  - NoiseDetectorInput takes matchResult (for extra files), migrationDiffs (for artifact/placeholder scanning), and detectionResults (for INCORRECT status penalties)
+  - Penalty values: unnecessary_change=0.01/file, formatting_only=0.02/file, incorrect_migration=0.03/instance, artifact=0.05/instance, placeholder_token=0.05/instance
+  - Formatting-only detection normalizes whitespace and sorts lines to compare; only checks files in the matched set
+  - Artifact patterns: console.log, console.debug, // TODO, // @ts-ignore, debugger
+  - Placeholder patterns: t_temp_dev_tbd, TEMP_PLACEHOLDER, PLACEHOLDER, FIXME, HACK, XXX
+  - One penalty per line (break after first pattern match) to avoid double-counting
+  - Use `toBeCloseTo` instead of `toBe` for floating-point sum assertions in tests
+---
